@@ -59,8 +59,18 @@ namespace SteerMAR.Views.MainForms
             this.tblHomePageMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pnlLogin = new System.Windows.Forms.Panel();
+            this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.roundedButton1 = new SteerMAR.CustomControlls.RoundedButton();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClockOut = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnHomeSwitchALF = new SteerMAR.CustomControlls.RoundedButton();
             this.btnHomeBilling = new SteerMAR.CustomControlls.RoundedButton();
             this.btnHomeTaskManager = new SteerMAR.CustomControlls.RoundedButton();
             this.btnHomeResidentForm = new SteerMAR.CustomControlls.RoundedButton();
@@ -74,8 +84,8 @@ namespace SteerMAR.Views.MainForms
             this.btnHomeCRM = new SteerMAR.CustomControlls.RoundedButton();
             this.btnHomeMedPass = new SteerMAR.CustomControlls.RoundedButton();
             this.btnHomeResidents = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnHomeSwitchALF = new SteerMAR.CustomControlls.RoundedButton();
             this.btnClockIn = new SteerMAR.CustomControlls.RoundedButton();
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlSideBar.SuspendLayout();
@@ -83,6 +93,9 @@ namespace SteerMAR.Views.MainForms
             this.tblHomePageMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlLogin.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTopBar
@@ -575,6 +588,145 @@ namespace SteerMAR.Views.MainForms
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
+            // pnlLogin
+            // 
+            this.pnlLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLogin.BackgroundImage")));
+            this.pnlLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlLogin.Controls.Add(this.roundedPanel1);
+            this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLogin.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new System.Drawing.Size(785, 545);
+            this.pnlLogin.TabIndex = 17;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.Controls.Add(this.linkLabel2);
+            this.roundedPanel1.Controls.Add(this.linkLabel1);
+            this.roundedPanel1.Controls.Add(this.roundedButton1);
+            this.roundedPanel1.Controls.Add(this.textBox2);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.Controls.Add(this.textBox1);
+            this.roundedPanel1.Controls.Add(this.label3);
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.pictureBox4);
+            this.roundedPanel1.Location = new System.Drawing.Point(66, 104);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Radius = 20;
+            this.roundedPanel1.Size = new System.Drawing.Size(650, 350);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Thickness = 5F;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel2.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel2.Location = new System.Drawing.Point(179, 253);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(126, 17);
+            this.linkLabel2.TabIndex = 8;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Forgot Password";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel1.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.linkLabel1.Location = new System.Drawing.Point(21, 254);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(107, 17);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Back to Home";
+            // 
+            // roundedButton1
+            // 
+            this.roundedButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.roundedButton1.BorderRadius = 10;
+            this.roundedButton1.FlatAppearance.BorderSize = 0;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.Font = new System.Drawing.Font("Hero Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton1.ForeColor = System.Drawing.Color.White;
+            this.roundedButton1.Location = new System.Drawing.Point(22, 200);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(282, 40);
+            this.roundedButton1.TabIndex = 6;
+            this.roundedButton1.Text = "LOGIN";
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(23, 156);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(281, 27);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label4.Location = new System.Drawing.Point(19, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 18);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Enter Your Password";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(24, 97);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(281, 27);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label3.Location = new System.Drawing.Point(20, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 18);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Enter Your PIN";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Hero New Medium", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(19, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Welcome Back !";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(325, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(325, 350);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
             // btnClockOut
             // 
             this.btnClockOut.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -592,25 +744,6 @@ namespace SteerMAR.Views.MainForms
             this.btnClockOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnClockOut.UseVisualStyleBackColor = false;
             this.btnClockOut.Click += new System.EventHandler(this.btnClockOut_Click);
-            // 
-            // btnHomeSwitchALF
-            // 
-            this.btnHomeSwitchALF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this.btnHomeSwitchALF.BorderRadius = 20;
-            this.btnHomeSwitchALF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHomeSwitchALF.FlatAppearance.BorderSize = 0;
-            this.btnHomeSwitchALF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomeSwitchALF.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHomeSwitchALF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnHomeSwitchALF.Image = ((System.Drawing.Image)(resources.GetObject("btnHomeSwitchALF.Image")));
-            this.btnHomeSwitchALF.Location = new System.Drawing.Point(462, 301);
-            this.btnHomeSwitchALF.Name = "btnHomeSwitchALF";
-            this.btnHomeSwitchALF.Size = new System.Drawing.Size(147, 145);
-            this.btnHomeSwitchALF.TabIndex = 14;
-            this.btnHomeSwitchALF.Text = "Switch ALF";
-            this.btnHomeSwitchALF.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnHomeSwitchALF.UseVisualStyleBackColor = false;
-            this.btnHomeSwitchALF.Click += new System.EventHandler(this.btnHomeSwitchALF_Click);
             // 
             // btnHomeBilling
             // 
@@ -859,6 +992,25 @@ namespace SteerMAR.Views.MainForms
             this.btnHomeResidents.UseVisualStyleBackColor = false;
             this.btnHomeResidents.Click += new System.EventHandler(this.btnHomeResidents_Click);
             // 
+            // btnHomeSwitchALF
+            // 
+            this.btnHomeSwitchALF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.btnHomeSwitchALF.BorderRadius = 20;
+            this.btnHomeSwitchALF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHomeSwitchALF.FlatAppearance.BorderSize = 0;
+            this.btnHomeSwitchALF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHomeSwitchALF.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHomeSwitchALF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnHomeSwitchALF.Image = ((System.Drawing.Image)(resources.GetObject("btnHomeSwitchALF.Image")));
+            this.btnHomeSwitchALF.Location = new System.Drawing.Point(462, 301);
+            this.btnHomeSwitchALF.Name = "btnHomeSwitchALF";
+            this.btnHomeSwitchALF.Size = new System.Drawing.Size(147, 145);
+            this.btnHomeSwitchALF.TabIndex = 14;
+            this.btnHomeSwitchALF.Text = "Switch ALF";
+            this.btnHomeSwitchALF.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnHomeSwitchALF.UseVisualStyleBackColor = false;
+            this.btnHomeSwitchALF.Click += new System.EventHandler(this.btnHomeSwitchALF_Click);
+            // 
             // btnClockIn
             // 
             this.btnClockIn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -876,14 +1028,6 @@ namespace SteerMAR.Views.MainForms
             this.btnClockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnClockIn.UseVisualStyleBackColor = false;
             this.btnClockIn.Click += new System.EventHandler(this.btnClockIn_Click);
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLogin.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(785, 545);
-            this.pnlLogin.TabIndex = 17;
             // 
             // frmMainPage
             // 
@@ -908,6 +1052,10 @@ namespace SteerMAR.Views.MainForms
             this.tblHomePageMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnlLogin.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -960,5 +1108,15 @@ namespace SteerMAR.Views.MainForms
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel pnlLogin;
+        private CustomControlls.RoundedPanel roundedPanel1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private CustomControlls.RoundedButton roundedButton1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
