@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,14 +16,18 @@ namespace SteerMAR.Views.MainForms
         private bool Hidden;
         public frmMainPage()
         {
+            Thread t = new Thread(new ThreadStart(StartSplashScreen));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            t.Abort();
         }
         private void frmMainPage_Load(object sender, EventArgs e)
         {
             btnOpenMenu.Image = SteerMAR.Properties.Resources.openMenu;
             Hidden = true;
             pnlLogin.Visible = false;
-            btnOpenMenu.Visible = true;
+            btnOpenMenu.Visible = false;
             btnDashboardCommon.Visible = false;
             btnUserAccount.Visible = false;
             pnlSideBar.Width = 0;
@@ -31,6 +36,10 @@ namespace SteerMAR.Views.MainForms
         }
 
         #region [Functions]
+        private void StartSplashScreen()
+        {
+            Application.Run(new frmSplashScreen());
+        }
         public static Form activeForm = null;
         //public void OpenActivationPage()
         //{
@@ -228,5 +237,15 @@ namespace SteerMAR.Views.MainForms
 
         }
         #endregion
+
+        private void lnkBacktoHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pnlLogin.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmSubscription());
+        }
     }
 }

@@ -65,6 +65,18 @@
     <Compile Include="Views\MainForms\frmMainPage.Designer.cs">
       <DependentUpon>frmMainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainForms\frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForms\frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForms\frmSubscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForms\frmSubscription.Designer.cs">
+      <DependentUpon>frmSubscription.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,6 +89,12 @@
     </Compile>
     <EmbeddedResource Include="Views\MainForms\frmMainPage.resx">
       <DependentUpon>frmMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForms\frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForms\frmSubscription.resx">
+      <DependentUpon>frmSubscription.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
