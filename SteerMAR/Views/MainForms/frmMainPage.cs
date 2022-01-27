@@ -314,6 +314,11 @@ namespace SteerMAR.Views.MainForms
         private void button2_Click(object sender, EventArgs e)
         {
             openChildForm(new frmResidentsList());
-        }      
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmResidentsDetails());
+        }
     }
 }

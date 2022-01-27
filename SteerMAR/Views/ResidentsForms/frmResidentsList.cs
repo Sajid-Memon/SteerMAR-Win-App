@@ -18,19 +18,7 @@ namespace SteerMAR.Views.ResidentsForms
             FillRptPatientList();
         }
         public void FillRptPatientList()
-        {
-            //DataTable MyTable = new DataTable(); // 1
-            //DataTable MyTableByName = new DataTable("MyTableName"); // 2            
-            //MyTable.Columns.Add("Name", typeof(string));
-            //DataRow row = MyTable.NewRow();            
-            //row["Name"] = "John";
-            //row["Name"] = "MARK";
-            //row["Name"] = "Willium";
-            //MyTable.Rows.Add(row);
-
-            //lblPatientName.DataBindings.Add("Text", MyTable, "Name");                  
-            //rptPatientsList.DataSource = MyTable;
-
+        {            
             DataTable dtCourse = new DataTable();
             dtCourse.Columns.Add("ID");
             dtCourse.Columns.Add("Name");
