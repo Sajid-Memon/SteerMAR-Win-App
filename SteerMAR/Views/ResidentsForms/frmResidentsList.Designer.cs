@@ -34,9 +34,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.rptPatientsList = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
             this.roundedPanel2 = new SteerMAR.CustomControlls.RoundedPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblPatientName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.roundedPanel1.SuspendLayout();
             this.rptPatientsList.ItemTemplate.SuspendLayout();
             this.rptPatientsList.SuspendLayout();
@@ -115,15 +115,16 @@ namespace SteerMAR.Views.ResidentsForms
             this.roundedPanel2.TabIndex = 0;
             this.roundedPanel2.Thickness = 5F;
             // 
-            // pictureBox1
+            // lblPatientName
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.lblPatientName.AutoSize = true;
+            this.lblPatientName.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lblPatientName.Location = new System.Drawing.Point(94, 47);
+            this.lblPatientName.Name = "lblPatientName";
+            this.lblPatientName.Size = new System.Drawing.Size(130, 22);
+            this.lblPatientName.TabIndex = 3;
+            this.lblPatientName.Text = "Riquetti, Peter";
             // 
             // label2
             // 
@@ -136,16 +137,15 @@ namespace SteerMAR.Views.ResidentsForms
             this.label2.TabIndex = 2;
             this.label2.Text = "PATIENT / RESIDENT";
             // 
-            // lblPatientName
+            // pictureBox1
             // 
-            this.lblPatientName.AutoSize = true;
-            this.lblPatientName.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPatientName.Location = new System.Drawing.Point(94, 47);
-            this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(130, 22);
-            this.lblPatientName.TabIndex = 3;
-            this.lblPatientName.Text = "Riquetti, Peter";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmResidentsList
             // 

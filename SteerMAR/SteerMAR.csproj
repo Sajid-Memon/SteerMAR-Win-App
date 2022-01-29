@@ -90,7 +90,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\BusinessLogics\PatientMethods.cs" />
     <Compile Include="App_Code\BusinessLogics\UserMethods.cs" />
+    <Compile Include="App_Code\DataAccess\PatientModels.cs" />
     <Compile Include="App_Code\DataAccess\SetupModels.cs" />
     <Compile Include="App_Code\GlobalUtility.cs" />
     <Compile Include="CustomControlls\RoundedButton.cs">
