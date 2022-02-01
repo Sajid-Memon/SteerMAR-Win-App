@@ -91,7 +91,18 @@ namespace SteerMAR.Views.ResidentsForms
                 PatientMaster patinetMaster = new PatientMaster();
                 patinetMaster.Patient_ID = 0;
                 patinetMaster.Patient_Code = txtPatientCode.Text.Trim();
-                patinetMaster.Patient_Image = "demo.png";
+                if (pbPatientProfile.Image != null)
+                {
+                    Image img = pbPatientProfile.Image;
+                    byte[] arr;
+                    ImageConverter converter = new ImageConverter();
+                    arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
+                    patinetMaster.Patient_Image = arr;
+                }
+                else
+                {
+                    patinetMaster.Patient_Image = new byte[] { };                    
+                }                
                 patinetMaster.Patient_Salutation = drpSalutation.Text;
                 patinetMaster.First_Name = txtFirstName.Text.Trim();
                 patinetMaster.Middle_Name = txtMiddleName.Text.Trim();

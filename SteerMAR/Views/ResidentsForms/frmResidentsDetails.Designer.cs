@@ -30,9 +30,9 @@ namespace SteerMAR.Views.ResidentsForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResidentsDetails));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
             this.lblPatientName = new System.Windows.Forms.Label();
@@ -94,20 +94,12 @@ namespace SteerMAR.Views.ResidentsForms
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
             this.pbPatientProfile = new System.Windows.Forms.PictureBox();
             this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
             this.txtPatientCode = new System.Windows.Forms.TextBox();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.drpSalutation = new System.Windows.Forms.ComboBox();
             this.drpGender = new System.Windows.Forms.ComboBox();
             this.drpMeritalStatus = new System.Windows.Forms.ComboBox();
@@ -115,15 +107,30 @@ namespace SteerMAR.Views.ResidentsForms
             this.drpPhysician = new System.Windows.Forms.ComboBox();
             this.drpRefferedBy = new System.Windows.Forms.ComboBox();
             this.drpMedCart = new System.Windows.Forms.ComboBox();
-            this.drpAllergies = new System.Windows.Forms.ComboBox();
-            this.drpDiagnosis = new System.Windows.Forms.ComboBox();
-            this.drpDiet = new System.Windows.Forms.ComboBox();
             this.txtPhysicalID = new System.Windows.Forms.TextBox();
             this.txtMedicalRecord = new System.Windows.Forms.TextBox();
             this.txtSocialSecurityNo = new System.Windows.Forms.TextBox();
             this.txtRoomNo = new System.Windows.Forms.TextBox();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.dtpAdmissionDate = new System.Windows.Forms.DateTimePicker();
+            this.btnSavePatient = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
+            this.label44 = new System.Windows.Forms.Label();
+            this.drpAllergies = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.drpDiagnosis = new System.Windows.Forms.ComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.drpDiet = new System.Windows.Forms.ComboBox();
+            this.chkLivingWill = new System.Windows.Forms.CheckBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.chkMobilityDevice = new System.Windows.Forms.CheckBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.chkGlasses = new System.Windows.Forms.CheckBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.chkDenture = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.chkInsurance = new System.Windows.Forms.CheckBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -142,14 +149,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabInfoOrder = new System.Windows.Forms.TabPage();
             this.tabAssignment = new System.Windows.Forms.TabPage();
             this.tabComments = new System.Windows.Forms.TabPage();
-            this.chkDenture = new System.Windows.Forms.CheckBox();
-            this.chkGlasses = new System.Windows.Forms.CheckBox();
-            this.chkLivingWill = new System.Windows.Forms.CheckBox();
-            this.chkMobilityDevice = new System.Windows.Forms.CheckBox();
-            this.btnSavePatient = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
             this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
-            this.chkInsurance = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1008,66 +1008,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.label36.TabIndex = 25;
             this.label36.Text = "Med Cart";
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label37.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label37.Location = new System.Drawing.Point(16, 331);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(95, 21);
-            this.label37.TabIndex = 26;
-            this.label37.Text = "Living Will";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label38.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label38.Location = new System.Drawing.Point(117, 331);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(95, 21);
-            this.label38.TabIndex = 27;
-            this.label38.Text = "Mobility Devices";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label39.Location = new System.Drawing.Point(218, 331);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(95, 21);
-            this.label39.TabIndex = 28;
-            this.label39.Text = "Glasses";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label40.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label40.Location = new System.Drawing.Point(319, 331);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(95, 21);
-            this.label40.TabIndex = 29;
-            this.label40.Text = "Denture";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label41.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label41.Location = new System.Drawing.Point(420, 331);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(95, 21);
-            this.label41.TabIndex = 30;
-            this.label41.Text = "Primary Insurance";
-            // 
             // pbPatientProfile
             // 
             this.pbPatientProfile.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1132,42 +1072,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(95, 23);
             this.txtLastName.TabIndex = 44;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label44.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label44.Location = new System.Drawing.Point(319, 225);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(95, 21);
-            this.label44.TabIndex = 33;
-            this.label44.Text = "Allergies";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label45.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label45.Location = new System.Drawing.Point(16, 278);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(95, 21);
-            this.label45.TabIndex = 34;
-            this.label45.Text = "Diagnosis";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label46.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label46.Location = new System.Drawing.Point(319, 278);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(95, 21);
-            this.label46.TabIndex = 35;
-            this.label46.Text = "Diet";
             // 
             // drpSalutation
             // 
@@ -1270,39 +1174,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.drpMedCart.Size = new System.Drawing.Size(95, 23);
             this.drpMedCart.TabIndex = 51;
             // 
-            // drpAllergies
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.drpAllergies, 2);
-            this.drpAllergies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drpAllergies.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drpAllergies.FormattingEnabled = true;
-            this.drpAllergies.Location = new System.Drawing.Point(319, 249);
-            this.drpAllergies.Name = "drpAllergies";
-            this.drpAllergies.Size = new System.Drawing.Size(196, 23);
-            this.drpAllergies.TabIndex = 56;
-            // 
-            // drpDiagnosis
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.drpDiagnosis, 3);
-            this.drpDiagnosis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drpDiagnosis.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drpDiagnosis.FormattingEnabled = true;
-            this.drpDiagnosis.Location = new System.Drawing.Point(16, 302);
-            this.drpDiagnosis.Name = "drpDiagnosis";
-            this.drpDiagnosis.Size = new System.Drawing.Size(297, 23);
-            this.drpDiagnosis.TabIndex = 57;
-            // 
-            // drpDiet
-            // 
-            this.tableLayoutPanel3.SetColumnSpan(this.drpDiet, 2);
-            this.drpDiet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drpDiet.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drpDiet.FormattingEnabled = true;
-            this.drpDiet.Location = new System.Drawing.Point(319, 302);
-            this.drpDiet.Name = "drpDiet";
-            this.drpDiet.Size = new System.Drawing.Size(196, 23);
-            this.drpDiet.TabIndex = 58;
-            // 
             // txtPhysicalID
             // 
             this.txtPhysicalID.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1361,6 +1232,223 @@ namespace SteerMAR.Views.ResidentsForms
             this.dtpAdmissionDate.Size = new System.Drawing.Size(95, 23);
             this.dtpAdmissionDate.TabIndex = 64;
             // 
+            // btnSavePatient
+            // 
+            this.btnSavePatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSavePatient.BorderRadius = 5;
+            this.btnSavePatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSavePatient.FlatAppearance.BorderSize = 0;
+            this.btnSavePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePatient.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePatient.ForeColor = System.Drawing.Color.White;
+            this.btnSavePatient.Location = new System.Drawing.Point(420, 387);
+            this.btnSavePatient.Name = "btnSavePatient";
+            this.btnSavePatient.Size = new System.Drawing.Size(95, 35);
+            this.btnSavePatient.TabIndex = 70;
+            this.btnSavePatient.Text = "UPDATE";
+            this.btnSavePatient.UseVisualStyleBackColor = false;
+            this.btnSavePatient.Click += new System.EventHandler(this.btnSavePatient_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancel.BorderRadius = 5;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(319, 387);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(95, 35);
+            this.btnCancel.TabIndex = 71;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label44.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label44.Location = new System.Drawing.Point(319, 225);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(95, 21);
+            this.label44.TabIndex = 33;
+            this.label44.Text = "Allergies";
+            // 
+            // drpAllergies
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.drpAllergies, 2);
+            this.drpAllergies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drpAllergies.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpAllergies.FormattingEnabled = true;
+            this.drpAllergies.Location = new System.Drawing.Point(319, 249);
+            this.drpAllergies.Name = "drpAllergies";
+            this.drpAllergies.Size = new System.Drawing.Size(196, 23);
+            this.drpAllergies.TabIndex = 56;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label45.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label45.Location = new System.Drawing.Point(16, 278);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(95, 21);
+            this.label45.TabIndex = 34;
+            this.label45.Text = "Diagnosis";
+            // 
+            // drpDiagnosis
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.drpDiagnosis, 3);
+            this.drpDiagnosis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drpDiagnosis.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpDiagnosis.FormattingEnabled = true;
+            this.drpDiagnosis.Location = new System.Drawing.Point(16, 302);
+            this.drpDiagnosis.Name = "drpDiagnosis";
+            this.drpDiagnosis.Size = new System.Drawing.Size(297, 23);
+            this.drpDiagnosis.TabIndex = 57;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label46.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label46.Location = new System.Drawing.Point(319, 278);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(95, 21);
+            this.label46.TabIndex = 35;
+            this.label46.Text = "Diet";
+            // 
+            // drpDiet
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.drpDiet, 2);
+            this.drpDiet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drpDiet.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpDiet.FormattingEnabled = true;
+            this.drpDiet.Location = new System.Drawing.Point(319, 302);
+            this.drpDiet.Name = "drpDiet";
+            this.drpDiet.Size = new System.Drawing.Size(196, 23);
+            this.drpDiet.TabIndex = 58;
+            // 
+            // chkLivingWill
+            // 
+            this.chkLivingWill.AutoSize = true;
+            this.chkLivingWill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLivingWill.Location = new System.Drawing.Point(16, 355);
+            this.chkLivingWill.Name = "chkLivingWill";
+            this.chkLivingWill.Size = new System.Drawing.Size(95, 26);
+            this.chkLivingWill.TabIndex = 68;
+            this.chkLivingWill.Text = "Yes";
+            this.chkLivingWill.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label37.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label37.Location = new System.Drawing.Point(16, 331);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(95, 21);
+            this.label37.TabIndex = 26;
+            this.label37.Text = "Living Will";
+            // 
+            // chkMobilityDevice
+            // 
+            this.chkMobilityDevice.AutoSize = true;
+            this.chkMobilityDevice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMobilityDevice.Location = new System.Drawing.Point(117, 355);
+            this.chkMobilityDevice.Name = "chkMobilityDevice";
+            this.chkMobilityDevice.Size = new System.Drawing.Size(95, 26);
+            this.chkMobilityDevice.TabIndex = 69;
+            this.chkMobilityDevice.Text = "Yes";
+            this.chkMobilityDevice.UseVisualStyleBackColor = true;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label38.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label38.Location = new System.Drawing.Point(117, 331);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(95, 21);
+            this.label38.TabIndex = 27;
+            this.label38.Text = "Mobility Devices";
+            // 
+            // chkGlasses
+            // 
+            this.chkGlasses.AutoSize = true;
+            this.chkGlasses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkGlasses.Location = new System.Drawing.Point(218, 355);
+            this.chkGlasses.Name = "chkGlasses";
+            this.chkGlasses.Size = new System.Drawing.Size(95, 26);
+            this.chkGlasses.TabIndex = 67;
+            this.chkGlasses.Text = "Yes";
+            this.chkGlasses.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label39.Location = new System.Drawing.Point(218, 331);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(95, 21);
+            this.label39.TabIndex = 28;
+            this.label39.Text = "Glasses";
+            // 
+            // chkDenture
+            // 
+            this.chkDenture.AutoSize = true;
+            this.chkDenture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkDenture.Location = new System.Drawing.Point(319, 355);
+            this.chkDenture.Name = "chkDenture";
+            this.chkDenture.Size = new System.Drawing.Size(95, 26);
+            this.chkDenture.TabIndex = 66;
+            this.chkDenture.Text = "Yes";
+            this.chkDenture.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label40.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label40.Location = new System.Drawing.Point(319, 331);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(95, 21);
+            this.label40.TabIndex = 29;
+            this.label40.Text = "Denture";
+            // 
+            // chkInsurance
+            // 
+            this.chkInsurance.AutoSize = true;
+            this.chkInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkInsurance.Location = new System.Drawing.Point(420, 355);
+            this.chkInsurance.Name = "chkInsurance";
+            this.chkInsurance.Size = new System.Drawing.Size(95, 26);
+            this.chkInsurance.TabIndex = 72;
+            this.chkInsurance.Text = "Yes";
+            this.chkInsurance.UseVisualStyleBackColor = true;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label41.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label41.Location = new System.Drawing.Point(420, 331);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(95, 21);
+            this.label41.TabIndex = 30;
+            this.label41.Text = "Primary Insurance";
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.button4);
@@ -1403,7 +1491,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabVitals.Controls.Add(this.panel1);
             this.tabVitals.Location = new System.Drawing.Point(4, 4);
             this.tabVitals.Name = "tabVitals";
-            this.tabVitals.Size = new System.Drawing.Size(488, 487);
+            this.tabVitals.Size = new System.Drawing.Size(532, 487);
             this.tabVitals.TabIndex = 2;
             this.tabVitals.Text = "   Vitals   ";
             this.tabVitals.UseVisualStyleBackColor = true;
@@ -1415,23 +1503,23 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(488, 487);
+            this.panel1.Size = new System.Drawing.Size(532, 487);
             this.panel1.TabIndex = 0;
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 44);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "VitalName";
-            this.chart1.Series.Add(series6);
-            this.chart1.Size = new System.Drawing.Size(488, 443);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "VitalName";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(532, 443);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -1444,7 +1532,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 44);
+            this.panel2.Size = new System.Drawing.Size(532, 44);
             this.panel2.TabIndex = 0;
             // 
             // button2
@@ -1455,7 +1543,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.button2.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(383, 0);
+            this.button2.Location = new System.Drawing.Point(427, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 44);
             this.button2.TabIndex = 10;
@@ -1470,7 +1558,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.button1.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(418, 0);
+            this.button1.Location = new System.Drawing.Point(462, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 44);
             this.button1.TabIndex = 9;
@@ -1485,7 +1573,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnCloseApp.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
-            this.btnCloseApp.Location = new System.Drawing.Point(453, 0);
+            this.btnCloseApp.Location = new System.Drawing.Point(497, 0);
             this.btnCloseApp.Name = "btnCloseApp";
             this.btnCloseApp.Size = new System.Drawing.Size(35, 44);
             this.btnCloseApp.TabIndex = 8;
@@ -1509,7 +1597,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabContacts.Location = new System.Drawing.Point(4, 4);
             this.tabContacts.Name = "tabContacts";
             this.tabContacts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContacts.Size = new System.Drawing.Size(488, 487);
+            this.tabContacts.Size = new System.Drawing.Size(532, 487);
             this.tabContacts.TabIndex = 0;
             this.tabContacts.Text = "   Contacts   ";
             this.tabContacts.UseVisualStyleBackColor = true;
@@ -1519,7 +1607,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabDocuments.Location = new System.Drawing.Point(4, 4);
             this.tabDocuments.Name = "tabDocuments";
             this.tabDocuments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDocuments.Size = new System.Drawing.Size(488, 487);
+            this.tabDocuments.Size = new System.Drawing.Size(532, 487);
             this.tabDocuments.TabIndex = 1;
             this.tabDocuments.Text = "   Documents   ";
             this.tabDocuments.UseVisualStyleBackColor = true;
@@ -1528,7 +1616,7 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.tabInsurance.Location = new System.Drawing.Point(4, 4);
             this.tabInsurance.Name = "tabInsurance";
-            this.tabInsurance.Size = new System.Drawing.Size(488, 487);
+            this.tabInsurance.Size = new System.Drawing.Size(532, 487);
             this.tabInsurance.TabIndex = 3;
             this.tabInsurance.Text = "   Insurance   ";
             this.tabInsurance.UseVisualStyleBackColor = true;
@@ -1540,7 +1628,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabMedication.Location = new System.Drawing.Point(4, 27);
             this.tabMedication.Name = "tabMedication";
             this.tabMedication.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMedication.Size = new System.Drawing.Size(525, 501);
+            this.tabMedication.Size = new System.Drawing.Size(569, 501);
             this.tabMedication.TabIndex = 1;
             this.tabMedication.Text = "     Medications     ";
             this.tabMedication.UseVisualStyleBackColor = true;
@@ -1549,7 +1637,7 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.tabInfoOrder.Location = new System.Drawing.Point(4, 27);
             this.tabInfoOrder.Name = "tabInfoOrder";
-            this.tabInfoOrder.Size = new System.Drawing.Size(525, 501);
+            this.tabInfoOrder.Size = new System.Drawing.Size(569, 501);
             this.tabInfoOrder.TabIndex = 2;
             this.tabInfoOrder.Text = "     Info Order     ";
             this.tabInfoOrder.UseVisualStyleBackColor = true;
@@ -1558,7 +1646,7 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.tabAssignment.Location = new System.Drawing.Point(4, 27);
             this.tabAssignment.Name = "tabAssignment";
-            this.tabAssignment.Size = new System.Drawing.Size(525, 501);
+            this.tabAssignment.Size = new System.Drawing.Size(569, 501);
             this.tabAssignment.TabIndex = 3;
             this.tabAssignment.Text = "     Assignment     ";
             this.tabAssignment.UseVisualStyleBackColor = true;
@@ -1567,102 +1655,14 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.tabComments.Location = new System.Drawing.Point(4, 27);
             this.tabComments.Name = "tabComments";
-            this.tabComments.Size = new System.Drawing.Size(525, 501);
+            this.tabComments.Size = new System.Drawing.Size(569, 501);
             this.tabComments.TabIndex = 4;
             this.tabComments.Text = "     Comments     ";
             this.tabComments.UseVisualStyleBackColor = true;
             // 
-            // chkDenture
-            // 
-            this.chkDenture.AutoSize = true;
-            this.chkDenture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkDenture.Location = new System.Drawing.Point(319, 355);
-            this.chkDenture.Name = "chkDenture";
-            this.chkDenture.Size = new System.Drawing.Size(95, 26);
-            this.chkDenture.TabIndex = 66;
-            this.chkDenture.Text = "Yes";
-            this.chkDenture.UseVisualStyleBackColor = true;
-            // 
-            // chkGlasses
-            // 
-            this.chkGlasses.AutoSize = true;
-            this.chkGlasses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkGlasses.Location = new System.Drawing.Point(218, 355);
-            this.chkGlasses.Name = "chkGlasses";
-            this.chkGlasses.Size = new System.Drawing.Size(95, 26);
-            this.chkGlasses.TabIndex = 67;
-            this.chkGlasses.Text = "Yes";
-            this.chkGlasses.UseVisualStyleBackColor = true;
-            // 
-            // chkLivingWill
-            // 
-            this.chkLivingWill.AutoSize = true;
-            this.chkLivingWill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkLivingWill.Location = new System.Drawing.Point(16, 355);
-            this.chkLivingWill.Name = "chkLivingWill";
-            this.chkLivingWill.Size = new System.Drawing.Size(95, 26);
-            this.chkLivingWill.TabIndex = 68;
-            this.chkLivingWill.Text = "Yes";
-            this.chkLivingWill.UseVisualStyleBackColor = true;
-            // 
-            // chkMobilityDevice
-            // 
-            this.chkMobilityDevice.AutoSize = true;
-            this.chkMobilityDevice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkMobilityDevice.Location = new System.Drawing.Point(117, 355);
-            this.chkMobilityDevice.Name = "chkMobilityDevice";
-            this.chkMobilityDevice.Size = new System.Drawing.Size(95, 26);
-            this.chkMobilityDevice.TabIndex = 69;
-            this.chkMobilityDevice.Text = "Yes";
-            this.chkMobilityDevice.UseVisualStyleBackColor = true;
-            // 
-            // btnSavePatient
-            // 
-            this.btnSavePatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSavePatient.BorderRadius = 5;
-            this.btnSavePatient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSavePatient.FlatAppearance.BorderSize = 0;
-            this.btnSavePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePatient.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePatient.ForeColor = System.Drawing.Color.White;
-            this.btnSavePatient.Location = new System.Drawing.Point(420, 387);
-            this.btnSavePatient.Name = "btnSavePatient";
-            this.btnSavePatient.Size = new System.Drawing.Size(95, 35);
-            this.btnSavePatient.TabIndex = 70;
-            this.btnSavePatient.Text = "UPDATE";
-            this.btnSavePatient.UseVisualStyleBackColor = false;
-            this.btnSavePatient.Click += new System.EventHandler(this.btnSavePatient_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCancel.BorderRadius = 5;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(319, 387);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 35);
-            this.btnCancel.TabIndex = 71;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
             // fpProfilePic
             // 
             this.fpProfilePic.FileName = "openFileDialog1";
-            // 
-            // chkInsurance
-            // 
-            this.chkInsurance.AutoSize = true;
-            this.chkInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkInsurance.Location = new System.Drawing.Point(420, 355);
-            this.chkInsurance.Name = "chkInsurance";
-            this.chkInsurance.Size = new System.Drawing.Size(95, 26);
-            this.chkInsurance.TabIndex = 72;
-            this.chkInsurance.Text = "Yes";
-            this.chkInsurance.UseVisualStyleBackColor = true;
             // 
             // frmResidentsDetails
             // 

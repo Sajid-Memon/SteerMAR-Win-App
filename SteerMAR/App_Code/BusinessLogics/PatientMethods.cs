@@ -12,6 +12,44 @@ namespace SteerMAR.App_Code.BusinessLogics
 {
     public class PatientMethods : SqlConnectionHelper
     {
+        public DataSet SelectResidentByID(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_ResidentsByID", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public DataSet SelectResidentListBySearch(string SearchText)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_ResidentsListBySearch", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SearchText", SearchText);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public byte AddUpdatePatient(PatientMaster model)
         {
             localCon();

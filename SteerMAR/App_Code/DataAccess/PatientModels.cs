@@ -12,7 +12,7 @@ namespace SteerMAR.App_Code.DataAccess
         {
             public int Patient_ID { get; set; }
             public string Patient_Code { get; set; }
-            public string Patient_Image { get; set; }
+            public byte[] Patient_Image { get; set; }
             public string Patient_Salutation { get; set; }
             public string First_Name { get; set; }
             public string Middle_Name { get; set; }
