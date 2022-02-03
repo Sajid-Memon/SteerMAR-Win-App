@@ -704,6 +704,7 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.AutoScroll = true;
             this.tableLayoutPanel3.ColumnCount = 7;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));

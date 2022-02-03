@@ -39,10 +39,9 @@ namespace SteerMAR.Views.ResidentsForms
                         {
                             pbPatientPhoto.Image = new Bitmap(msLogo);
                         }
-                    }
-                    string PatientName = ds.Tables[0].Rows[0]["First_Name"].ToString() + "," + ds.Tables[0].Rows[0]["Last_Name"].ToString();
+                    }                    
                     lblPatientName.DataBindings.Clear();
-                    lblPatientName.DataBindings.Add("Text", PatientName, "PatientName");
+                    lblPatientName.DataBindings.Add("Text",ds.Tables[0], "Patient_Name");
                     rptPatientsList.DataSource = ds.Tables[0];
                 }
             }
