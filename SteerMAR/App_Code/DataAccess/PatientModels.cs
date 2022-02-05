@@ -34,14 +34,31 @@ namespace SteerMAR.App_Code.DataAccess
             public bool IsGlasses { get; set; }
             public bool IsDenture { get; set; }
             public bool Isprimary_Insurance { get; set; }
-            public string Allergy_ID { get; set; }
-            public string Diagnosis_ID { get; set; }
-            public string Diet_ID { get; set; }
+            public string Patient_Allergies { get; set; }
+            public string Patient_Diagnosis { get; set; }
+            public string Patient_Diets { get; set; }
             public bool isActive { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_DateTime { get; set; }
             public int UpDateTimed_By { get; set; }
             public DateTime UpDateTimed_DateTime { get; set; }
+        }
+        public class ContactMaster
+        {
+            public int Contact_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public string Contact_Person { get; set; }
+            public string Patient_Relation { get; set; }
+            public bool IsPayee { get; set; }
+            public string Mobile_No { get; set; }
+            public string Phone_No { get; set; }
+            public string Email_Address { get; set; }
+            public string Full_Address { get; set; }
+            public bool isActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
         }
     }
 }

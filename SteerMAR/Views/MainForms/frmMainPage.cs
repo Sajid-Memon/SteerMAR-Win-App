@@ -14,8 +14,10 @@ using static SteerMAR.App_Code.DataAccess.SetupModels;
 
 namespace SteerMAR.Views.MainForms
 {
+    public delegate void NotifyEvent();
     public partial class frmMainPage : Form
     {
+        public NotifyEvent OpenPatientDetails;
         private bool Hidden;
         public frmMainPage()
         {
@@ -36,7 +38,18 @@ namespace SteerMAR.Views.MainForms
             pnlSideBar.Width = 0;
             tblHomePageMenu.Enabled = false;
             btnClockOut.Enabled = false;
+
+            #region NotifyEvents
+            OpenPatientDetails += new NotifyEvent(OpenPatientDetailsForm);
+            #endregion
         }
+
+        #region [NotifyEvents]
+        public void OpenPatientDetailsForm()
+        {
+            openChildForm(new frmResidentsDetails());
+        }
+        #endregion
 
         #region [Functions]
         private void StartSplashScreen()
@@ -313,7 +326,7 @@ namespace SteerMAR.Views.MainForms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmResidentsList());
+            openChildForm(new frmResidentsList(OpenPatientDetails));
         }
 
         private void button3_Click(object sender, EventArgs e)

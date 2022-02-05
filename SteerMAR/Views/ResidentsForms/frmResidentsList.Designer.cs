@@ -29,40 +29,20 @@ namespace SteerMAR.Views.ResidentsForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResidentsList));
-            this.rptPatientsList = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchText = new System.Windows.Forms.TextBox();
-            this.btnSearch = new SteerMAR.CustomControlls.RoundedButton();
-            this.roundedPanel2 = new SteerMAR.CustomControlls.RoundedPanel();
-            this.lblPatientName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pbPatientPhoto = new System.Windows.Forms.PictureBox();
-            this.rptPatientsList.ItemTemplate.SuspendLayout();
-            this.rptPatientsList.SuspendLayout();
-            this.roundedPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPatientPhoto)).BeginInit();
+            this.dgvPatientList = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rptPatientsList
-            // 
-            this.rptPatientsList.AllowUserToAddItems = false;
-            this.rptPatientsList.AllowUserToDeleteItems = false;
-            this.rptPatientsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rptPatientsList.ItemHeaderVisible = false;
-            // 
-            // rptPatientsList.ItemTemplate
-            // 
-            this.rptPatientsList.ItemTemplate.Controls.Add(this.roundedPanel2);
-            this.rptPatientsList.ItemTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rptPatientsList.ItemTemplate.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.rptPatientsList.ItemTemplate.Size = new System.Drawing.Size(852, 102);
-            this.rptPatientsList.Location = new System.Drawing.Point(12, 83);
-            this.rptPatientsList.Name = "rptPatientsList";
-            this.rptPatientsList.Size = new System.Drawing.Size(860, 466);
-            this.rptPatientsList.TabIndex = 1;
-            this.rptPatientsList.Text = "dataRepeater1";
             // 
             // label1
             // 
@@ -86,71 +66,99 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtSearchText.Location = new System.Drawing.Point(12, 39);
             this.txtSearchText.Multiline = true;
             this.txtSearchText.Name = "txtSearchText";
-            this.txtSearchText.Size = new System.Drawing.Size(793, 38);
+            this.txtSearchText.Size = new System.Drawing.Size(860, 38);
             this.txtSearchText.TabIndex = 2;
+            this.txtSearchText.TextChanged += new System.EventHandler(this.txtSearchText_TextChanged);
             // 
-            // btnSearch
+            // dgvPatientList
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BorderRadius = 0;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(811, 39);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(61, 38);
-            this.btnSearch.TabIndex = 16;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.dgvPatientList.AllowUserToAddRows = false;
+            this.dgvPatientList.AllowUserToDeleteRows = false;
+            this.dgvPatientList.AllowUserToResizeColumns = false;
+            this.dgvPatientList.AllowUserToResizeRows = false;
+            this.dgvPatientList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPatientList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPatientList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPatientList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPatientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatientList.ColumnHeadersVisible = false;
+            this.dgvPatientList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select,
+            this.Image,
+            this.PatientID,
+            this.ContactPerson});
+            this.dgvPatientList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvPatientList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvPatientList.Location = new System.Drawing.Point(12, 99);
+            this.dgvPatientList.Name = "dgvPatientList";
+            this.dgvPatientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPatientList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPatientList.RowHeadersVisible = false;
+            this.dgvPatientList.RowHeadersWidth = 20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Hero Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvPatientList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPatientList.RowTemplate.Height = 80;
+            this.dgvPatientList.Size = new System.Drawing.Size(860, 450);
+            this.dgvPatientList.TabIndex = 17;
+            this.dgvPatientList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellClick);
             // 
-            // roundedPanel2
+            // Select
             // 
-            this.roundedPanel2.BorderColor = System.Drawing.Color.Green;
-            this.roundedPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roundedPanel2.Controls.Add(this.lblPatientName);
-            this.roundedPanel2.Controls.Add(this.label2);
-            this.roundedPanel2.Controls.Add(this.pbPatientPhoto);
-            this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel2.Location = new System.Drawing.Point(0, 0);
-            this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Radius = 20;
-            this.roundedPanel2.Size = new System.Drawing.Size(848, 87);
-            this.roundedPanel2.TabIndex = 0;
-            this.roundedPanel2.Thickness = 5F;
+            this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Select.HeaderText = "Select";
+            this.Select.Image = ((System.Drawing.Image)(resources.GetObject("Select.Image")));
+            this.Select.Name = "Select";
+            this.Select.Width = 5;
             // 
-            // lblPatientName
+            // Image
             // 
-            this.lblPatientName.AutoSize = true;
-            this.lblPatientName.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPatientName.Location = new System.Drawing.Point(94, 47);
-            this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(130, 22);
-            this.lblPatientName.TabIndex = 3;
-            this.lblPatientName.Text = "Riquetti, Peter";
+            this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Image.DataPropertyName = "Patient_Image";
+            this.Image.HeaderText = "Image";
+            this.Image.Name = "Image";
+            this.Image.Width = 5;
             // 
-            // label2
+            // PatientID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Hero New Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(95, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "PATIENT / RESIDENT";
+            this.PatientID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PatientID.DataPropertyName = "Patient_ID";
+            this.PatientID.HeaderText = "PatientID";
+            this.PatientID.Name = "PatientID";
+            this.PatientID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PatientID.Visible = false;
+            this.PatientID.Width = 5;
             // 
-            // pbPatientPhoto
+            // ContactPerson
             // 
-            this.pbPatientPhoto.Location = new System.Drawing.Point(18, 12);
-            this.pbPatientPhoto.Name = "pbPatientPhoto";
-            this.pbPatientPhoto.Size = new System.Drawing.Size(71, 63);
-            this.pbPatientPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPatientPhoto.TabIndex = 0;
-            this.pbPatientPhoto.TabStop = false;
+            this.ContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ContactPerson.DataPropertyName = "Patient_Name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ContactPerson.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ContactPerson.HeaderText = "Name";
+            this.ContactPerson.Name = "ContactPerson";
+            this.ContactPerson.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmResidentsList
             // 
@@ -158,32 +166,26 @@ namespace SteerMAR.Views.ResidentsForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.dgvPatientList);
             this.Controls.Add(this.txtSearchText);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rptPatientsList);
             this.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmResidentsList";
             this.Text = "frmResidentsList";
-            this.rptPatientsList.ItemTemplate.ResumeLayout(false);
-            this.rptPatientsList.ResumeLayout(false);
-            this.roundedPanel2.ResumeLayout(false);
-            this.roundedPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPatientPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Microsoft.VisualBasic.PowerPacks.DataRepeater rptPatientsList;
-        private CustomControlls.RoundedPanel roundedPanel2;
-        private System.Windows.Forms.PictureBox pbPatientPhoto;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblPatientName;
         private System.Windows.Forms.TextBox txtSearchText;
         private System.Windows.Forms.Label label1;
-        private CustomControlls.RoundedButton btnSearch;
+        private System.Windows.Forms.DataGridView dgvPatientList;
+        private System.Windows.Forms.DataGridViewImageColumn Select;
+        private System.Windows.Forms.DataGridViewImageColumn Image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactPerson;
     }
 }

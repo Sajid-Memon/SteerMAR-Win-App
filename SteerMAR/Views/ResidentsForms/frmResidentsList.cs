@@ -1,4 +1,5 @@
 ﻿using SteerMAR.App_Code.BusinessLogics;
+using SteerMAR.Views.MainForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,40 +15,42 @@ namespace SteerMAR.Views.ResidentsForms
 {
     public partial class frmResidentsList : Form
     {
-        public frmResidentsList()
+        NotifyEvent GoToDetails;
+        public static int Patient_ID = 0;
+        public frmResidentsList(NotifyEvent openDetails)
         {
-            InitializeComponent();           
+            InitializeComponent();
+            GoToDetails = openDetails;
+        }      
+
+        private void dgvPatientList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvPatientList.Columns["Select"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    Patient_ID = Convert.ToInt32(dgvPatientList.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    GoToDetails.Invoke();
+                    //MessageBox.Show("Patient ID IS : " + Patient_ID);
+                }
+            }
         }
 
         private void txtSearchText_TextChanged(object sender, EventArgs e)
         {
-            
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
             if (txtSearchText.Text != null && txtSearchText.Text != string.Empty)
-            {                
+            {
                 PatientMethods PM = new PatientMethods();
                 DataSet ds = PM.SelectResidentListBySearch(txtSearchText.Text.Trim());
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (ds.Tables[0].Rows[0]["Patient_Image"] != DBNull.Value)
-                    {
-                        MemoryStream msLogo = new MemoryStream((byte[])ds.Tables[0].Rows[0]["Patient_Image"]);
-                        if (msLogo != null && msLogo.Length > 0)
-                        {
-                            pbPatientPhoto.Image = new Bitmap(msLogo);
-                        }
-                    }                    
-                    lblPatientName.DataBindings.Clear();
-                    lblPatientName.DataBindings.Add("Text",ds.Tables[0], "Patient_Name");
-                    rptPatientsList.DataSource = ds.Tables[0];
+                    dgvPatientList.Visible = true;
+                    dgvPatientList.DataSource = ds.Tables[0];
                 }
             }
             else
             {
-                MessageBox.Show("Please Enter Patient Code eigther Patient Name for Search");
+                dgvPatientList.Visible = false;
             }
         }
     }
