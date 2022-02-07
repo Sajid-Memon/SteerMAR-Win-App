@@ -60,5 +60,13 @@ namespace SteerMAR.App_Code.DataAccess
             public int Updated_By { get; set; }
             public DateTime Updated_Date { get; set; }
         }
+
+        public class PatientVitalMaster
+        {
+            public int Patient_Vital_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public int Vital_ID { get; set; }
+            public string Vital_Value { get; set; }
+        }
     }
 }

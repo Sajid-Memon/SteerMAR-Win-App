@@ -72,7 +72,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtAllergies = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.pbPatientProfile = new System.Windows.Forms.PictureBox();
             this.drpMedCart = new System.Windows.Forms.ComboBox();
             this.txtRoomNo = new System.Windows.Forms.TextBox();
             this.drpRefferedBy = new System.Windows.Forms.ComboBox();
@@ -92,15 +91,11 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtMedicalRecord = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.tabVitals = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCloseApp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabContacts = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -120,6 +115,15 @@ namespace SteerMAR.Views.ResidentsForms
             this.label50 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.dgvContactsList = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.tabDocuments = new System.Windows.Forms.TabPage();
+            this.tabInsurance = new System.Windows.Forms.TabPage();
+            this.tabMedication = new System.Windows.Forms.TabPage();
+            this.tabInfoOrder = new System.Windows.Forms.TabPage();
+            this.tabAssignment = new System.Windows.Forms.TabPage();
+            this.tabComments = new System.Windows.Forms.TabPage();
+            this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
             this.ContactID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,22 +133,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.tabDocuments = new System.Windows.Forms.TabPage();
-            this.tabInsurance = new System.Windows.Forms.TabPage();
-            this.tabMedication = new System.Windows.Forms.TabPage();
-            this.tabInfoOrder = new System.Windows.Forms.TabPage();
-            this.tabAssignment = new System.Windows.Forms.TabPage();
-            this.tabComments = new System.Windows.Forms.TabPage();
-            this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
             this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
             this.lblPatientName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pbMainProfile = new System.Windows.Forms.PictureBox();
             this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
             this.btnSavePatient = new SteerMAR.CustomControlls.RoundedButton();
             this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
@@ -180,15 +171,25 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtMainPharmacy = new System.Windows.Forms.TextBox();
             this.txtMainMedCart = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnEditResident = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pbMainProfile = new System.Windows.Forms.PictureBox();
+            this.pbPatientProfile = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnOpenVitalPopup = new System.Windows.Forms.Button();
+            this.btnCloseApp = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAddNewContact = new System.Windows.Forms.Button();
+            this.btnEditResident = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tabProfile.SuspendLayout();
             this.tbcSecond.SuspendLayout();
             this.tabPatientProfile.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).BeginInit();
             this.panel4.SuspendLayout();
             this.tabVitals.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -200,10 +201,11 @@ namespace SteerMAR.Views.ResidentsForms
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactsList)).BeginInit();
             this.panel5.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
             this.pnlPatientEntry.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -767,18 +769,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.label33.TabIndex = 22;
             this.label33.Text = "Physician";
             // 
-            // pbPatientProfile
-            // 
-            this.pbPatientProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbPatientProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbPatientProfile.Image")));
-            this.pbPatientProfile.Location = new System.Drawing.Point(16, 21);
-            this.pbPatientProfile.Name = "pbPatientProfile";
-            this.tableLayoutPanel3.SetRowSpan(this.pbPatientProfile, 4);
-            this.pbPatientProfile.Size = new System.Drawing.Size(95, 66);
-            this.pbPatientProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPatientProfile.TabIndex = 38;
-            this.pbPatientProfile.TabStop = false;
-            // 
             // drpMedCart
             // 
             this.drpMedCart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1000,21 +990,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel4.Size = new System.Drawing.Size(532, 37);
             this.panel4.TabIndex = 1;
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(497, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 37);
-            this.button4.TabIndex = 9;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // label18
             // 
             this.label18.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1044,7 +1019,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 487);
+            this.panel1.Size = new System.Drawing.Size(532, 487);
             this.panel1.TabIndex = 0;
             // 
             // chart1
@@ -1060,66 +1035,21 @@ namespace SteerMAR.Views.ResidentsForms
             series1.Legend = "Legend1";
             series1.Name = "VitalName";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(536, 443);
+            this.chart1.Size = new System.Drawing.Size(532, 443);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnOpenVitalPopup);
             this.panel2.Controls.Add(this.btnCloseApp);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(536, 44);
+            this.panel2.Size = new System.Drawing.Size(532, 44);
             this.panel2.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(431, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 44);
-            this.button2.TabIndex = 10;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(466, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 44);
-            this.button1.TabIndex = 9;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnCloseApp
-            // 
-            this.btnCloseApp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCloseApp.FlatAppearance.BorderSize = 0;
-            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseApp.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
-            this.btnCloseApp.Location = new System.Drawing.Point(501, 0);
-            this.btnCloseApp.Name = "btnCloseApp";
-            this.btnCloseApp.Size = new System.Drawing.Size(35, 44);
-            this.btnCloseApp.TabIndex = 8;
-            this.btnCloseApp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCloseApp.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -1153,7 +1083,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 198);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(530, 286);
+            this.panel6.Size = new System.Drawing.Size(526, 286);
             this.panel6.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -1193,16 +1123,16 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.50053F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.6331F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.413412F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(530, 286);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(526, 286);
             this.tableLayoutPanel4.TabIndex = 74;
             // 
             // chkIsPayee
             // 
             this.chkIsPayee.AutoSize = true;
             this.chkIsPayee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkIsPayee.Location = new System.Drawing.Point(141, 240);
+            this.chkIsPayee.Location = new System.Drawing.Point(140, 240);
             this.chkIsPayee.Name = "chkIsPayee";
-            this.chkIsPayee.Size = new System.Drawing.Size(119, 32);
+            this.chkIsPayee.Size = new System.Drawing.Size(118, 32);
             this.chkIsPayee.TabIndex = 81;
             this.chkIsPayee.Text = "Yes";
             this.chkIsPayee.UseVisualStyleBackColor = true;
@@ -1214,7 +1144,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtPersonName.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersonName.Location = new System.Drawing.Point(16, 36);
             this.txtPersonName.Name = "txtPersonName";
-            this.txtPersonName.Size = new System.Drawing.Size(369, 23);
+            this.txtPersonName.Size = new System.Drawing.Size(366, 23);
             this.txtPersonName.TabIndex = 61;
             // 
             // txtAddress
@@ -1225,7 +1155,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtAddress.Location = new System.Drawing.Point(16, 190);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(494, 44);
+            this.txtAddress.Size = new System.Drawing.Size(490, 44);
             this.txtAddress.TabIndex = 72;
             // 
             // drpRelation
@@ -1246,9 +1176,9 @@ namespace SteerMAR.Views.ResidentsForms
             "Son",
             "Daughter",
             ""});
-            this.drpRelation.Location = new System.Drawing.Point(391, 36);
+            this.drpRelation.Location = new System.Drawing.Point(388, 36);
             this.drpRelation.Name = "drpRelation";
-            this.drpRelation.Size = new System.Drawing.Size(119, 23);
+            this.drpRelation.Size = new System.Drawing.Size(118, 23);
             this.drpRelation.TabIndex = 63;
             // 
             // label52
@@ -1259,7 +1189,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label52.Location = new System.Drawing.Point(16, 160);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(119, 27);
+            this.label52.Size = new System.Drawing.Size(118, 27);
             this.label52.TabIndex = 71;
             this.label52.Text = "Address";
             // 
@@ -1272,7 +1202,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label43.Location = new System.Drawing.Point(16, 6);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(244, 27);
+            this.label43.Size = new System.Drawing.Size(242, 27);
             this.label43.TabIndex = 60;
             this.label43.Text = "Contact Person Name";
             // 
@@ -1281,9 +1211,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.SetColumnSpan(this.txtEmail, 2);
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEmail.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(266, 113);
+            this.txtEmail.Location = new System.Drawing.Point(264, 113);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(244, 23);
+            this.txtEmail.Size = new System.Drawing.Size(242, 23);
             this.txtEmail.TabIndex = 70;
             // 
             // label48
@@ -1292,9 +1222,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label48.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label48.Location = new System.Drawing.Point(391, 6);
+            this.label48.Location = new System.Drawing.Point(388, 6);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(119, 27);
+            this.label48.Size = new System.Drawing.Size(118, 27);
             this.label48.TabIndex = 64;
             this.label48.Text = "Relation";
             // 
@@ -1302,9 +1232,9 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.txtPhoneNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPhoneNo.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNo.Location = new System.Drawing.Point(141, 113);
+            this.txtPhoneNo.Location = new System.Drawing.Point(140, 113);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(119, 23);
+            this.txtPhoneNo.Size = new System.Drawing.Size(118, 23);
             this.txtPhoneNo.TabIndex = 68;
             // 
             // label51
@@ -1313,9 +1243,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label51.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label51.Location = new System.Drawing.Point(266, 83);
+            this.label51.Location = new System.Drawing.Point(264, 83);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(119, 27);
+            this.label51.Size = new System.Drawing.Size(118, 27);
             this.label51.TabIndex = 69;
             this.label51.Text = "Email";
             // 
@@ -1325,7 +1255,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtMobileNo.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo.Location = new System.Drawing.Point(16, 113);
             this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(119, 23);
+            this.txtMobileNo.Size = new System.Drawing.Size(118, 23);
             this.txtMobileNo.TabIndex = 66;
             // 
             // label49
@@ -1336,7 +1266,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label49.Location = new System.Drawing.Point(16, 83);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(119, 27);
+            this.label49.Size = new System.Drawing.Size(118, 27);
             this.label49.TabIndex = 65;
             this.label49.Text = "Mobile No";
             // 
@@ -1346,9 +1276,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label50.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label50.Location = new System.Drawing.Point(141, 83);
+            this.label50.Location = new System.Drawing.Point(140, 83);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(119, 27);
+            this.label50.Size = new System.Drawing.Size(118, 27);
             this.label50.TabIndex = 67;
             this.label50.Text = "Phone No";
             // 
@@ -1360,7 +1290,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label47.Location = new System.Drawing.Point(16, 237);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(119, 38);
+            this.label47.Size = new System.Drawing.Size(118, 38);
             this.label47.TabIndex = 73;
             this.label47.Text = "IsPayee";
             // 
@@ -1388,110 +1318,19 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvContactsList.Location = new System.Drawing.Point(3, 40);
             this.dgvContactsList.Name = "dgvContactsList";
             this.dgvContactsList.RowHeadersVisible = false;
-            this.dgvContactsList.Size = new System.Drawing.Size(530, 158);
+            this.dgvContactsList.Size = new System.Drawing.Size(526, 158);
             this.dgvContactsList.TabIndex = 3;
-            // 
-            // ContactID
-            // 
-            this.ContactID.DataPropertyName = "Contact_ID";
-            this.ContactID.HeaderText = "ContactID";
-            this.ContactID.Name = "ContactID";
-            this.ContactID.Visible = false;
-            // 
-            // PatientID
-            // 
-            this.PatientID.DataPropertyName = "Patient_ID";
-            this.PatientID.HeaderText = "PatientID";
-            this.PatientID.Name = "PatientID";
-            this.PatientID.Visible = false;
-            // 
-            // ContactPerson
-            // 
-            this.ContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ContactPerson.DataPropertyName = "Contact_Person";
-            this.ContactPerson.HeaderText = "Name";
-            this.ContactPerson.Name = "ContactPerson";
-            // 
-            // PatientRelation
-            // 
-            this.PatientRelation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PatientRelation.DataPropertyName = "Patient_Relation";
-            this.PatientRelation.HeaderText = "Relation";
-            this.PatientRelation.Name = "PatientRelation";
-            this.PatientRelation.Width = 90;
-            // 
-            // IsPayee
-            // 
-            this.IsPayee.DataPropertyName = "IsPayee";
-            this.IsPayee.HeaderText = "IsPayee";
-            this.IsPayee.Name = "IsPayee";
-            // 
-            // MobileNo
-            // 
-            this.MobileNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MobileNo.DataPropertyName = "Mobile_No";
-            this.MobileNo.HeaderText = "Mobile";
-            this.MobileNo.Name = "MobileNo";
-            this.MobileNo.Width = 80;
-            // 
-            // PhoneNo
-            // 
-            this.PhoneNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PhoneNo.DataPropertyName = "Phone_No";
-            this.PhoneNo.HeaderText = "Phone";
-            this.PhoneNo.Name = "PhoneNo";
-            this.PhoneNo.Width = 75;
-            // 
-            // EmailAddress
-            // 
-            this.EmailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.EmailAddress.DataPropertyName = "Email_Address";
-            this.EmailAddress.HeaderText = "Email";
-            this.EmailAddress.Name = "EmailAddress";
-            this.EmailAddress.Width = 70;
-            // 
-            // FullAddress
-            // 
-            this.FullAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FullAddress.DataPropertyName = "Full_Address";
-            this.FullAddress.HeaderText = "Address";
-            this.FullAddress.Name = "FullAddress";
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
+            this.dgvContactsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactsList_CellClick);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.btnAddNewContact);
             this.panel5.Controls.Add(this.label42);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(530, 37);
+            this.panel5.Size = new System.Drawing.Size(526, 37);
             this.panel5.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(495, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 37);
-            this.button3.TabIndex = 9;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // label42
             // 
@@ -1567,6 +1406,76 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.fpProfilePic.FileName = "openFileDialog1";
             // 
+            // ContactID
+            // 
+            this.ContactID.DataPropertyName = "Contact_ID";
+            this.ContactID.HeaderText = "ContactID";
+            this.ContactID.Name = "ContactID";
+            this.ContactID.Visible = false;
+            // 
+            // PatientID
+            // 
+            this.PatientID.DataPropertyName = "Patient_ID";
+            this.PatientID.HeaderText = "PatientID";
+            this.PatientID.Name = "PatientID";
+            this.PatientID.Visible = false;
+            // 
+            // ContactPerson
+            // 
+            this.ContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ContactPerson.DataPropertyName = "Contact_Person";
+            this.ContactPerson.HeaderText = "Name";
+            this.ContactPerson.Name = "ContactPerson";
+            this.ContactPerson.Width = 73;
+            // 
+            // PatientRelation
+            // 
+            this.PatientRelation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PatientRelation.DataPropertyName = "Patient_Relation";
+            this.PatientRelation.HeaderText = "Relation";
+            this.PatientRelation.Name = "PatientRelation";
+            this.PatientRelation.Width = 90;
+            // 
+            // IsPayee
+            // 
+            this.IsPayee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.IsPayee.DataPropertyName = "IsPayee";
+            this.IsPayee.HeaderText = "IsPayee";
+            this.IsPayee.Name = "IsPayee";
+            this.IsPayee.Width = 86;
+            // 
+            // MobileNo
+            // 
+            this.MobileNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MobileNo.DataPropertyName = "Mobile_No";
+            this.MobileNo.HeaderText = "Mobile";
+            this.MobileNo.Name = "MobileNo";
+            this.MobileNo.Width = 80;
+            // 
+            // PhoneNo
+            // 
+            this.PhoneNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PhoneNo.DataPropertyName = "Phone_No";
+            this.PhoneNo.HeaderText = "Phone";
+            this.PhoneNo.Name = "PhoneNo";
+            this.PhoneNo.Width = 75;
+            // 
+            // EmailAddress
+            // 
+            this.EmailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.EmailAddress.DataPropertyName = "Email_Address";
+            this.EmailAddress.HeaderText = "Email";
+            this.EmailAddress.Name = "EmailAddress";
+            this.EmailAddress.Width = 70;
+            // 
+            // FullAddress
+            // 
+            this.FullAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FullAddress.DataPropertyName = "Full_Address";
+            this.FullAddress.HeaderText = "Address";
+            this.FullAddress.Name = "FullAddress";
+            this.FullAddress.Width = 88;
+            // 
             // roundedPanel1
             // 
             this.roundedPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
@@ -1603,16 +1512,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.label2.Size = new System.Drawing.Size(122, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "PATIENT / RESIDENT";
-            // 
-            // pbMainProfile
-            // 
-            this.pbMainProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbMainProfile.Image")));
-            this.pbMainProfile.Location = new System.Drawing.Point(12, 8);
-            this.pbMainProfile.Name = "pbMainProfile";
-            this.pbMainProfile.Size = new System.Drawing.Size(71, 63);
-            this.pbMainProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMainProfile.TabIndex = 4;
-            this.pbMainProfile.TabStop = false;
             // 
             // btnCancel
             // 
@@ -1673,9 +1572,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnSaveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveContact.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveContact.ForeColor = System.Drawing.Color.White;
-            this.btnSaveContact.Location = new System.Drawing.Point(391, 240);
+            this.btnSaveContact.Location = new System.Drawing.Point(388, 240);
             this.btnSaveContact.Name = "btnSaveContact";
-            this.btnSaveContact.Size = new System.Drawing.Size(119, 32);
+            this.btnSaveContact.Size = new System.Drawing.Size(118, 32);
             this.btnSaveContact.TabIndex = 62;
             this.btnSaveContact.Text = "SAVE";
             this.btnSaveContact.UseVisualStyleBackColor = false;
@@ -2069,6 +1968,141 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel3.Size = new System.Drawing.Size(259, 35);
             this.panel3.TabIndex = 1;
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(192, 35);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "General Information";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Delete";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            // 
+            // pbMainProfile
+            // 
+            this.pbMainProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbMainProfile.Image")));
+            this.pbMainProfile.Location = new System.Drawing.Point(12, 8);
+            this.pbMainProfile.Name = "pbMainProfile";
+            this.pbMainProfile.Size = new System.Drawing.Size(71, 63);
+            this.pbMainProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMainProfile.TabIndex = 4;
+            this.pbMainProfile.TabStop = false;
+            // 
+            // pbPatientProfile
+            // 
+            this.pbPatientProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbPatientProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbPatientProfile.Image")));
+            this.pbPatientProfile.Location = new System.Drawing.Point(16, 21);
+            this.pbPatientProfile.Name = "pbPatientProfile";
+            this.tableLayoutPanel3.SetRowSpan(this.pbPatientProfile, 4);
+            this.pbPatientProfile.Size = new System.Drawing.Size(95, 66);
+            this.pbPatientProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPatientProfile.TabIndex = 38;
+            this.pbPatientProfile.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(497, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 37);
+            this.button4.TabIndex = 9;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(427, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 44);
+            this.button2.TabIndex = 10;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenVitalPopup
+            // 
+            this.btnOpenVitalPopup.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnOpenVitalPopup.FlatAppearance.BorderSize = 0;
+            this.btnOpenVitalPopup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenVitalPopup.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenVitalPopup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnOpenVitalPopup.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenVitalPopup.Image")));
+            this.btnOpenVitalPopup.Location = new System.Drawing.Point(462, 0);
+            this.btnOpenVitalPopup.Name = "btnOpenVitalPopup";
+            this.btnOpenVitalPopup.Size = new System.Drawing.Size(35, 44);
+            this.btnOpenVitalPopup.TabIndex = 9;
+            this.btnOpenVitalPopup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOpenVitalPopup.UseVisualStyleBackColor = true;
+            this.btnOpenVitalPopup.Click += new System.EventHandler(this.btnOpenVitalPopup_Click);
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCloseApp.FlatAppearance.BorderSize = 0;
+            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseApp.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
+            this.btnCloseApp.Location = new System.Drawing.Point(497, 0);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(35, 44);
+            this.btnCloseApp.TabIndex = 8;
+            this.btnCloseApp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCloseApp.UseVisualStyleBackColor = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            // 
+            // btnAddNewContact
+            // 
+            this.btnAddNewContact.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddNewContact.FlatAppearance.BorderSize = 0;
+            this.btnAddNewContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewContact.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAddNewContact.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewContact.Image")));
+            this.btnAddNewContact.Location = new System.Drawing.Point(491, 0);
+            this.btnAddNewContact.Name = "btnAddNewContact";
+            this.btnAddNewContact.Size = new System.Drawing.Size(35, 37);
+            this.btnAddNewContact.TabIndex = 9;
+            this.btnAddNewContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNewContact.UseVisualStyleBackColor = true;
+            this.btnAddNewContact.Click += new System.EventHandler(this.btnAddNewContact_Click);
+            // 
             // btnEditResident
             // 
             this.btnEditResident.Dock = System.Windows.Forms.DockStyle.Right;
@@ -2084,18 +2118,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnEditResident.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditResident.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 35);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "General Information";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmResidentsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2105,6 +2127,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmResidentsDetails";
             this.Text = "frmResidentsDetails";
+            this.Load += new System.EventHandler(this.frmResidentsDetails_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tbcMain.ResumeLayout(false);
             this.tabProfile.ResumeLayout(false);
@@ -2112,7 +2135,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabPatientProfile.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tabVitals.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -2126,11 +2148,12 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel5.ResumeLayout(false);
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).EndInit();
             this.pnlPatientEntry.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2155,7 +2178,7 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.PictureBox pbMainProfile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOpenVitalPopup;
         private System.Windows.Forms.Button btnCloseApp;
         private System.Windows.Forms.TabPage tabInfoOrder;
         private System.Windows.Forms.TabPage tabAssignment;
@@ -2222,20 +2245,9 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.TextBox txtMedicalRecord;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddNewContact;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.DataGridView dgvContactsList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientRelation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsPayee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MobileNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmailAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullAddress;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.CheckBox chkIsPayee;
@@ -2286,5 +2298,18 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnEditResident;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientRelation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsPayee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MobileNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmailAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullAddress;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

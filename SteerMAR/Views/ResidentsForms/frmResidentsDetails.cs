@@ -1,4 +1,5 @@
 ﻿using SteerMAR.App_Code.BusinessLogics;
+using SteerMAR.Views.popupForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,34 +21,42 @@ namespace SteerMAR.Views.ResidentsForms
         public frmResidentsDetails()
         {
             InitializeComponent();
+        }
+
+        private void frmResidentsDetails_Load(object sender, EventArgs e)
+        {
             if (frmResidentsList.Patient_ID > 0)
             {
-                Patient_ID = frmResidentsList.Patient_ID;               
-            }            
-            FillDrpPhysician();            
-            FillDrpRefered();
-            GetPatientDetails();
-            FillChart();
+                Patient_ID = frmResidentsList.Patient_ID;
+                GetPatientDetails();
+                FillDgvContcats();
+                FillChart();
+            }
+            FillDrpPhysician();
+            FillDrpRefered();      
         }
 
         #region [Patient Vitals]
-        public void FillChart()
+        private void btnOpenVitalPopup_Click(object sender, EventArgs e)
         {
-            DataTable dtCourse = new DataTable();
-            dtCourse.Columns.Add("ID");
-            dtCourse.Columns.Add("Name");
-            dtCourse.Rows.Add("102", "Fever"); // here
-            dtCourse.Rows.Add("85", "Cough"); // here
-            dtCourse.Rows.Add("94", "Migrane"); // here
+            frmAddPatientVitals APV = new frmAddPatientVitals(this);
+            APV.ShowDialog(this);
+        }
+        public void FillChart()
+        {          
+            PatientMethods PM = new PatientMethods();
+            DataSet ds = PM.SelectPatientVitals(Patient_ID);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                chart1.DataSource = ds.Tables[0];
+                chart1.Series["VitalName"].ChartType = SeriesChartType.Column;
+                chart1.Series["VitalName"].XValueMember = "Vital_Name";
+                chart1.Series["VitalName"].YValueMembers = "Vital_Value";
+                chart1.Series["VitalName"].IsValueShownAsLabel = true;
 
-            chart1.DataSource = dtCourse;            
-            chart1.Series["VitalName"].ChartType = SeriesChartType.Column;
-            chart1.Series["VitalName"].XValueMember = "Name";
-            chart1.Series["VitalName"].YValueMembers = "ID";
-            chart1.Series["VitalName"].IsValueShownAsLabel = true;
-
-            chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 0;
-            chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineWidth = 0;
+                chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 0;
+                chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineWidth = 0;
+            }
 
         }
         #endregion
@@ -68,10 +77,10 @@ namespace SteerMAR.Views.ResidentsForms
                         pbMainProfile.Image = new Bitmap(ms);
                         pbPatientProfile.Image = new Bitmap(ms);
                     }
-                    lblPatientName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString()+ " , " +ds.Tables[0].Rows[0]["Last_Name"].ToString();
+                    lblPatientName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString() + " , " + ds.Tables[0].Rows[0]["Last_Name"].ToString();
 
                     #region [Main Profile Section]                  
-                    txtMainFirstName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString();                    
+                    txtMainFirstName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString();
                     txtMainLastName.Text = ds.Tables[0].Rows[0]["Last_Name"].ToString();
                     txtMainSalutation.Text = ds.Tables[0].Rows[0]["Patient_Salutation"].ToString();
                     txtMainPreferedName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString() + " , " + ds.Tables[0].Rows[0]["Last_Name"].ToString();
@@ -92,9 +101,8 @@ namespace SteerMAR.Views.ResidentsForms
                     {
                         txtMainPrimaryInsurance.Text = "No";
                     }
-             
-                    #endregion
 
+                    #endregion
 
                     #region [Profile Tab Section]
                     txtPatientCode.Text = ds.Tables[0].Rows[0]["Patient_Code"].ToString();
@@ -113,7 +121,7 @@ namespace SteerMAR.Views.ResidentsForms
                     drpPhysician.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Patient_Physician"].ToString());
                     drpRefferedBy.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Reffered_By"].ToString());
                     txtRoomNo.Text = ds.Tables[0].Rows[0]["Patient_Room_No"].ToString();
-                    drpMedCart.Text = ds.Tables[0].Rows[0]["Patient_Med_Cart"].ToString();                    
+                    drpMedCart.Text = ds.Tables[0].Rows[0]["Patient_Med_Cart"].ToString();
                     txtAllergies.Text = ds.Tables[0].Rows[0]["Patient_Allergies"].ToString();
                     txtDiagnosis.Text = ds.Tables[0].Rows[0]["Patient_Diagnosis"].ToString();
                     txtDiets.Text = ds.Tables[0].Rows[0]["Patient_Diets"].ToString();
@@ -147,10 +155,10 @@ namespace SteerMAR.Views.ResidentsForms
             PatientMethods PM = new PatientMethods();
             DataSet ds = PM.SelectActivePhysician();
             if (ds.Tables[0].Rows.Count > 0)
-            {               
+            {
                 drpPhysician.DataSource = ds.Tables[0];
                 drpPhysician.DisplayMember = "Physician_Name";
-                drpPhysician.ValueMember = "Physician_ID";              
+                drpPhysician.ValueMember = "Physician_ID";
             }
         }
 
@@ -159,7 +167,7 @@ namespace SteerMAR.Views.ResidentsForms
             PatientMethods PM = new PatientMethods();
             DataSet ds = PM.SelectActivePhysician();
             if (ds.Tables[0].Rows.Count > 0)
-            {                              
+            {
                 drpRefferedBy.DataSource = ds.Tables[0];
                 drpRefferedBy.DisplayMember = "Physician_Name";
                 drpRefferedBy.ValueMember = "Physician_ID";
@@ -171,7 +179,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tbcMain.SelectedTab = tabProfile;
             this.tbcSecond.SelectedTab = tabPatientProfile;
         }
-              
+
         private void btnChooseImage_Click(object sender, EventArgs e)
         {
             fpProfilePic.InitialDirectory = "C://Desktop";
@@ -302,6 +310,35 @@ namespace SteerMAR.Views.ResidentsForms
         #endregion
 
         #region [Patient Contacts]
+        int Contact_ID = 0;
+        private void btnAddNewContact_Click(object sender, EventArgs e)
+        {
+            CleartextBox();
+        }
+
+        public void CleartextBox()
+        {
+            Contact_ID = 0;
+            txtPersonName.Text = "";
+            drpRelation.Text = "";
+            txtMobileNo.Text = "";
+            txtPhoneNo.Text = "";
+            txtEmail.Text = "";
+            txtAddress.Text = "";
+            chkIsPayee.Checked = false;
+        }
+        public void FillDgvContcats()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientContacts(Patient_ID);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvContactsList.DataSource = ds.Tables[0];
+                }
+            }
+        }
         private void btnSaveContact_Click(object sender, EventArgs e)
         {
             if (txtPersonName.Text == "" && txtPersonName.Text == string.Empty)
@@ -315,7 +352,7 @@ namespace SteerMAR.Views.ResidentsForms
             else
             {
                 ContactMaster CM = new ContactMaster();
-                CM.Contact_ID = 0;
+                CM.Contact_ID = Contact_ID;
                 CM.Patient_ID = Patient_ID;
                 CM.Contact_Person = txtPersonName.Text.Trim();
                 CM.Patient_Relation = drpRelation.Text;
@@ -342,11 +379,29 @@ namespace SteerMAR.Views.ResidentsForms
                 else
                 {
                     MessageBox.Show(msg);
-                    //frmEntries.EntryID = "";
-                    //FE.FilldgvEntry();                    
+                    CleartextBox();
+                    FillDgvContcats();                                
+                }
+            }
+        }
+        private void dgvContactsList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvContactsList.Columns["Edit"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    Contact_ID = Convert.ToInt32(dgvContactsList.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    txtPersonName.Text = dgvContactsList.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    drpRelation.Text = dgvContactsList.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    txtMobileNo.Text = dgvContactsList.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    txtPhoneNo.Text = dgvContactsList.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    txtEmail.Text = dgvContactsList.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    txtAddress.Text = dgvContactsList.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    chkIsPayee.Checked = Convert.ToBoolean(dgvContactsList.Rows[e.RowIndex].Cells[6].Value.ToString());                    
                 }
             }
         }
         #endregion
+      
     }
 }

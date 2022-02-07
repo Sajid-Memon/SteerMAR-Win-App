@@ -116,6 +116,25 @@ namespace SteerMAR.App_Code.BusinessLogics
         #endregion
 
         #region [Patients Contacts Methods]
+        public DataSet SelectPatientContacts(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientContactList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public byte AddUpdateContact(ContactMaster model)
         {
             localCon();
@@ -131,6 +150,46 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Email_Address", model.Email_Address);
             cmd.Parameters.AddWithValue("@Full_Address", model.Full_Address);            
             cmd.Parameters.AddWithValue("@Created_By", model.Created_By);                        
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
+
+        #region [Patients Vitals Methods]
+        public DataSet SelectPatientVitals(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientVitalList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public byte AddUpdatePatientVitals(PatientVitalMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentVitals", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Patient_Vital_ID", model.Patient_Vital_ID);
+            cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
+            cmd.Parameters.AddWithValue("@Vital_ID", model.Vital_ID);
+            cmd.Parameters.AddWithValue("@Vital_Value", model.Vital_Value);            
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(spRetVar);
