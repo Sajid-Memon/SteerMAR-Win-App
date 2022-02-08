@@ -31,9 +31,10 @@ namespace SteerMAR.Views.ResidentsForms
                 GetPatientDetails();
                 FillDgvContcats();
                 FillChart();
+                FillDgvInsurance();
             }
             FillDrpPhysician();
-            FillDrpRefered();      
+            FillDrpRefered();
         }
 
         #region [Patient Vitals]
@@ -42,13 +43,24 @@ namespace SteerMAR.Views.ResidentsForms
             frmAddPatientVitals APV = new frmAddPatientVitals(this);
             APV.ShowDialog(this);
         }
+
+        private void btnOpenVitalHistory_Click(object sender, EventArgs e)
+        {
+            frmPatientVitalsDetails PVD = new frmPatientVitalsDetails();
+            PVD.ShowDialog();
+        }
         public void FillChart()
-        {          
+        {
             PatientMethods PM = new PatientMethods();
             DataSet ds = PM.SelectPatientVitals(Patient_ID);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                chart1.DataSource = ds.Tables[0];
+                DataTable dtVitalHistory = ds.Tables[0];
+                var vitalHistory = (from data in dtVitalHistory.AsEnumerable()
+                                    orderby data.Field<int>("Patient_Vital_ID")
+                                    select data).Take(5).ToList();
+
+                chart1.DataSource = vitalHistory;
                 chart1.Series["VitalName"].ChartType = SeriesChartType.Column;
                 chart1.Series["VitalName"].XValueMember = "Vital_Name";
                 chart1.Series["VitalName"].YValueMembers = "Vital_Value";
@@ -313,10 +325,10 @@ namespace SteerMAR.Views.ResidentsForms
         int Contact_ID = 0;
         private void btnAddNewContact_Click(object sender, EventArgs e)
         {
-            CleartextBox();
+            ClearContacttextBox();
         }
 
-        public void CleartextBox()
+        public void ClearContacttextBox()
         {
             Contact_ID = 0;
             txtPersonName.Text = "";
@@ -379,8 +391,8 @@ namespace SteerMAR.Views.ResidentsForms
                 else
                 {
                     MessageBox.Show(msg);
-                    CleartextBox();
-                    FillDgvContcats();                                
+                    ClearContacttextBox();
+                    FillDgvContcats();
                 }
             }
         }
@@ -397,11 +409,86 @@ namespace SteerMAR.Views.ResidentsForms
                     txtPhoneNo.Text = dgvContactsList.Rows[e.RowIndex].Cells[8].Value.ToString();
                     txtEmail.Text = dgvContactsList.Rows[e.RowIndex].Cells[9].Value.ToString();
                     txtAddress.Text = dgvContactsList.Rows[e.RowIndex].Cells[10].Value.ToString();
-                    chkIsPayee.Checked = Convert.ToBoolean(dgvContactsList.Rows[e.RowIndex].Cells[6].Value.ToString());                    
+                    chkIsPayee.Checked = Convert.ToBoolean(dgvContactsList.Rows[e.RowIndex].Cells[6].Value.ToString());
                 }
             }
         }
         #endregion
-      
+
+        #region [Patient Insurance]
+        int Insurance_ID = 0;
+        public void ClearInsurancetextBox()
+        {
+            Insurance_ID = 0;
+            txtInsuranceName.Text = "";
+            txtInsuranceGroupNo.Text = "";
+            txtInsuredsId.Text = "";
+            txtInsuranceProvider.Text = "";            
+        }
+        private void btnAddNewInsurance_Click(object sender, EventArgs e)
+        {
+            ClearInsurancetextBox();
+        }
+        public void FillDgvInsurance()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientInsurance(Patient_ID);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvInsurance.DataSource = ds.Tables[0];
+                }
+            }
+        }
+        private void dgvInsurance_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvContactsList.Columns["Edit"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    Insurance_ID = Convert.ToInt32(dgvInsurance.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    txtInsuranceName.Text = dgvInsurance.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    txtInsuranceGroupNo.Text = dgvInsurance.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    txtInsuredsId.Text = dgvInsurance.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    txtInsuranceProvider.Text = dgvInsurance.Rows[e.RowIndex].Cells[7].Value.ToString();
+                }
+            }
+        }
+        private void btnSaveInsurance_Click(object sender, EventArgs e)
+        {
+            if (txtInsuranceGroupNo.Text == "" && txtInsuranceGroupNo.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Insurance Group No");
+            }
+            else
+            {
+                PatientInsuranceMaster PIM = new PatientInsuranceMaster();
+                PIM.Insurance_ID = Insurance_ID;
+                PIM.Patient_ID = Patient_ID;
+                PIM.Insurance_Name = txtInsuranceName.Text.Trim();
+                PIM.Insurance_Group_No = txtInsuranceGroupNo.Text.Trim();
+                PIM.Insureds_ID = txtInsuredsId.Text.Trim();
+                PIM.Insurance_Provider = txtInsuranceProvider.Text.Trim();
+                PIM.Created_By = 1;
+                PatientMethods PM = new PatientMethods();
+                byte value = PM.AddUpdateInsurance(PIM);
+                string msg = value == 0 ? "Insurance Detail Updated" : value == 1 ? "Same Insurance Group No Already Exists" : "New Insurance Detail Added";
+                if (value == 1)
+                {
+                    MessageBox.Show(msg);
+                }
+                else
+                {
+                    MessageBox.Show(msg);
+                    ClearInsurancetextBox();
+                    FillDgvInsurance();
+                }
+            }
+        }
+
+        #endregion
+
+  
     }
 }

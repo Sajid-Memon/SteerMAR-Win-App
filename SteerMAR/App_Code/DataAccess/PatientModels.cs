@@ -67,6 +67,21 @@ namespace SteerMAR.App_Code.DataAccess
             public int Patient_ID { get; set; }
             public int Vital_ID { get; set; }
             public string Vital_Value { get; set; }
+            public DateTime Taken_Date { get; set; }
+        }
+        public class PatientInsuranceMaster
+        {
+            public int Insurance_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public string Insurance_Name { get; set; }
+            public string Insurance_Group_No { get; set; }
+            public string Insureds_ID { get; set; }
+            public string Insurance_Provider { get; set; }
+            public bool isActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
         }
     }
 }

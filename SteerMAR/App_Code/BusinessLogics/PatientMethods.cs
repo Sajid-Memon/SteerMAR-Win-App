@@ -53,12 +53,12 @@ namespace SteerMAR.App_Code.BusinessLogics
                 throw;
             }
         }
-        public DataSet SelectResidentListBySearch(string SearchText)
+        public DataSet SelectActiveResidentList(string SearchText)
         {
             try
             {
                 localCon();
-                cmd = new SqlCommand("Proc_ResidentsListBySearch", con);
+                cmd = new SqlCommand("Proc_SelectActiveResidentsList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SearchText", SearchText);
                 da = new SqlDataAdapter(cmd);
@@ -189,7 +189,50 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Patient_Vital_ID", model.Patient_Vital_ID);
             cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
             cmd.Parameters.AddWithValue("@Vital_ID", model.Vital_ID);
-            cmd.Parameters.AddWithValue("@Vital_Value", model.Vital_Value);            
+            cmd.Parameters.AddWithValue("@Vital_Value", model.Vital_Value);
+            cmd.Parameters.AddWithValue("@Taken_Date", model.Taken_Date);
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
+
+        #region [Patients Insurance Methods]
+        public DataSet SelectPatientInsurance(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientInsuranceList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdateInsurance(PatientInsuranceMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentInsurance", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Insurance_ID", model.Insurance_ID);
+            cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
+            cmd.Parameters.AddWithValue("@Insurance_Name", model.Insurance_Name);
+            cmd.Parameters.AddWithValue("@Insurance_Group_No", model.Insurance_Group_No);
+            cmd.Parameters.AddWithValue("@Insureds_ID", model.Insureds_ID);
+            cmd.Parameters.AddWithValue("@Insurance_Provider", model.Insurance_Provider);            
+            cmd.Parameters.AddWithValue("@Created_By", model.Created_By);
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(spRetVar);

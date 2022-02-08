@@ -20,9 +20,19 @@ namespace SteerMAR.Views.ResidentsForms
         public frmResidentsList(NotifyEvent openDetails)
         {
             InitializeComponent();
+            FillDgvPatientList();
             GoToDetails = openDetails;
         }      
 
+        public void FillDgvPatientList(string SearchText="")
+        {
+            PatientMethods PM = new PatientMethods();
+            DataSet ds = PM.SelectActiveResidentList(SearchText);
+            if (ds.Tables[0].Rows.Count > 0)
+            {                
+                dgvPatientList.DataSource = ds.Tables[0];
+            }
+        }
         private void dgvPatientList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgvPatientList.Columns["Select"].Index)
@@ -40,17 +50,11 @@ namespace SteerMAR.Views.ResidentsForms
         {
             if (txtSearchText.Text != null && txtSearchText.Text != string.Empty)
             {
-                PatientMethods PM = new PatientMethods();
-                DataSet ds = PM.SelectResidentListBySearch(txtSearchText.Text.Trim());
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    dgvPatientList.Visible = true;
-                    dgvPatientList.DataSource = ds.Tables[0];
-                }
+                FillDgvPatientList(txtSearchText.Text.Trim());
             }
             else
             {
-                dgvPatientList.Visible = false;
+                FillDgvPatientList();
             }
         }
     }

@@ -120,6 +120,9 @@
   <metadata name="VitalID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="PatientVitalID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="ContactPerson.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -129,7 +132,24 @@
   <metadata name="VitalValue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAeBJREFUOE/V
+        kt0rQ2EcgM+FcoFL8ge4UFK7cUFhipILoZRcunQlW5QWChem1BZZaL5iaGQ2ZGNzMZuPhgsbNpuPhjE7
+        m+34nPo5Xu9sxywdF8pTz8V5+/X0vv0O8T/glim5+eULHlqSlWWqBZxgkl+uqqQHgL2qfZxg0jpobZ8w
+        +ICt/UsuP04wESucAo0jCGyd3aG8OMFE7XitDA11aDzI6uFzyBZaoywU28NRe9CME0wig7OWR+TY7j0M
+        bAWilG5T7IJCLYmsGXei23y1VHLKLjiwSd+Etk19C3UzrigbFDefwdUj6sDJ58ud9fUFOPVBZHDIRCG7
+        dCQ0qdxRtiy50ZzW6oP59d17/ahMd8HjUZc8XjrOsVtKRf8ZrB1dg3+CA2Zl48Ocdv3VKB0ZdvH5CTj3
+        ZSnmJ2Sv4Q46dV5k34YfLWR87wGWD0nwybIBJATyeLpqSKHXJ+HUB98tJafLCmnNZmRetw2KexwgN12h
+        m4VinqmCAIiJeJwJExmMZeiZoZhbXgKrtoAFJ5j8FNTavOCdzPmMkVO59Jkv9m+zaINkzUmQG8vbzdLO
+        F2XK3nvsWZpq1FvOit7PV+wvWTjBDlFz5tbdclIAZHEiGCXC2/wtIgGnpLU2IxF//iUE8QajeNAiX3+T
+        GgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnCloseThis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAPBJREFUOE/l

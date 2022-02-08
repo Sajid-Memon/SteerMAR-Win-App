@@ -27,7 +27,7 @@ namespace SteerMAR.Views.popupForms
         {
             setupMethods SM = new setupMethods();
             DataSet ds = SM.SelectActiveVitals();
-            if (ds.Tables[0].Rows.Count> 0)
+            if (ds.Tables[0].Rows.Count > 0)
             {
                 drpVitals.DataSource = ds.Tables[0];
                 drpVitals.DisplayMember = "Vital_Name";
@@ -36,26 +36,20 @@ namespace SteerMAR.Views.popupForms
         }
 
         private void btnSaveContact_Click(object sender, EventArgs e)
-        {            
+        {
             if (drpVitals.Text != "" && txtVitalValue.Text != "")
             {
                 PatientVitalMaster pvm = new PatientVitalMaster();
                 pvm.Patient_ID = frmResidentsList.Patient_ID;
                 pvm.Vital_ID = Convert.ToInt32(drpVitals.SelectedValue);
                 pvm.Vital_Value = txtVitalValue.Text.Trim();
+                pvm.Taken_Date = System.DateTime.Now;
                 PatientMethods PM = new PatientMethods();
                 byte value = PM.AddUpdatePatientVitals(pvm);
-                string msg = value == 0 ? "Vital has been Updated" : value == 1 ? "Same vital Already Exists" : "New vital Added";
-                if (value == 1)
-                {
-                    MessageBox.Show(msg);
-                }
-                else
-                {
-                    MessageBox.Show(msg);
-                    RD.FillChart();
-                    this.Close();
-                }
+                string msg = value == 0 ? "Vital has been Updated" : "New vital Added";
+                MessageBox.Show(msg);
+                RD.FillChart();
+                this.Close();
             }
             else
             {
