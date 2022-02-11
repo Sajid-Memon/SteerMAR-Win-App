@@ -487,8 +487,13 @@ namespace SteerMAR.Views.ResidentsForms
             }
         }
 
+
         #endregion
 
-  
+        private void btnAddNewMedication_Click(object sender, EventArgs e)
+        {
+            frmAddPatientMedication APM = new frmAddPatientMedication();
+            APM.ShowDialog();
+        }
     }
 }
