@@ -242,5 +242,64 @@ namespace SteerMAR.App_Code.BusinessLogics
             return retVal;
         }
         #endregion
+
+        #region [Patients Medications Methods]
+
+        public DataSet SelectPatientMedication(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientMedicationList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdateMedication(PatientMedicationMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentMedication", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Medication_ID", model.Medication_ID);
+            cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
+            cmd.Parameters.AddWithValue("@Medication_Image", model.Medication_Image);
+            cmd.Parameters.AddWithValue("@Medication_Name", model.Medication_Name);
+            cmd.Parameters.AddWithValue("@Medication_Equilent_To", model.Medication_Equilent_To);
+            cmd.Parameters.AddWithValue("@Medication_NDC", model.Medication_NDC);
+            cmd.Parameters.AddWithValue("@Medication_RXNo", model.Medication_RXNo);
+            cmd.Parameters.AddWithValue("@Medication_Prescriber", model.Medication_Prescriber);
+            cmd.Parameters.AddWithValue("@Medication_Diagnosis", model.Medication_Diagnosis);            
+            cmd.Parameters.AddWithValue("@Medication_WriteDate", model.Medication_WriteDate);
+            cmd.Parameters.AddWithValue("@Medication_ExpiryDate", model.Medication_ExpiryDate);
+            cmd.Parameters.AddWithValue("@Medication_Route", model.Medication_Route);
+            cmd.Parameters.AddWithValue("@Medication_Instructions", model.Medication_Instructions);
+            cmd.Parameters.AddWithValue("@Controlled_Drugs", model.Controlled_Drugs);
+            cmd.Parameters.AddWithValue("@Home_Health_Drugs", model.Home_Health_Drugs);
+            cmd.Parameters.AddWithValue("@Medication_PRN", model.Medication_PRN);
+            cmd.Parameters.AddWithValue("@Min_PRN", model.Min_PRN);
+            cmd.Parameters.AddWithValue("@Max_PRN", model.Max_PRN);
+            cmd.Parameters.AddWithValue("@Medication_Time", model.Medication_Time);
+            cmd.Parameters.AddWithValue("@Medication_Qty", model.Medication_Qty);
+            cmd.Parameters.AddWithValue("@Medication_Details", model.Medication_Details);
+            cmd.Parameters.AddWithValue("@Medication_WeekDays", model.Medication_WeekDays);            
+            cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
     }
 }

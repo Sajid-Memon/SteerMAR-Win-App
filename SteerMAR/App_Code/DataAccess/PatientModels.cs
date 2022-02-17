@@ -60,7 +60,6 @@ namespace SteerMAR.App_Code.DataAccess
             public int Updated_By { get; set; }
             public DateTime Updated_Date { get; set; }
         }
-
         public class PatientVitalMaster
         {
             public int Patient_Vital_ID { get; set; }
@@ -78,6 +77,36 @@ namespace SteerMAR.App_Code.DataAccess
             public string Insureds_ID { get; set; }
             public string Insurance_Provider { get; set; }
             public bool isActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
+        }
+        public class PatientMedicationMaster
+        {
+            public int Medication_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public byte[] Medication_Image { get; set; }
+            public string Medication_Name { get; set; }
+            public string Medication_Equilent_To { get; set; }
+            public string Medication_NDC { get; set; }
+            public string Medication_RXNo { get; set; }
+            public int Medication_Prescriber { get; set; }
+            public string Medication_Diagnosis { get; set; }            
+            public DateTime Medication_WriteDate { get; set; }
+            public DateTime Medication_ExpiryDate { get; set; }
+            public string Medication_Route { get; set; }
+            public string Medication_Instructions { get; set; }
+            public bool Controlled_Drugs { get; set; }
+            public bool Home_Health_Drugs { get; set; }
+            public bool Medication_PRN { get; set; }
+            public string Min_PRN { get; set; }
+            public string Max_PRN { get; set; }
+            public DateTime Medication_Time { get; set; }
+            public string Medication_Qty { get; set; }
+            public string Medication_Details { get; set; }
+            public string Medication_WeekDays { get; set; }
+            public bool IsActive { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_Date { get; set; }
             public int Updated_By { get; set; }

@@ -32,6 +32,7 @@ namespace SteerMAR.Views.ResidentsForms
                 FillDgvContcats();
                 FillChart();
                 FillDgvInsurance();
+                FillDgvMedications();
             }
             FillDrpPhysician();
             FillDrpRefered();
@@ -490,10 +491,39 @@ namespace SteerMAR.Views.ResidentsForms
 
         #endregion
 
+        #region [Patient Medication]
+        public void FillDgvMedications()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientMedication(Patient_ID);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvMedicationList.DataSource = ds.Tables[0];
+                }
+            }
+        }
         private void btnAddNewMedication_Click(object sender, EventArgs e)
         {
             frmAddPatientMedication APM = new frmAddPatientMedication();
             APM.ShowDialog();
+        }
+        #endregion
+
+        private void dgvMedicationList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.ColumnIndex == dgvMedicationList.Columns["Edit"].Index)
+            //{
+            //    if (e.RowIndex >= 0)
+            //    {
+            //        Insurance_ID = Convert.ToInt32(dgvInsurance.Rows[e.RowIndex].Cells[2].Value.ToString());
+            //        txtInsuranceName.Text = dgvInsurance.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //        txtInsuranceGroupNo.Text = dgvInsurance.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //        txtInsuredsId.Text = dgvInsurance.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //        txtInsuranceProvider.Text = dgvInsurance.Rows[e.RowIndex].Cells[7].Value.ToString();
+            //    }
+            //}
         }
     }
 }
