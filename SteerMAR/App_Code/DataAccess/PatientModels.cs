@@ -112,5 +112,30 @@ namespace SteerMAR.App_Code.DataAccess
             public int Updated_By { get; set; }
             public DateTime Updated_Date { get; set; }
         }
+        public class PatientDocumentMaster
+        {
+            public int Document_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public byte[] Document_Data { get; set; }
+            public string Document_Type { get; set; }
+            public string Document_Name { get; set; }
+            public string Document_Description { get; set; }            
+            public bool isActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
+        }
+        public class InfoOrderMaster
+        {
+            public int InfoOrder_ID { get; set; }
+            public int Patient_ID { get; set; }            
+            public string InfoOrder_Text { get; set; }
+            public bool IsActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
+        }
     }
 }

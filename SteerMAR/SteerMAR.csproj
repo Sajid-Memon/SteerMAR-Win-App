@@ -130,6 +130,12 @@
     <Compile Include="Views\MainForms\frmSubscription.Designer.cs">
       <DependentUpon>frmSubscription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\popupForms\frmAddInfoOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\popupForms\frmAddInfoOrder.Designer.cs">
+      <DependentUpon>frmAddInfoOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\popupForms\frmAddPatientMedication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForms\frmSubscription.resx">
       <DependentUpon>frmSubscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\popupForms\frmAddInfoOrder.resx">
+      <DependentUpon>frmAddInfoOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\popupForms\frmAddPatientMedication.resx">
       <DependentUpon>frmAddPatientMedication.cs</DependentUpon>

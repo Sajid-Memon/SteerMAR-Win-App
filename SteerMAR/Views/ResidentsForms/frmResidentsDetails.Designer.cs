@@ -142,6 +142,26 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewContact = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.tabDocuments = new System.Windows.Forms.TabPage();
+            this.btnBrowse = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnSaveDocument = new SteerMAR.CustomControlls.RoundedButton();
+            this.label63 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.txtFileName = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.txtDocumentName = new System.Windows.Forms.TextBox();
+            this.dgvDocuments = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn8 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Download = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnAddNewDoc = new System.Windows.Forms.Button();
+            this.label60 = new System.Windows.Forms.Label();
             this.tabInsurance = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.txtInsuranceProvider = new System.Windows.Forms.TextBox();
@@ -169,19 +189,21 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel9 = new System.Windows.Forms.Panel();
             this.dgvMedicationList = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.EditMed = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnAddNewMedication = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
             this.tabInfoOrder = new System.Windows.Forms.TabPage();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnAddNewInfoOrder = new System.Windows.Forms.Button();
+            this.label59 = new System.Windows.Forms.Label();
             this.tabAssignment = new System.Windows.Forms.TabPage();
             this.tabComments = new System.Windows.Forms.TabPage();
             this.pnlPatientEntry = new SteerMAR.CustomControlls.RoundedPanel();
@@ -220,6 +242,17 @@ namespace SteerMAR.Views.ResidentsForms
             this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.fpDocumentUpload = new System.Windows.Forms.OpenFileDialog();
+            this.dgvInfoOrderList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn9 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn10 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
@@ -239,6 +272,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactsList)).BeginInit();
             this.panel5.SuspendLayout();
+            this.tabDocuments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
+            this.panel11.SuspendLayout();
             this.tabInsurance.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsurance)).BeginInit();
@@ -246,9 +282,12 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabMedication.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicationList)).BeginInit();
             this.panel8.SuspendLayout();
+            this.tabInfoOrder.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.pnlPatientEntry.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -326,7 +365,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.tbcMain.Controls.Add(this.tabInfoOrder);
             this.tbcMain.Controls.Add(this.tabAssignment);
             this.tbcMain.Controls.Add(this.tabComments);
-            this.tbcMain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcMain.Font = new System.Drawing.Font("Hero New Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbcMain.Location = new System.Drawing.Point(285, 14);
@@ -1659,6 +1697,16 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             // tabDocuments
             // 
+            this.tabDocuments.Controls.Add(this.btnBrowse);
+            this.tabDocuments.Controls.Add(this.btnSaveDocument);
+            this.tabDocuments.Controls.Add(this.label63);
+            this.tabDocuments.Controls.Add(this.txtDescription);
+            this.tabDocuments.Controls.Add(this.label62);
+            this.tabDocuments.Controls.Add(this.txtFileName);
+            this.tabDocuments.Controls.Add(this.label61);
+            this.tabDocuments.Controls.Add(this.txtDocumentName);
+            this.tabDocuments.Controls.Add(this.dgvDocuments);
+            this.tabDocuments.Controls.Add(this.panel11);
             this.tabDocuments.Location = new System.Drawing.Point(4, 4);
             this.tabDocuments.Name = "tabDocuments";
             this.tabDocuments.Padding = new System.Windows.Forms.Padding(3);
@@ -1666,6 +1714,228 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabDocuments.TabIndex = 1;
             this.tabDocuments.Text = "   Documents   ";
             this.tabDocuments.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnBrowse.BorderRadius = 0;
+            this.btnBrowse.FlatAppearance.BorderSize = 0;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Font = new System.Drawing.Font("Hero Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Location = new System.Drawing.Point(434, 297);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(92, 27);
+            this.btnBrowse.TabIndex = 64;
+            this.btnBrowse.Text = "BROWSE";
+            this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // btnSaveDocument
+            // 
+            this.btnSaveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSaveDocument.BorderRadius = 3;
+            this.btnSaveDocument.FlatAppearance.BorderSize = 0;
+            this.btnSaveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDocument.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDocument.ForeColor = System.Drawing.Color.White;
+            this.btnSaveDocument.Location = new System.Drawing.Point(408, 417);
+            this.btnSaveDocument.Name = "btnSaveDocument";
+            this.btnSaveDocument.Size = new System.Drawing.Size(118, 32);
+            this.btnSaveDocument.TabIndex = 63;
+            this.btnSaveDocument.Text = "SAVE";
+            this.btnSaveDocument.UseVisualStyleBackColor = false;
+            this.btnSaveDocument.Click += new System.EventHandler(this.btnSaveDocument_Click);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label63.Location = new System.Drawing.Point(6, 332);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(77, 15);
+            this.label63.TabIndex = 27;
+            this.label63.Text = "Description";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(7, 350);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(519, 58);
+            this.txtDescription.TabIndex = 28;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label62.Location = new System.Drawing.Point(6, 279);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(111, 15);
+            this.label62.TabIndex = 25;
+            this.label62.Text = "Insurance Name";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFileName.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFileName.Location = new System.Drawing.Point(7, 297);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(427, 27);
+            this.txtFileName.TabIndex = 26;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label61.Location = new System.Drawing.Point(6, 226);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(117, 15);
+            this.label61.TabIndex = 23;
+            this.label61.Text = "Document Name";
+            // 
+            // txtDocumentName
+            // 
+            this.txtDocumentName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDocumentName.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocumentName.Location = new System.Drawing.Point(7, 244);
+            this.txtDocumentName.Name = "txtDocumentName";
+            this.txtDocumentName.Size = new System.Drawing.Size(519, 27);
+            this.txtDocumentName.TabIndex = 24;
+            // 
+            // dgvDocuments
+            // 
+            this.dgvDocuments.AllowUserToAddRows = false;
+            this.dgvDocuments.AllowUserToDeleteRows = false;
+            this.dgvDocuments.AllowUserToResizeColumns = false;
+            this.dgvDocuments.AllowUserToResizeRows = false;
+            this.dgvDocuments.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDocuments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocuments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn15,
+            this.DocumentData,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewImageColumn7,
+            this.dataGridViewImageColumn8,
+            this.Download});
+            this.dgvDocuments.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvDocuments.Location = new System.Drawing.Point(3, 40);
+            this.dgvDocuments.Name = "dgvDocuments";
+            this.dgvDocuments.RowHeadersVisible = false;
+            this.dgvDocuments.Size = new System.Drawing.Size(526, 183);
+            this.dgvDocuments.TabIndex = 5;
+            this.dgvDocuments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocuments_CellClick);
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Document_ID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ContactID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Document_Name";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 73;
+            // 
+            // DocumentData
+            // 
+            this.DocumentData.DataPropertyName = "Document_Data";
+            this.DocumentData.HeaderText = "Data";
+            this.DocumentData.Name = "DocumentData";
+            this.DocumentData.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Document_Type";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Document_Description";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewImageColumn7
+            // 
+            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn7.HeaderText = "Edit";
+            this.dataGridViewImageColumn7.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn7.Image")));
+            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
+            this.dataGridViewImageColumn7.Width = 41;
+            // 
+            // dataGridViewImageColumn8
+            // 
+            this.dataGridViewImageColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn8.HeaderText = "Delete";
+            this.dataGridViewImageColumn8.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn8.Image")));
+            this.dataGridViewImageColumn8.Name = "dataGridViewImageColumn8";
+            this.dataGridViewImageColumn8.Width = 58;
+            // 
+            // Download
+            // 
+            this.Download.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Download.HeaderText = "Download";
+            this.Download.Image = ((System.Drawing.Image)(resources.GetObject("Download.Image")));
+            this.Download.Name = "Download";
+            this.Download.Width = 84;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnAddNewDoc);
+            this.panel11.Controls.Add(this.label60);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(526, 37);
+            this.panel11.TabIndex = 4;
+            // 
+            // btnAddNewDoc
+            // 
+            this.btnAddNewDoc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddNewDoc.FlatAppearance.BorderSize = 0;
+            this.btnAddNewDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewDoc.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAddNewDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewDoc.Image")));
+            this.btnAddNewDoc.Location = new System.Drawing.Point(491, 0);
+            this.btnAddNewDoc.Name = "btnAddNewDoc";
+            this.btnAddNewDoc.Size = new System.Drawing.Size(35, 37);
+            this.btnAddNewDoc.TabIndex = 9;
+            this.btnAddNewDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNewDoc.UseVisualStyleBackColor = true;
+            this.btnAddNewDoc.Click += new System.EventHandler(this.btnAddNewDoc_Click);
+            // 
+            // label60
+            // 
+            this.label60.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label60.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label60.Location = new System.Drawing.Point(0, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(106, 37);
+            this.label60.TabIndex = 7;
+            this.label60.Text = "Documents";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabInsurance
             // 
@@ -1966,19 +2236,19 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvMedicationList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicationList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
             this.MedImg,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewImageColumn5,
+            this.EditMed,
             this.dataGridViewImageColumn6});
             this.dgvMedicationList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMedicationList.Location = new System.Drawing.Point(3, 44);
             this.dgvMedicationList.Name = "dgvMedicationList";
             this.dgvMedicationList.RowHeadersVisible = false;
+            this.dgvMedicationList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvMedicationList.Size = new System.Drawing.Size(563, 454);
             this.dgvMedicationList.TabIndex = 4;
             this.dgvMedicationList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicationList_CellClick);
@@ -1989,13 +2259,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewTextBoxColumn7.HeaderText = "ContactID";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Patient_ID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "PatientID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // MedImg
             // 
@@ -2045,17 +2308,21 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.Width = 75;
             // 
-            // dataGridViewImageColumn5
+            // EditMed
             // 
-            this.dataGridViewImageColumn5.HeaderText = "Edit";
-            this.dataGridViewImageColumn5.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn5.Image")));
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.EditMed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.EditMed.HeaderText = "Edit";
+            this.EditMed.Image = ((System.Drawing.Image)(resources.GetObject("EditMed.Image")));
+            this.EditMed.Name = "EditMed";
+            this.EditMed.Width = 41;
             // 
             // dataGridViewImageColumn6
             // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewImageColumn6.HeaderText = "Delete";
             this.dataGridViewImageColumn6.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn6.Image")));
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.Width = 58;
             // 
             // panel8
             // 
@@ -2097,12 +2364,52 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             // tabInfoOrder
             // 
+            this.tabInfoOrder.Controls.Add(this.dgvInfoOrderList);
+            this.tabInfoOrder.Controls.Add(this.panel10);
             this.tabInfoOrder.Location = new System.Drawing.Point(4, 27);
             this.tabInfoOrder.Name = "tabInfoOrder";
             this.tabInfoOrder.Size = new System.Drawing.Size(569, 501);
             this.tabInfoOrder.TabIndex = 2;
             this.tabInfoOrder.Text = "     Info Order     ";
             this.tabInfoOrder.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btnAddNewInfoOrder);
+            this.panel10.Controls.Add(this.label59);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(569, 41);
+            this.panel10.TabIndex = 3;
+            // 
+            // btnAddNewInfoOrder
+            // 
+            this.btnAddNewInfoOrder.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddNewInfoOrder.FlatAppearance.BorderSize = 0;
+            this.btnAddNewInfoOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewInfoOrder.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewInfoOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAddNewInfoOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewInfoOrder.Image")));
+            this.btnAddNewInfoOrder.Location = new System.Drawing.Point(534, 0);
+            this.btnAddNewInfoOrder.Name = "btnAddNewInfoOrder";
+            this.btnAddNewInfoOrder.Size = new System.Drawing.Size(35, 41);
+            this.btnAddNewInfoOrder.TabIndex = 9;
+            this.btnAddNewInfoOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNewInfoOrder.UseVisualStyleBackColor = true;
+            this.btnAddNewInfoOrder.Click += new System.EventHandler(this.btnAddNewInfoOrder_Click);
+            // 
+            // label59
+            // 
+            this.label59.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label59.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label59.Location = new System.Drawing.Point(0, 0);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(114, 41);
+            this.label59.TabIndex = 7;
+            this.label59.Text = "Info Order";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabAssignment
             // 
@@ -2553,6 +2860,107 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // fpDocumentUpload
+            // 
+            this.fpDocumentUpload.FileName = "openFileDialog1";
+            // 
+            // dgvInfoOrderList
+            // 
+            this.dgvInfoOrderList.AllowUserToAddRows = false;
+            this.dgvInfoOrderList.AllowUserToDeleteRows = false;
+            this.dgvInfoOrderList.AllowUserToResizeColumns = false;
+            this.dgvInfoOrderList.AllowUserToResizeRows = false;
+            this.dgvInfoOrderList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInfoOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInfoOrderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewImageColumn5,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewImageColumn9,
+            this.dataGridViewImageColumn10});
+            this.dgvInfoOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInfoOrderList.Location = new System.Drawing.Point(0, 41);
+            this.dgvInfoOrderList.Name = "dgvInfoOrderList";
+            this.dgvInfoOrderList.RowHeadersVisible = false;
+            this.dgvInfoOrderList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvInfoOrderList.Size = new System.Drawing.Size(569, 460);
+            this.dgvInfoOrderList.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Medication_ID";
+            this.dataGridViewTextBoxColumn14.HeaderText = "ContactID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.DataPropertyName = "Medication_Image";
+            this.dataGridViewImageColumn5.HeaderText = "Image";
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Medication_Name";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Medication_RXNo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "RX NO";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Medication_Time";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Time";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Medication_WriteDate";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Write";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Width = 71;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Medication_ExpiryDate";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Expiry";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 75;
+            // 
+            // dataGridViewImageColumn9
+            // 
+            this.dataGridViewImageColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn9.HeaderText = "Edit";
+            this.dataGridViewImageColumn9.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn9.Image")));
+            this.dataGridViewImageColumn9.Name = "dataGridViewImageColumn9";
+            this.dataGridViewImageColumn9.Width = 41;
+            // 
+            // dataGridViewImageColumn10
+            // 
+            this.dataGridViewImageColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn10.HeaderText = "Delete";
+            this.dataGridViewImageColumn10.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn10.Image")));
+            this.dataGridViewImageColumn10.Name = "dataGridViewImageColumn10";
+            this.dataGridViewImageColumn10.Width = 58;
+            // 
             // frmResidentsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2585,6 +2993,10 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactsList)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.tabDocuments.ResumeLayout(false);
+            this.tabDocuments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).EndInit();
+            this.panel11.ResumeLayout(false);
             this.tabInsurance.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -2593,10 +3005,13 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabMedication.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicationList)).EndInit();
             this.panel8.ResumeLayout(false);
+            this.tabInfoOrder.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.pnlPatientEntry.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2780,15 +3195,48 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnAddNewMedication;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btnAddNewInfoOrder;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.DataGridView dgvDocuments;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnAddNewDoc;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.OpenFileDialog fpDocumentUpload;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox txtDocumentName;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox txtFileName;
+        private CustomControlls.RoundedButton btnSaveDocument;
+        private CustomControlls.RoundedButton btnBrowse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn8;
+        private System.Windows.Forms.DataGridViewImageColumn Download;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewImageColumn MedImg;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
+        private System.Windows.Forms.DataGridViewImageColumn EditMed;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
+        private System.Windows.Forms.DataGridView dgvInfoOrderList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn9;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn10;
     }
 }

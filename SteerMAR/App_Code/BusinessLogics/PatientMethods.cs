@@ -243,6 +243,48 @@ namespace SteerMAR.App_Code.BusinessLogics
         }
         #endregion
 
+        #region [Patients Documents Methods]
+        public DataSet SelectPatientDocuments(int Patient_ID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientDocumentList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdateDocument(PatientDocumentMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentDocuments", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Document_ID", model.Document_ID);
+            cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
+            cmd.Parameters.AddWithValue("@Document_Data", model.Document_Data);
+            cmd.Parameters.AddWithValue("@Document_Type", model.Document_Type);
+            cmd.Parameters.AddWithValue("@Document_Name", model.Document_Name);
+            cmd.Parameters.AddWithValue("@Document_Description", model.Document_Description);                      
+            cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
+
         #region [Patients Medications Methods]
 
         public DataSet SelectPatientMedication(int Patient_ID)
@@ -252,7 +294,26 @@ namespace SteerMAR.App_Code.BusinessLogics
                 localCon();
                 cmd = new SqlCommand("Proc_GetPatientMedicationList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);            
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public DataSet SelectPatientMedicationByMedID(int MedicationID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientMedicationByMedID", con);
+                cmd.CommandType = CommandType.StoredProcedure;                
+                cmd.Parameters.AddWithValue("@MedicationID", MedicationID);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds);
@@ -291,6 +352,26 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Medication_Qty", model.Medication_Qty);
             cmd.Parameters.AddWithValue("@Medication_Details", model.Medication_Details);
             cmd.Parameters.AddWithValue("@Medication_WeekDays", model.Medication_WeekDays);            
+            cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
+
+        #region [Patients Info Order Methods]
+        public byte AddUpdatePatientInfoOrder(InfoOrderMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentInfoOrders", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@InfoOrder_ID", model.InfoOrder_ID);
+            cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
+            cmd.Parameters.AddWithValue("@InfoOrder_Text", model.InfoOrder_Text);
             cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;

@@ -18,6 +18,7 @@ namespace SteerMAR.Views.ResidentsForms
     public partial class frmResidentsDetails : Form
     {
         public int Patient_ID = 0;
+        public static int MedicationID = 0;
         public frmResidentsDetails()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace SteerMAR.Views.ResidentsForms
             }
             FillDrpPhysician();
             FillDrpRefered();
+            FillDgvDocuments();
         }
 
         #region [Patient Vitals]
@@ -381,7 +383,7 @@ namespace SteerMAR.Views.ResidentsForms
                 CM.Phone_No = txtPhoneNo.Text.Trim();
                 CM.Email_Address = txtEmail.Text.Trim();
                 CM.Full_Address = txtAddress.Text.Trim();
-                CM.Created_By = 1;
+                CM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods PM = new PatientMethods();
                 byte value = PM.AddUpdateContact(CM);
                 string msg = value == 0 ? "Contact Detail Updated" : value == 1 ? "Same Mobile No Already Exists" : "New Contact Added";
@@ -424,7 +426,7 @@ namespace SteerMAR.Views.ResidentsForms
             txtInsuranceName.Text = "";
             txtInsuranceGroupNo.Text = "";
             txtInsuredsId.Text = "";
-            txtInsuranceProvider.Text = "";            
+            txtInsuranceProvider.Text = "";
         }
         private void btnAddNewInsurance_Click(object sender, EventArgs e)
         {
@@ -471,7 +473,7 @@ namespace SteerMAR.Views.ResidentsForms
                 PIM.Insurance_Group_No = txtInsuranceGroupNo.Text.Trim();
                 PIM.Insureds_ID = txtInsuredsId.Text.Trim();
                 PIM.Insurance_Provider = txtInsuranceProvider.Text.Trim();
-                PIM.Created_By = 1;
+                PIM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods PM = new PatientMethods();
                 byte value = PM.AddUpdateInsurance(PIM);
                 string msg = value == 0 ? "Insurance Detail Updated" : value == 1 ? "Same Insurance Group No Already Exists" : "New Insurance Detail Added";
@@ -491,7 +493,7 @@ namespace SteerMAR.Views.ResidentsForms
 
         #endregion
 
-        #region [Patient Medication]
+        #region [Patient Medication]     
         public void FillDgvMedications()
         {
             if (Patient_ID > 0)
@@ -506,24 +508,148 @@ namespace SteerMAR.Views.ResidentsForms
         }
         private void btnAddNewMedication_Click(object sender, EventArgs e)
         {
-            frmAddPatientMedication APM = new frmAddPatientMedication();
+            frmAddPatientMedication APM = new frmAddPatientMedication(this);
             APM.ShowDialog();
-        }
-        #endregion
+        }        
 
         private void dgvMedicationList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == dgvMedicationList.Columns["Edit"].Index)
-            //{
-            //    if (e.RowIndex >= 0)
-            //    {
-            //        Insurance_ID = Convert.ToInt32(dgvInsurance.Rows[e.RowIndex].Cells[2].Value.ToString());
-            //        txtInsuranceName.Text = dgvInsurance.Rows[e.RowIndex].Cells[4].Value.ToString();
-            //        txtInsuranceGroupNo.Text = dgvInsurance.Rows[e.RowIndex].Cells[5].Value.ToString();
-            //        txtInsuredsId.Text = dgvInsurance.Rows[e.RowIndex].Cells[6].Value.ToString();
-            //        txtInsuranceProvider.Text = dgvInsurance.Rows[e.RowIndex].Cells[7].Value.ToString();
-            //    }
-            //}
+            if (e.ColumnIndex == dgvMedicationList.Columns["EditMed"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    frmAddPatientMedication APM = new frmAddPatientMedication(this);                   
+                    APM.ShowDialog();
+                }
+            }
+        }
+
+        #endregion
+
+        #region [Patient Documents]
+        public void FillDgvDocuments()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientDocuments(Patient_ID);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvDocuments.DataSource = ds.Tables[0];
+                }
+            }
+        }      
+        byte[] bytesDoc;
+        string FileType = "";
+        int DocumentID = 0;
+
+        public void ClearDocumenttextBox()
+        {
+            txtDocumentName.Text = "";
+            txtFileName.Text = "";
+            txtDescription.Text = "";
+            bytesDoc = null;
+            FileType = "";
+            DocumentID = 0;            
+        }
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            fpDocumentUpload.InitialDirectory = "C://Desktop";
+            fpDocumentUpload.Title = "Select Document";
+            if (fpDocumentUpload.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = fpDocumentUpload.FileName;
+                txtFileName.Text = fileName.ToString();
+                FileType = Path.GetExtension(fileName);
+                bytesDoc = File.ReadAllBytes(fileName);
+            }
+        }
+        private void btnSaveDocument_Click(object sender, EventArgs e)
+        {
+            if (txtDocumentName.Text == "" && txtDocumentName.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Document Name");
+            }
+            else if (bytesDoc == null)
+            {
+                MessageBox.Show("Please Select Document to Upload");
+            }
+            else 
+            { 
+                PatientDocumentMaster PDM = new PatientDocumentMaster();
+                PDM.Document_ID = DocumentID;
+                PDM.Patient_ID = Patient_ID;
+                PDM.Document_Data = bytesDoc;
+                PDM.Document_Type = FileType;
+                PDM.Document_Name = txtDocumentName.Text.Trim();
+                PDM.Document_Description = txtDescription.Text.Trim();
+                PDM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
+                PatientMethods PM = new PatientMethods();
+                byte value = PM.AddUpdateDocument(PDM);
+                string msg = value == 0 ? "Document Updated" : value == 1 ? "Same Document Name Already Exists" : "New Document Added";
+                if (value == 1)
+                {
+                    MessageBox.Show(msg);
+                }
+                else
+                {
+                    MessageBox.Show(msg);
+                    FillDgvDocuments();
+                    ClearDocumenttextBox();
+                }
+            }
+        }
+        private void dgvDocuments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvDocuments.Columns["Download"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    byte[] bytes;
+                    string fileName, contentType;
+                    bytes = (byte[])dgvDocuments.Rows[e.RowIndex].Cells[5].Value;
+                    fileName = dgvDocuments.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    contentType = dgvDocuments.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                    Stream stream;
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "All files (*.*)|*.*";
+                    saveFileDialog.FilterIndex = 1;
+                    saveFileDialog.RestoreDirectory = true;
+                    saveFileDialog.FileName = fileName + "." + contentType;
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        stream = saveFileDialog.OpenFile();
+                        stream.Write(bytes, 0, bytes.Length);
+                        stream.Close();
+                        MessageBox.Show("Downloaded...");
+                    }
+                }
+            }
+            if (e.ColumnIndex == dgvContactsList.Columns["Edit"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DocumentID = Convert.ToInt32(dgvDocuments.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    txtDocumentName.Text = dgvDocuments.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    bytesDoc = (byte[])dgvDocuments.Rows[e.RowIndex].Cells[5].Value;
+                    FileType = dgvDocuments.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    txtDescription.Text = dgvDocuments.Rows[e.RowIndex].Cells[7].Value.ToString();
+                }
+            }
+        }
+
+        private void btnAddNewDoc_Click(object sender, EventArgs e)
+        {
+            ClearDocumenttextBox();
+        }
+        #endregion
+
+        private void btnAddNewInfoOrder_Click(object sender, EventArgs e)
+        {
+            frmAddInfoOrder AIF = new frmAddInfoOrder();
+            AIF.ShowDialog();
         }
     }
 }

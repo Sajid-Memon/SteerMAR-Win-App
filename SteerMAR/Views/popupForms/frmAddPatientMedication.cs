@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,63 @@ namespace SteerMAR.Views.popupForms
 {
     public partial class frmAddPatientMedication : Form
     {
-        public frmAddPatientMedication()
+        private frmResidentsDetails RD;
+        public frmAddPatientMedication(frmResidentsDetails FRD)
         {
             InitializeComponent();
+            RD = FRD;
             dtpwrittendate.Value = System.DateTime.Now;
             dtpwrittendate.Value = System.DateTime.Now;
             dtTime.Value = Convert.ToDateTime(System.DateTime.Now.ToShortTimeString());
             FillDrpPhysician();
+            if (frmResidentsDetails.MedicationID > 0)
+            {
+                EditMedication(frmResidentsDetails.MedicationID);
+            }
+        }
+        public void EditMedication(int MedicationID)
+        {
+            PatientMethods PM = new PatientMethods();
+            DataSet ds = PM.SelectPatientMedicationByMedID(MedicationID);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                btnSave.Text = "UPDATE";                    
+                MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["Medication_Image"]);
+                if (ms.Length > 0)
+                {                    
+                    pbPatientProfile.Image = new Bitmap(ms);
+                }                            
+                txtName.Text = ds.Tables[0].Rows[0]["Medication_Name"].ToString();
+                txtEquilentto.Text = ds.Tables[0].Rows[0]["Medication_Equilent_To"].ToString();
+                txtndcno.Text = ds.Tables[0].Rows[0]["Medication_NDC"].ToString();
+                txtrxno.Text = ds.Tables[0].Rows[0]["Medication_RXNo"].ToString();
+                drpPrescriber.SelectedValue = ds.Tables[0].Rows[0]["Medication_Prescriber"].ToString();
+                txtdiagnosis.Text = ds.Tables[0].Rows[0]["Medication_Diagnosis"].ToString();
+                dtpwrittendate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["Medication_WriteDate"].ToString());
+                dtpExpirydate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["Medication_ExpiryDate"].ToString());
+                drpRoute.Text = ds.Tables[0].Rows[0]["Medication_Route"].ToString();
+                txtInstruction.Text = ds.Tables[0].Rows[0]["Medication_Instructions"].ToString();
+                chkControlledDrug.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["Controlled_Drugs"].ToString());
+                chkHomeHealthDrug.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["Home_Health_Drugs"].ToString());
+                chkPNR.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["Medication_PRN"].ToString());
+                txtMinTab.Text = ds.Tables[0].Rows[0]["Min_PRN"].ToString();
+                txtMaxTab.Text = ds.Tables[0].Rows[0]["Max_PRN"].ToString();
+                dtTime.Text = ds.Tables[0].Rows[0]["Medication_Time"].ToString();
+                drpQuantity.Text = ds.Tables[0].Rows[0]["Medication_Qty"].ToString();
+                drpDetails.Text = ds.Tables[0].Rows[0]["Medication_Details"].ToString();
+      
+                string[] WeekDays = ds.Tables[0].Rows[0]["Medication_WeekDays"].ToString().Split(',');
+                foreach (string item in WeekDays)
+                {
+                    for (int i = 0; i < CBWeekDays.Items.Count; i++)
+                    {
+                        if (item.ToString() == ((string)CBWeekDays.Items[i]).ToString())
+                        {
+                            CBWeekDays.SetItemChecked(i, true);
+                        }
+                    }
+                }
+            }
         }
         public void FillDrpPhysician()
         {
@@ -55,6 +106,7 @@ namespace SteerMAR.Views.popupForms
 
         private void btnCloseThis_Click(object sender, EventArgs e)
         {
+            frmResidentsDetails.MedicationID = 0;
             this.Close();
         }
         private void btnChooseImage_Click(object sender, EventArgs e)
@@ -77,7 +129,14 @@ namespace SteerMAR.Views.popupForms
             else
             {
                 PatientMedicationMaster PM = new PatientMedicationMaster();
-                PM.Medication_ID = 0;
+                if (frmResidentsDetails.MedicationID > 0)
+                {
+                    PM.Medication_ID = frmResidentsDetails.MedicationID;
+                }
+                else
+                {
+                    PM.Medication_ID = 0;
+                }                
                 PM.Patient_ID = frmResidentsList.Patient_ID;
                 if (pbPatientProfile.Image != null)
                 {
@@ -143,10 +202,14 @@ namespace SteerMAR.Views.popupForms
                     }
                     PM.Medication_WeekDays = WeekDays.TrimEnd(',');
                 }
+                PM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods patients = new PatientMethods();
                 byte value = patients.AddUpdateMedication(PM);
                 string msg = value == 0 ? "Medication has been Updated" : value == 1 ? "Same Medication Already Exists" : "New Medication Added";
-                MessageBox.Show(msg);               
+                MessageBox.Show(msg);
+                RD.FillDgvMedications();
+                frmResidentsDetails.MedicationID = 0;
+                btnSave.Text = "SAVE";
                 this.Close();
             }
         }     
