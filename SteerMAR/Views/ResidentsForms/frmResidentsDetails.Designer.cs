@@ -201,6 +201,14 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewMedication = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
             this.tabInfoOrder = new System.Windows.Forms.TabPage();
+            this.dgvInfoOrderList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reply = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DownloadReplies = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnAddNewInfoOrder = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
@@ -243,16 +251,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.fpDocumentUpload = new System.Windows.Forms.OpenFileDialog();
-            this.dgvInfoOrderList = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn9 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn10 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
@@ -283,11 +281,11 @@ namespace SteerMAR.Views.ResidentsForms
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicationList)).BeginInit();
             this.panel8.SuspendLayout();
             this.tabInfoOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).BeginInit();
             this.panel10.SuspendLayout();
             this.pnlPatientEntry.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -2373,6 +2371,87 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabInfoOrder.Text = "     Info Order     ";
             this.tabInfoOrder.UseVisualStyleBackColor = true;
             // 
+            // dgvInfoOrderList
+            // 
+            this.dgvInfoOrderList.AllowUserToAddRows = false;
+            this.dgvInfoOrderList.AllowUserToDeleteRows = false;
+            this.dgvInfoOrderList.AllowUserToResizeColumns = false;
+            this.dgvInfoOrderList.AllowUserToResizeRows = false;
+            this.dgvInfoOrderList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInfoOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInfoOrderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.Reply,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.View,
+            this.DownloadReplies});
+            this.dgvInfoOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInfoOrderList.Location = new System.Drawing.Point(0, 41);
+            this.dgvInfoOrderList.Name = "dgvInfoOrderList";
+            this.dgvInfoOrderList.RowHeadersVisible = false;
+            this.dgvInfoOrderList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvInfoOrderList.Size = new System.Drawing.Size(569, 460);
+            this.dgvInfoOrderList.TabIndex = 5;
+            this.dgvInfoOrderList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInfoOrderList_CellClick);
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Task_ID";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Task_ID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // Reply
+            // 
+            this.Reply.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Reply.HeaderText = "Reply";
+            this.Reply.Image = ((System.Drawing.Image)(resources.GetObject("Reply.Image")));
+            this.Reply.Name = "Reply";
+            this.Reply.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Reply.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Reply.Width = 71;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Created_Date";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 66;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Task_Text";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Info Order";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "UserName";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Added By";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 99;
+            // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.View.HeaderText = "View";
+            this.View.Image = ((System.Drawing.Image)(resources.GetObject("View.Image")));
+            this.View.Name = "View";
+            this.View.Width = 48;
+            // 
+            // DownloadReplies
+            // 
+            this.DownloadReplies.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DownloadReplies.HeaderText = "Download";
+            this.DownloadReplies.Image = ((System.Drawing.Image)(resources.GetObject("DownloadReplies.Image")));
+            this.DownloadReplies.Name = "DownloadReplies";
+            this.DownloadReplies.Width = 84;
+            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.btnAddNewInfoOrder);
@@ -2864,103 +2943,6 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.fpDocumentUpload.FileName = "openFileDialog1";
             // 
-            // dgvInfoOrderList
-            // 
-            this.dgvInfoOrderList.AllowUserToAddRows = false;
-            this.dgvInfoOrderList.AllowUserToDeleteRows = false;
-            this.dgvInfoOrderList.AllowUserToResizeColumns = false;
-            this.dgvInfoOrderList.AllowUserToResizeRows = false;
-            this.dgvInfoOrderList.BackgroundColor = System.Drawing.Color.White;
-            this.dgvInfoOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInfoOrderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewImageColumn5,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewImageColumn9,
-            this.dataGridViewImageColumn10});
-            this.dgvInfoOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInfoOrderList.Location = new System.Drawing.Point(0, 41);
-            this.dgvInfoOrderList.Name = "dgvInfoOrderList";
-            this.dgvInfoOrderList.RowHeadersVisible = false;
-            this.dgvInfoOrderList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgvInfoOrderList.Size = new System.Drawing.Size(569, 460);
-            this.dgvInfoOrderList.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Medication_ID";
-            this.dataGridViewTextBoxColumn14.HeaderText = "ContactID";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Visible = false;
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.DataPropertyName = "Medication_Image";
-            this.dataGridViewImageColumn5.HeaderText = "Image";
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Medication_Name";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Medication_RXNo";
-            this.dataGridViewTextBoxColumn19.HeaderText = "RX NO";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Width = 77;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Medication_Time";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Time";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Medication_WriteDate";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Write";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.Width = 71;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "Medication_ExpiryDate";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Expiry";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.Width = 75;
-            // 
-            // dataGridViewImageColumn9
-            // 
-            this.dataGridViewImageColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewImageColumn9.HeaderText = "Edit";
-            this.dataGridViewImageColumn9.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn9.Image")));
-            this.dataGridViewImageColumn9.Name = "dataGridViewImageColumn9";
-            this.dataGridViewImageColumn9.Width = 41;
-            // 
-            // dataGridViewImageColumn10
-            // 
-            this.dataGridViewImageColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewImageColumn10.HeaderText = "Delete";
-            this.dataGridViewImageColumn10.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn10.Image")));
-            this.dataGridViewImageColumn10.Name = "dataGridViewImageColumn10";
-            this.dataGridViewImageColumn10.Width = 58;
-            // 
             // frmResidentsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3006,12 +2988,12 @@ namespace SteerMAR.Views.ResidentsForms
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicationList)).EndInit();
             this.panel8.ResumeLayout(false);
             this.tabInfoOrder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).EndInit();
             this.panel10.ResumeLayout(false);
             this.pnlPatientEntry.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3230,13 +3212,11 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
         private System.Windows.Forms.DataGridView dgvInfoOrderList;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
+        private System.Windows.Forms.DataGridViewImageColumn Reply;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn9;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn10;
+        private System.Windows.Forms.DataGridViewImageColumn View;
+        private System.Windows.Forms.DataGridViewImageColumn DownloadReplies;
     }
 }

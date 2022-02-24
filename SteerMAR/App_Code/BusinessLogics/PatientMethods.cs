@@ -364,15 +364,77 @@ namespace SteerMAR.App_Code.BusinessLogics
         #endregion
 
         #region [Patients Info Order Methods]
-        public byte AddUpdatePatientInfoOrder(InfoOrderMaster model)
+
+        public DataSet SelectPatientUserTask(int Patient_ID,string TaskType)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetPatientTaskList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                cmd.Parameters.AddWithValue("@Task_Type", TaskType);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdatePatientUserTask(UserTaskMaster model)
         {
             localCon();
-            cmd = new SqlCommand("Proc_AddUpdateResidentInfoOrders", con);
+            cmd = new SqlCommand("Proc_AddUpdateResidentUserTask", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@InfoOrder_ID", model.InfoOrder_ID);
+            cmd.Parameters.AddWithValue("@Task_ID", model.Task_ID);
             cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
-            cmd.Parameters.AddWithValue("@InfoOrder_Text", model.InfoOrder_Text);
+            cmd.Parameters.AddWithValue("@Task_Type", model.Task_Type);
+            cmd.Parameters.AddWithValue("@Task_Text", model.Task_Text);
             cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
+        }
+        #endregion
+
+        #region [Patients Response Methods]
+
+        public DataSet SelectUserTaskResponse(int TaskID)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetTaskResponse", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Task_ID", TaskID);                
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdateUserTaskResponse(ResponseMaster model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateResidentTaskResponse", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Response_ID", model.Response_ID);
+            cmd.Parameters.AddWithValue("@Task_ID", model.Task_ID);
+            cmd.Parameters.AddWithValue("@Response_Text", model.Response_Text);            
+            cmd.Parameters.AddWithValue("@Created_By", model.Created_By);
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(spRetVar);

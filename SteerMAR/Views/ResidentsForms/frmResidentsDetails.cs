@@ -34,10 +34,11 @@ namespace SteerMAR.Views.ResidentsForms
                 FillChart();
                 FillDgvInsurance();
                 FillDgvMedications();
+                FillDgvDocuments();
+                FillDgvInfoOrders();
             }
             FillDrpPhysician();
-            FillDrpRefered();
-            FillDgvDocuments();
+            FillDrpRefered();            
         }
 
         #region [Patient Vitals]
@@ -646,10 +647,49 @@ namespace SteerMAR.Views.ResidentsForms
         }
         #endregion
 
+
+        #region [Info Orders]
+        public static int TaskID=0;
         private void btnAddNewInfoOrder_Click(object sender, EventArgs e)
         {
             frmAddInfoOrder AIF = new frmAddInfoOrder();
             AIF.ShowDialog();
         }
+        public void FillDgvInfoOrders()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientUserTask(Patient_ID, "InfoOrder");
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvInfoOrderList.DataSource = ds.Tables[0];
+                }
+            }
+        }
+        private void dgvInfoOrderList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvInfoOrderList.Columns["Reply"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvInfoOrderList.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmAddResponse APM = new frmAddResponse();
+                    APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvInfoOrderList.Columns["View"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvInfoOrderList.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmResponseList APM = new frmResponseList();
+                    APM.ShowDialog();
+                }
+            }
+        }
+        #endregion
+
+
     }
 }

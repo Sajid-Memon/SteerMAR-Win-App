@@ -13,9 +13,9 @@ using static SteerMAR.App_Code.DataAccess.PatientModels;
 
 namespace SteerMAR.Views.popupForms
 {
-    public partial class frmAddInfoOrder : Form
+    public partial class frmAddResponse : Form
     {
-        public frmAddInfoOrder()
+        public frmAddResponse()
         {
             InitializeComponent();
         }
@@ -29,19 +29,18 @@ namespace SteerMAR.Views.popupForms
         {
             if (txtInfoorder.Text == "" && txtInfoorder.Text == string.Empty)
             {
-                MessageBox.Show("Please Enter Info order");
+                MessageBox.Show("Please Enter Response Text");
             }
             else
             {
-                UserTaskMaster UTM = new UserTaskMaster();
-                UTM.Task_ID = 0;
-                UTM.Patient_ID = frmResidentsList.Patient_ID;
-                UTM.Task_Type = "InfoOrder";
-                UTM.Task_Text = txtInfoorder.Text.Trim();
-                UTM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
+                ResponseMaster RM = new ResponseMaster();
+                RM.Response_ID = 0;
+                RM.Task_ID = frmResidentsDetails.TaskID;
+                RM.Response_Text = txtInfoorder.Text.Trim();               
+                RM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods PM = new PatientMethods();
-                byte value = PM.AddUpdatePatientUserTask(UTM);
-                string msg = value == 0 ? "Info Order has Updated" : "New Info Order Created";
+                byte value = PM.AddUpdateUserTaskResponse(RM);
+                string msg = value == 0 ? "Response has been Updated" : "Response has been Submited";
                 MessageBox.Show(msg);
                 this.Close();
             }

@@ -126,12 +126,23 @@ namespace SteerMAR.App_Code.DataAccess
             public int Updated_By { get; set; }
             public DateTime Updated_Date { get; set; }
         }
-        public class InfoOrderMaster
+        public class UserTaskMaster
         {
-            public int InfoOrder_ID { get; set; }
-            public int Patient_ID { get; set; }            
-            public string InfoOrder_Text { get; set; }
+            public int Task_ID { get; set; }
+            public int Patient_ID { get; set; }
+            public string Task_Type { get; set; }
+            public string Task_Text { get; set; }
             public bool IsActive { get; set; }
+            public int Created_By { get; set; }
+            public DateTime Created_Date { get; set; }
+            public int Updated_By { get; set; }
+            public DateTime Updated_Date { get; set; }
+        }
+        public class ResponseMaster
+        {
+            public int Response_ID { get; set; }
+            public int Task_ID { get; set; }
+            public string Response_Text { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_Date { get; set; }
             public int Updated_By { get; set; }
