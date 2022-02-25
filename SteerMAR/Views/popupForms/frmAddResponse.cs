@@ -42,6 +42,7 @@ namespace SteerMAR.Views.popupForms
                 byte value = PM.AddUpdateUserTaskResponse(RM);
                 string msg = value == 0 ? "Response has been Updated" : "Response has been Submited";
                 MessageBox.Show(msg);
+                frmResidentsDetails.TaskID = 0;
                 this.Close();
             }
         }

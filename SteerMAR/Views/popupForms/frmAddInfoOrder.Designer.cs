@@ -32,10 +32,10 @@ namespace SteerMAR.Views.popupForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddInfoOrder));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new SteerMAR.CustomControlls.RoundedButton();
             this.txtInfoorder = new System.Windows.Forms.TextBox();
             this.btnCloseThis = new System.Windows.Forms.Button();
-            this.label50 = new System.Windows.Forms.Label();
-            this.btnSave = new SteerMAR.CustomControlls.RoundedButton();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@ namespace SteerMAR.Views.popupForms
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.txtInfoorder);
             this.panel1.Controls.Add(this.btnCloseThis);
-            this.panel1.Controls.Add(this.label50);
+            this.panel1.Controls.Add(this.lblHeader);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -58,18 +58,35 @@ namespace SteerMAR.Views.popupForms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label1.Location = new System.Drawing.Point(19, 63);
+            this.label1.Location = new System.Drawing.Point(19, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 18);
+            this.label1.Size = new System.Drawing.Size(43, 18);
             this.label1.TabIndex = 78;
-            this.label1.Text = "Info Order";
+            this.label1.Text = "Text";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSave.BorderRadius = 3;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(273, 127);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(118, 39);
+            this.btnSave.TabIndex = 76;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtInfoorder
             // 
             this.txtInfoorder.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfoorder.Location = new System.Drawing.Point(22, 84);
+            this.txtInfoorder.Location = new System.Drawing.Point(22, 67);
+            this.txtInfoorder.Multiline = true;
             this.txtInfoorder.Name = "txtInfoorder";
-            this.txtInfoorder.Size = new System.Drawing.Size(369, 27);
+            this.txtInfoorder.Size = new System.Drawing.Size(369, 54);
             this.txtInfoorder.TabIndex = 77;
             // 
             // btnCloseThis
@@ -87,32 +104,16 @@ namespace SteerMAR.Views.popupForms
             this.btnCloseThis.UseVisualStyleBackColor = true;
             this.btnCloseThis.Click += new System.EventHandler(this.btnCloseThis_Click);
             // 
-            // label50
+            // lblHeader
             // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label50.Location = new System.Drawing.Point(3, 7);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(87, 18);
-            this.label50.TabIndex = 75;
-            this.label50.Text = "Info Order";
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSave.BorderRadius = 3;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(273, 127);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 39);
-            this.btnSave.TabIndex = 76;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lblHeader.Location = new System.Drawing.Point(3, 7);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(87, 18);
+            this.lblHeader.TabIndex = 75;
+            this.lblHeader.Text = "Info Order";
             // 
             // frmAddInfoOrder
             // 
@@ -142,6 +143,6 @@ namespace SteerMAR.Views.popupForms
         private CustomControlls.RoundedButton btnSave;
         private System.Windows.Forms.TextBox txtInfoorder;
         private System.Windows.Forms.Button btnCloseThis;
-        private System.Windows.Forms.Label label50;
+        public System.Windows.Forms.Label lblHeader;
     }
 }

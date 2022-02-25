@@ -36,6 +36,8 @@ namespace SteerMAR.Views.ResidentsForms
                 FillDgvMedications();
                 FillDgvDocuments();
                 FillDgvInfoOrders();
+                fillDgvAssignment();
+                fillDgvComment();
             }
             FillDrpPhysician();
             FillDrpRefered();            
@@ -647,12 +649,12 @@ namespace SteerMAR.Views.ResidentsForms
         }
         #endregion
 
-
         #region [Info Orders]
         public static int TaskID=0;
         private void btnAddNewInfoOrder_Click(object sender, EventArgs e)
         {
-            frmAddInfoOrder AIF = new frmAddInfoOrder();
+            frmAddInfoOrder AIF = new frmAddInfoOrder(this);
+            AIF.lblHeader.Text = "Info Order";
             AIF.ShowDialog();
         }
         public void FillDgvInfoOrders()
@@ -660,10 +662,10 @@ namespace SteerMAR.Views.ResidentsForms
             if (Patient_ID > 0)
             {
                 PatientMethods PM = new PatientMethods();
-                DataSet ds = PM.SelectPatientUserTask(Patient_ID, "InfoOrder");
+                DataSet ds = PM.SelectPatientUserTask(Patient_ID, "Info Order");
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    dgvInfoOrderList.DataSource = ds.Tables[0];
+                    dgvInfoOrderList.DataSource = ds.Tables[0];                    
                 }
             }
         }
@@ -688,8 +690,91 @@ namespace SteerMAR.Views.ResidentsForms
                 }
             }
         }
+
         #endregion
 
+        #region [Assignment]
+        private void btnAddNewAssignMent_Click(object sender, EventArgs e)
+        {
+            frmAddInfoOrder AIF = new frmAddInfoOrder(this);
+            AIF.lblHeader.Text = "Assignment";
+            AIF.ShowDialog();
+        }
+        public void fillDgvAssignment()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientUserTask(Patient_ID, "Assignment");
+                if (ds.Tables[0].Rows.Count > 0)
+                {                    
+                    dgvAssignment.DataSource = ds.Tables[0];
+                }
+            }
+        }
+        private void dgvAssignment_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvAssignment.Columns["ReplyAssignment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvAssignment.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmAddResponse APM = new frmAddResponse();
+                    APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvAssignment.Columns["ViewAssignment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvAssignment.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmResponseList APM = new frmResponseList();
+                    APM.ShowDialog();
+                }
+            }
+        }
+        #endregion
 
+        #region [Comment]
+        private void btnAddComment_Click(object sender, EventArgs e)
+        {
+            frmAddInfoOrder AIF = new frmAddInfoOrder(this);
+            AIF.lblHeader.Text = "Comment";
+            AIF.ShowDialog();
+        }
+        public void fillDgvComment()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientUserTask(Patient_ID, "Comment");
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvComments.DataSource = ds.Tables[0];
+                }
+            }
+        }
+        private void dgvComments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvComments.Columns["ReplyComment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvComments.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmAddResponse APM = new frmAddResponse();
+                    APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvComments.Columns["ViewComment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvComments.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    frmResponseList APM = new frmResponseList();
+                    APM.ShowDialog();
+                }
+            }
+        }
+        #endregion
     }
 }

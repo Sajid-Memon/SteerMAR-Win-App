@@ -15,9 +15,11 @@ namespace SteerMAR.Views.popupForms
 {
     public partial class frmAddInfoOrder : Form
     {
-        public frmAddInfoOrder()
+        private frmResidentsDetails RD;
+        public frmAddInfoOrder(frmResidentsDetails FRD)
         {
             InitializeComponent();
+            RD = FRD;
         }
 
         private void btnCloseThis_Click(object sender, EventArgs e)
@@ -29,20 +31,32 @@ namespace SteerMAR.Views.popupForms
         {
             if (txtInfoorder.Text == "" && txtInfoorder.Text == string.Empty)
             {
-                MessageBox.Show("Please Enter Info order");
+                MessageBox.Show("Please Enter Message Text");
             }
             else
             {
                 UserTaskMaster UTM = new UserTaskMaster();
                 UTM.Task_ID = 0;
                 UTM.Patient_ID = frmResidentsList.Patient_ID;
-                UTM.Task_Type = "InfoOrder";
+                UTM.Task_Type = lblHeader.Text.Trim();
                 UTM.Task_Text = txtInfoorder.Text.Trim();
                 UTM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods PM = new PatientMethods();
                 byte value = PM.AddUpdatePatientUserTask(UTM);
-                string msg = value == 0 ? "Info Order has Updated" : "New Info Order Created";
+                string msg = value == 0 ? lblHeader.Text.Trim() +" has Updated" : "New " +lblHeader.Text.Trim() +" Created";
                 MessageBox.Show(msg);
+                if (lblHeader.Text.Trim() == "Info Order")
+                {
+                    RD.FillDgvInfoOrders();
+                }
+                if (lblHeader.Text.Trim() == "Assignment")
+                {
+                    RD.fillDgvAssignment();
+                }
+                else
+                {
+                    RD.fillDgvComment();
+                }
                 this.Close();
             }
         }
