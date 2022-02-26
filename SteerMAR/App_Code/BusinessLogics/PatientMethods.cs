@@ -351,7 +351,8 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Medication_Time", model.Medication_Time);
             cmd.Parameters.AddWithValue("@Medication_Qty", model.Medication_Qty);
             cmd.Parameters.AddWithValue("@Medication_Details", model.Medication_Details);
-            cmd.Parameters.AddWithValue("@Medication_WeekDays", model.Medication_WeekDays);            
+            cmd.Parameters.AddWithValue("@Medication_WeekDays", model.Medication_WeekDays);
+            cmd.Parameters.AddWithValue("@Med_State", model.Med_State);
             cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;
@@ -360,6 +361,16 @@ namespace SteerMAR.App_Code.BusinessLogics
             byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
             con.Close();
             return retVal;
+        }
+        public string ChangeMedState(int MedID,bool State)
+        {
+            localCon();
+            cmd = new SqlCommand("UPDATE Patient_Medication_Master SET Med_State = @State WHERE Medication_ID = @MedID", con);
+            cmd.Parameters.AddWithValue("@MedID", MedID);
+            cmd.Parameters.AddWithValue("@State", State);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return "Medication State Has Been Changed !";
         }
         #endregion
 

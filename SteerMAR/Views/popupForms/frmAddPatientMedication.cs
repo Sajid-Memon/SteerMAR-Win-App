@@ -72,6 +72,14 @@ namespace SteerMAR.Views.popupForms
                         }
                     }
                 }
+                if (Convert.ToBoolean(ds.Tables[0].Rows[0]["Med_State"]) == true)
+                {
+                    btnContinue.Text = "CONTINUE";
+                }
+                else
+                {
+                    btnContinue.Text = "DISCONTINUE";
+                }
             }
         }
         public void FillDrpPhysician()
@@ -201,6 +209,14 @@ namespace SteerMAR.Views.popupForms
 
                     }
                     PM.Medication_WeekDays = WeekDays.TrimEnd(',');
+                }
+                if (btnContinue.Text == "CONTINUE")
+                {
+                    PM.Med_State = true;
+                }
+                else
+                {
+                    PM.Med_State = false;
                 }
                 PM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods patients = new PatientMethods();

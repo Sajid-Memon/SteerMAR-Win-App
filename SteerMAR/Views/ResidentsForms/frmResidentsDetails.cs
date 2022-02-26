@@ -505,7 +505,21 @@ namespace SteerMAR.Views.ResidentsForms
                 DataSet ds = PM.SelectPatientMedication(Patient_ID);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    dgvMedicationList.DataSource = ds.Tables[0];
+                    DataTable dt = ds.Tables[0];
+                    dt.Columns.Add("MedState", typeof(Image));
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        var flag = dt.Rows[i]["Med_State"].ToString().ToLower() == "true";
+                        if (flag)
+                        {
+                            dt.Rows[i]["MedState"] = Properties.Resources.active;
+                        }
+                        else
+                        {
+                            dt.Rows[i]["MedState"] = Properties.Resources.inactive;
+                        }
+                    }
+                    dgvMedicationList.DataSource = dt;
                 }
             }
         }
@@ -524,6 +538,31 @@ namespace SteerMAR.Views.ResidentsForms
                     MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
                     frmAddPatientMedication APM = new frmAddPatientMedication(this);                   
                     APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvMedicationList.Columns["State"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    string msg = "";
+                    DialogResult dialogResult = MessageBox.Show("Are you Sure! You Want To Change Medication State?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        bool MedState = Convert.ToBoolean(dgvMedicationList.Rows[e.RowIndex].Cells[9].Value.ToString());
+                        if (MedState == true)
+                        {
+                            PatientMethods PM = new PatientMethods();
+                            msg = PM.ChangeMedState(MedicationID, false);
+                        }
+                        else
+                        {
+                            PatientMethods PM = new PatientMethods();
+                            msg = PM.ChangeMedState(MedicationID, true);
+                        }
+                        MessageBox.Show(msg);
+                        FillDgvMedications();
+                    }
                 }
             }
         }

@@ -39,6 +39,7 @@ namespace SteerMAR.Views.popupForms
             this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnSave = new SteerMAR.CustomControlls.RoundedButton();
             this.pnlPNR = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMaxTab = new System.Windows.Forms.TextBox();
@@ -70,9 +71,9 @@ namespace SteerMAR.Views.popupForms
             this.btnCloseThis = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.pbPatientProfile = new System.Windows.Forms.PictureBox();
-            this.btnSave = new SteerMAR.CustomControlls.RoundedButton();
             this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
             this.fpImage = new System.Windows.Forms.OpenFileDialog();
+            this.btnContinue = new SteerMAR.CustomControlls.RoundedButton();
             this.panel1.SuspendLayout();
             this.pnlRoutine.SuspendLayout();
             this.pnlPNR.SuspendLayout();
@@ -82,6 +83,7 @@ namespace SteerMAR.Views.popupForms
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnContinue);
             this.panel1.Controls.Add(this.pnlRoutine);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.pnlPNR);
@@ -240,6 +242,22 @@ namespace SteerMAR.Views.popupForms
             this.label14.Size = new System.Drawing.Size(49, 18);
             this.label14.TabIndex = 85;
             this.label14.Text = "Time";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSave.BorderRadius = 3;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(361, 518);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(157, 39);
+            this.btnSave.TabIndex = 98;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlPNR
             // 
@@ -594,22 +612,6 @@ namespace SteerMAR.Views.popupForms
             this.pbPatientProfile.TabIndex = 41;
             this.pbPatientProfile.TabStop = false;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSave.BorderRadius = 3;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(400, 523);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 39);
-            this.btnSave.TabIndex = 98;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // btnChooseImage
             // 
             this.btnChooseImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
@@ -629,6 +631,21 @@ namespace SteerMAR.Views.popupForms
             // fpImage
             // 
             this.fpImage.FileName = "openFileDialog1";
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnContinue.BorderRadius = 3;
+            this.btnContinue.FlatAppearance.BorderSize = 0;
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinue.ForeColor = System.Drawing.Color.White;
+            this.btnContinue.Location = new System.Drawing.Point(11, 518);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(172, 39);
+            this.btnContinue.TabIndex = 100;
+            this.btnContinue.Text = "CONTINUE";
+            this.btnContinue.UseVisualStyleBackColor = false;
             // 
             // frmAddPatientMedication
             // 
@@ -701,5 +718,6 @@ namespace SteerMAR.Views.popupForms
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckedListBox CBWeekDays;
         private System.Windows.Forms.OpenFileDialog fpImage;
+        private CustomControlls.RoundedButton btnContinue;
     }
 }

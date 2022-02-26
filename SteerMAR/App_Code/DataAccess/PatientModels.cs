@@ -106,6 +106,7 @@ namespace SteerMAR.App_Code.DataAccess
             public string Medication_Qty { get; set; }
             public string Medication_Details { get; set; }
             public string Medication_WeekDays { get; set; }
+            public bool Med_State { get; set; }
             public bool IsActive { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_Date { get; set; }

@@ -29,17 +29,23 @@ namespace SteerMAR.Views.ResidentsForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResidentsDetails));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResidentsDetails));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
+            this.lblPatientName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pbMainProfile = new System.Windows.Forms.PictureBox();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tabProfile = new System.Windows.Forms.TabPage();
             this.tbcSecond = new System.Windows.Forms.TabControl();
             this.tabPatientProfile = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnSavePatient = new SteerMAR.CustomControlls.RoundedButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.chkInsurance = new System.Windows.Forms.CheckBox();
@@ -76,6 +82,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.drpMedCart = new System.Windows.Forms.ComboBox();
             this.txtRoomNo = new System.Windows.Forms.TextBox();
             this.drpRefferedBy = new System.Windows.Forms.ComboBox();
+            this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
             this.txtPatientCode = new System.Windows.Forms.TextBox();
             this.drpSalutation = new System.Windows.Forms.ComboBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -106,6 +113,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chkIsPayee = new System.Windows.Forms.CheckBox();
             this.txtPersonName = new System.Windows.Forms.TextBox();
+            this.btnSaveContact = new SteerMAR.CustomControlls.RoundedButton();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.drpRelation = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -134,6 +142,8 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewContact = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.tabDocuments = new System.Windows.Forms.TabPage();
+            this.btnBrowse = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnSaveDocument = new SteerMAR.CustomControlls.RoundedButton();
             this.label63 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -155,6 +165,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabInsurance = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.txtInsuranceProvider = new System.Windows.Forms.TextBox();
+            this.btnSaveInsurance = new SteerMAR.CustomControlls.RoundedButton();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -175,8 +186,18 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewInsurance = new System.Windows.Forms.Button();
             this.label53 = new System.Windows.Forms.Label();
             this.tabMedication = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.dgvMedicationList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedImg = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewImageColumn();
+            this.EditMed = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnAddNewMedication = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
@@ -193,15 +214,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewInfoOrder = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
             this.tabAssignment = new System.Windows.Forms.TabPage();
-            this.tabComments = new System.Windows.Forms.TabPage();
-            this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.fpDocumentUpload = new System.Windows.Forms.OpenFileDialog();
             this.dgvAssignment = new System.Windows.Forms.DataGridView();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.btnAddNewAssignMent = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReplyAssignment = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -209,10 +222,11 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewAssignment = new System.Windows.Forms.DataGridViewImageColumn();
             this.DownloadAssignment = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnAddNewAssignMent = new System.Windows.Forms.Button();
+            this.label64 = new System.Windows.Forms.Label();
+            this.tabComments = new System.Windows.Forms.TabPage();
             this.dgvComments = new System.Windows.Forms.DataGridView();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.btnAddComment = new System.Windows.Forms.Button();
-            this.label65 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReplyComment = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -220,17 +234,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewComment = new System.Windows.Forms.DataGridViewImageColumn();
             this.DownloadComment = new System.Windows.Forms.DataGridViewImageColumn();
-            this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
-            this.lblPatientName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pbMainProfile = new System.Windows.Forms.PictureBox();
-            this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnSavePatient = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnSaveContact = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnBrowse = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnSaveDocument = new SteerMAR.CustomControlls.RoundedButton();
-            this.btnSaveInsurance = new SteerMAR.CustomControlls.RoundedButton();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.btnAddComment = new System.Windows.Forms.Button();
+            this.label65 = new System.Windows.Forms.Label();
             this.pnlPatientEntry = new SteerMAR.CustomControlls.RoundedPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMainPreferedName = new System.Windows.Forms.TextBox();
@@ -264,16 +270,13 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnEditResident = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedImg = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditMed = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.fpProfilePic = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.fpDocumentUpload = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
             this.tbcMain.SuspendLayout();
             this.tabProfile.SuspendLayout();
             this.tbcSecond.SuspendLayout();
@@ -304,13 +307,11 @@ namespace SteerMAR.Views.ResidentsForms
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).BeginInit();
             this.panel10.SuspendLayout();
             this.tabAssignment.SuspendLayout();
-            this.tabComments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignment)).BeginInit();
             this.panel12.SuspendLayout();
+            this.tabComments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComments)).BeginInit();
             this.panel13.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).BeginInit();
             this.pnlPatientEntry.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -336,6 +337,53 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 561);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.Controls.Add(this.lblPatientName);
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.pbMainProfile);
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.Location = new System.Drawing.Point(20, 14);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Radius = 20;
+            this.roundedPanel1.Size = new System.Drawing.Size(259, 78);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Thickness = 5F;
+            // 
+            // lblPatientName
+            // 
+            this.lblPatientName.AutoSize = true;
+            this.lblPatientName.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lblPatientName.Location = new System.Drawing.Point(86, 34);
+            this.lblPatientName.Name = "lblPatientName";
+            this.lblPatientName.Size = new System.Drawing.Size(130, 22);
+            this.lblPatientName.TabIndex = 6;
+            this.lblPatientName.Text = "Riquetti, Peter";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Hero New Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(87, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "PATIENT / RESIDENT";
+            // 
+            // pbMainProfile
+            // 
+            this.pbMainProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbMainProfile.Image")));
+            this.pbMainProfile.Location = new System.Drawing.Point(12, 8);
+            this.pbMainProfile.Name = "pbMainProfile";
+            this.pbMainProfile.Size = new System.Drawing.Size(71, 63);
+            this.pbMainProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMainProfile.TabIndex = 4;
+            this.pbMainProfile.TabStop = false;
             // 
             // tbcMain
             // 
@@ -499,6 +547,39 @@ namespace SteerMAR.Views.ResidentsForms
             this.label19.Size = new System.Drawing.Size(95, 13);
             this.label19.TabIndex = 8;
             this.label19.Text = "Profile";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancel.BorderRadius = 1;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(319, 401);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(95, 28);
+            this.btnCancel.TabIndex = 83;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnSavePatient
+            // 
+            this.btnSavePatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSavePatient.BorderRadius = 1;
+            this.btnSavePatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSavePatient.FlatAppearance.BorderSize = 0;
+            this.btnSavePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePatient.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePatient.ForeColor = System.Drawing.Color.White;
+            this.btnSavePatient.Location = new System.Drawing.Point(420, 401);
+            this.btnSavePatient.Name = "btnSavePatient";
+            this.btnSavePatient.Size = new System.Drawing.Size(95, 28);
+            this.btnSavePatient.TabIndex = 82;
+            this.btnSavePatient.Text = "UPDATE";
+            this.btnSavePatient.UseVisualStyleBackColor = false;
+            this.btnSavePatient.Click += new System.EventHandler(this.btnSavePatient_Click);
             // 
             // label20
             // 
@@ -926,6 +1007,23 @@ namespace SteerMAR.Views.ResidentsForms
             this.drpRefferedBy.Size = new System.Drawing.Size(95, 23);
             this.drpRefferedBy.TabIndex = 50;
             // 
+            // btnChooseImage
+            // 
+            this.btnChooseImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnChooseImage.BorderRadius = 0;
+            this.btnChooseImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChooseImage.FlatAppearance.BorderSize = 0;
+            this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseImage.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseImage.ForeColor = System.Drawing.Color.White;
+            this.btnChooseImage.Location = new System.Drawing.Point(16, 93);
+            this.btnChooseImage.Name = "btnChooseImage";
+            this.btnChooseImage.Size = new System.Drawing.Size(95, 17);
+            this.btnChooseImage.TabIndex = 40;
+            this.btnChooseImage.Text = "choose";
+            this.btnChooseImage.UseVisualStyleBackColor = false;
+            this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
+            // 
             // txtPatientCode
             // 
             this.txtPatientCode.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1153,7 +1251,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 487);
+            this.panel1.Size = new System.Drawing.Size(532, 487);
             this.panel1.TabIndex = 0;
             // 
             // chart1
@@ -1169,7 +1267,7 @@ namespace SteerMAR.Views.ResidentsForms
             series1.Legend = "Legend1";
             series1.Name = "VitalName";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(536, 443);
+            this.chart1.Size = new System.Drawing.Size(532, 443);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -1181,7 +1279,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(536, 44);
+            this.panel2.Size = new System.Drawing.Size(532, 44);
             this.panel2.TabIndex = 0;
             // 
             // btnOpenVitalPopup
@@ -1192,7 +1290,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnOpenVitalPopup.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenVitalPopup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnOpenVitalPopup.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenVitalPopup.Image")));
-            this.btnOpenVitalPopup.Location = new System.Drawing.Point(466, 0);
+            this.btnOpenVitalPopup.Location = new System.Drawing.Point(462, 0);
             this.btnOpenVitalPopup.Name = "btnOpenVitalPopup";
             this.btnOpenVitalPopup.Size = new System.Drawing.Size(35, 44);
             this.btnOpenVitalPopup.TabIndex = 9;
@@ -1208,7 +1306,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnOpenVitalHistory.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenVitalHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnOpenVitalHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenVitalHistory.Image")));
-            this.btnOpenVitalHistory.Location = new System.Drawing.Point(501, 0);
+            this.btnOpenVitalHistory.Location = new System.Drawing.Point(497, 0);
             this.btnOpenVitalHistory.Name = "btnOpenVitalHistory";
             this.btnOpenVitalHistory.Size = new System.Drawing.Size(35, 44);
             this.btnOpenVitalHistory.TabIndex = 8;
@@ -1248,7 +1346,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 198);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(530, 286);
+            this.panel6.Size = new System.Drawing.Size(526, 286);
             this.panel6.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -1288,16 +1386,16 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.50053F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.6331F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.413412F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(530, 286);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(526, 286);
             this.tableLayoutPanel4.TabIndex = 74;
             // 
             // chkIsPayee
             // 
             this.chkIsPayee.AutoSize = true;
             this.chkIsPayee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkIsPayee.Location = new System.Drawing.Point(141, 240);
+            this.chkIsPayee.Location = new System.Drawing.Point(140, 240);
             this.chkIsPayee.Name = "chkIsPayee";
-            this.chkIsPayee.Size = new System.Drawing.Size(119, 32);
+            this.chkIsPayee.Size = new System.Drawing.Size(118, 32);
             this.chkIsPayee.TabIndex = 81;
             this.chkIsPayee.Text = "Yes";
             this.chkIsPayee.UseVisualStyleBackColor = true;
@@ -1309,8 +1407,25 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtPersonName.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersonName.Location = new System.Drawing.Point(16, 36);
             this.txtPersonName.Name = "txtPersonName";
-            this.txtPersonName.Size = new System.Drawing.Size(369, 23);
+            this.txtPersonName.Size = new System.Drawing.Size(366, 23);
             this.txtPersonName.TabIndex = 61;
+            // 
+            // btnSaveContact
+            // 
+            this.btnSaveContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSaveContact.BorderRadius = 3;
+            this.btnSaveContact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveContact.FlatAppearance.BorderSize = 0;
+            this.btnSaveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveContact.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveContact.ForeColor = System.Drawing.Color.White;
+            this.btnSaveContact.Location = new System.Drawing.Point(388, 240);
+            this.btnSaveContact.Name = "btnSaveContact";
+            this.btnSaveContact.Size = new System.Drawing.Size(118, 32);
+            this.btnSaveContact.TabIndex = 62;
+            this.btnSaveContact.Text = "SAVE";
+            this.btnSaveContact.UseVisualStyleBackColor = false;
+            this.btnSaveContact.Click += new System.EventHandler(this.btnSaveContact_Click);
             // 
             // txtAddress
             // 
@@ -1320,7 +1435,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtAddress.Location = new System.Drawing.Point(16, 190);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(494, 44);
+            this.txtAddress.Size = new System.Drawing.Size(490, 44);
             this.txtAddress.TabIndex = 72;
             // 
             // drpRelation
@@ -1341,9 +1456,9 @@ namespace SteerMAR.Views.ResidentsForms
             "Son",
             "Daughter",
             ""});
-            this.drpRelation.Location = new System.Drawing.Point(391, 36);
+            this.drpRelation.Location = new System.Drawing.Point(388, 36);
             this.drpRelation.Name = "drpRelation";
-            this.drpRelation.Size = new System.Drawing.Size(119, 23);
+            this.drpRelation.Size = new System.Drawing.Size(118, 23);
             this.drpRelation.TabIndex = 63;
             // 
             // label52
@@ -1354,7 +1469,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label52.Location = new System.Drawing.Point(16, 160);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(119, 27);
+            this.label52.Size = new System.Drawing.Size(118, 27);
             this.label52.TabIndex = 71;
             this.label52.Text = "Address";
             // 
@@ -1367,7 +1482,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label43.Location = new System.Drawing.Point(16, 6);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(244, 27);
+            this.label43.Size = new System.Drawing.Size(242, 27);
             this.label43.TabIndex = 60;
             this.label43.Text = "Contact Person Name";
             // 
@@ -1376,9 +1491,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel4.SetColumnSpan(this.txtEmail, 2);
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEmail.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(266, 113);
+            this.txtEmail.Location = new System.Drawing.Point(264, 113);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(244, 23);
+            this.txtEmail.Size = new System.Drawing.Size(242, 23);
             this.txtEmail.TabIndex = 70;
             // 
             // label48
@@ -1387,9 +1502,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label48.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label48.Location = new System.Drawing.Point(391, 6);
+            this.label48.Location = new System.Drawing.Point(388, 6);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(119, 27);
+            this.label48.Size = new System.Drawing.Size(118, 27);
             this.label48.TabIndex = 64;
             this.label48.Text = "Relation";
             // 
@@ -1397,9 +1512,9 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             this.txtPhoneNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPhoneNo.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNo.Location = new System.Drawing.Point(141, 113);
+            this.txtPhoneNo.Location = new System.Drawing.Point(140, 113);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(119, 23);
+            this.txtPhoneNo.Size = new System.Drawing.Size(118, 23);
             this.txtPhoneNo.TabIndex = 68;
             // 
             // label51
@@ -1408,9 +1523,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label51.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label51.Location = new System.Drawing.Point(266, 83);
+            this.label51.Location = new System.Drawing.Point(264, 83);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(119, 27);
+            this.label51.Size = new System.Drawing.Size(118, 27);
             this.label51.TabIndex = 69;
             this.label51.Text = "Email";
             // 
@@ -1420,7 +1535,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtMobileNo.Font = new System.Drawing.Font("Hero", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo.Location = new System.Drawing.Point(16, 113);
             this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(119, 23);
+            this.txtMobileNo.Size = new System.Drawing.Size(118, 23);
             this.txtMobileNo.TabIndex = 66;
             // 
             // label49
@@ -1431,7 +1546,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label49.Location = new System.Drawing.Point(16, 83);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(119, 27);
+            this.label49.Size = new System.Drawing.Size(118, 27);
             this.label49.TabIndex = 65;
             this.label49.Text = "Mobile No";
             // 
@@ -1441,9 +1556,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label50.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label50.Location = new System.Drawing.Point(141, 83);
+            this.label50.Location = new System.Drawing.Point(140, 83);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(119, 27);
+            this.label50.Size = new System.Drawing.Size(118, 27);
             this.label50.TabIndex = 67;
             this.label50.Text = "Phone No";
             // 
@@ -1455,7 +1570,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label47.Location = new System.Drawing.Point(16, 237);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(119, 38);
+            this.label47.Size = new System.Drawing.Size(118, 38);
             this.label47.TabIndex = 73;
             this.label47.Text = "IsPayee";
             // 
@@ -1483,7 +1598,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvContactsList.Location = new System.Drawing.Point(3, 40);
             this.dgvContactsList.Name = "dgvContactsList";
             this.dgvContactsList.RowHeadersVisible = false;
-            this.dgvContactsList.Size = new System.Drawing.Size(530, 158);
+            this.dgvContactsList.Size = new System.Drawing.Size(526, 158);
             this.dgvContactsList.TabIndex = 3;
             this.dgvContactsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContactsList_CellClick);
             // 
@@ -1576,7 +1691,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(530, 37);
+            this.panel5.Size = new System.Drawing.Size(526, 37);
             this.panel5.TabIndex = 2;
             // 
             // btnAddNewContact
@@ -1587,7 +1702,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewContact.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAddNewContact.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewContact.Image")));
-            this.btnAddNewContact.Location = new System.Drawing.Point(495, 0);
+            this.btnAddNewContact.Location = new System.Drawing.Point(491, 0);
             this.btnAddNewContact.Name = "btnAddNewContact";
             this.btnAddNewContact.Size = new System.Drawing.Size(35, 37);
             this.btnAddNewContact.TabIndex = 9;
@@ -1626,6 +1741,40 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabDocuments.TabIndex = 1;
             this.tabDocuments.Text = "   Documents   ";
             this.tabDocuments.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnBrowse.BorderRadius = 0;
+            this.btnBrowse.FlatAppearance.BorderSize = 0;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Font = new System.Drawing.Font("Hero Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Location = new System.Drawing.Point(434, 297);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(92, 27);
+            this.btnBrowse.TabIndex = 64;
+            this.btnBrowse.Text = "BROWSE";
+            this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // btnSaveDocument
+            // 
+            this.btnSaveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSaveDocument.BorderRadius = 3;
+            this.btnSaveDocument.FlatAppearance.BorderSize = 0;
+            this.btnSaveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDocument.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDocument.ForeColor = System.Drawing.Color.White;
+            this.btnSaveDocument.Location = new System.Drawing.Point(408, 417);
+            this.btnSaveDocument.Name = "btnSaveDocument";
+            this.btnSaveDocument.Size = new System.Drawing.Size(118, 32);
+            this.btnSaveDocument.TabIndex = 63;
+            this.btnSaveDocument.Text = "SAVE";
+            this.btnSaveDocument.UseVisualStyleBackColor = false;
+            this.btnSaveDocument.Click += new System.EventHandler(this.btnSaveDocument_Click);
             // 
             // label63
             // 
@@ -1712,7 +1861,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvDocuments.Location = new System.Drawing.Point(3, 40);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.RowHeadersVisible = false;
-            this.dgvDocuments.Size = new System.Drawing.Size(530, 183);
+            this.dgvDocuments.Size = new System.Drawing.Size(526, 183);
             this.dgvDocuments.TabIndex = 5;
             this.dgvDocuments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocuments_CellClick);
             // 
@@ -1784,7 +1933,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(530, 37);
+            this.panel11.Size = new System.Drawing.Size(526, 37);
             this.panel11.TabIndex = 4;
             // 
             // btnAddNewDoc
@@ -1795,7 +1944,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewDoc.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAddNewDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewDoc.Image")));
-            this.btnAddNewDoc.Location = new System.Drawing.Point(495, 0);
+            this.btnAddNewDoc.Location = new System.Drawing.Point(491, 0);
             this.btnAddNewDoc.Name = "btnAddNewDoc";
             this.btnAddNewDoc.Size = new System.Drawing.Size(35, 37);
             this.btnAddNewDoc.TabIndex = 9;
@@ -1852,7 +2001,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.90909F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.45455F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.36364F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(536, 208);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(532, 208);
             this.tableLayoutPanel5.TabIndex = 65;
             // 
             // txtInsuranceProvider
@@ -1862,8 +2011,25 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtInsuranceProvider.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInsuranceProvider.Location = new System.Drawing.Point(3, 135);
             this.txtInsuranceProvider.Name = "txtInsuranceProvider";
-            this.txtInsuranceProvider.Size = new System.Drawing.Size(530, 27);
+            this.txtInsuranceProvider.Size = new System.Drawing.Size(526, 27);
             this.txtInsuranceProvider.TabIndex = 24;
+            // 
+            // btnSaveInsurance
+            // 
+            this.btnSaveInsurance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
+            this.btnSaveInsurance.BorderRadius = 3;
+            this.btnSaveInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveInsurance.FlatAppearance.BorderSize = 0;
+            this.btnSaveInsurance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveInsurance.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveInsurance.ForeColor = System.Drawing.Color.White;
+            this.btnSaveInsurance.Location = new System.Drawing.Point(269, 167);
+            this.btnSaveInsurance.Name = "btnSaveInsurance";
+            this.btnSaveInsurance.Size = new System.Drawing.Size(260, 38);
+            this.btnSaveInsurance.TabIndex = 63;
+            this.btnSaveInsurance.Text = "SAVE";
+            this.btnSaveInsurance.UseVisualStyleBackColor = false;
+            this.btnSaveInsurance.Click += new System.EventHandler(this.btnSaveInsurance_Click);
             // 
             // label54
             // 
@@ -1873,7 +2039,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label54.Location = new System.Drawing.Point(3, 0);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(262, 23);
+            this.label54.Size = new System.Drawing.Size(260, 23);
             this.label54.TabIndex = 8;
             this.label54.Text = "Insurance Name";
             // 
@@ -1885,7 +2051,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label55.Location = new System.Drawing.Point(3, 106);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(262, 26);
+            this.label55.Size = new System.Drawing.Size(260, 26);
             this.label55.TabIndex = 7;
             this.label55.Text = "Insurance Provider";
             // 
@@ -1897,7 +2063,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label56.Location = new System.Drawing.Point(3, 54);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(262, 23);
+            this.label56.Size = new System.Drawing.Size(260, 23);
             this.label56.TabIndex = 6;
             this.label56.Text = "Insurance Group No";
             // 
@@ -1908,16 +2074,16 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtInsuranceName.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInsuranceName.Location = new System.Drawing.Point(3, 26);
             this.txtInsuranceName.Name = "txtInsuranceName";
-            this.txtInsuranceName.Size = new System.Drawing.Size(530, 27);
+            this.txtInsuranceName.Size = new System.Drawing.Size(526, 27);
             this.txtInsuranceName.TabIndex = 22;
             // 
             // txtInsuredsId
             // 
             this.txtInsuredsId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInsuredsId.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuredsId.Location = new System.Drawing.Point(271, 80);
+            this.txtInsuredsId.Location = new System.Drawing.Point(269, 80);
             this.txtInsuredsId.Name = "txtInsuredsId";
-            this.txtInsuredsId.Size = new System.Drawing.Size(262, 27);
+            this.txtInsuredsId.Size = new System.Drawing.Size(260, 27);
             this.txtInsuredsId.TabIndex = 25;
             // 
             // label57
@@ -1926,9 +2092,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.label57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label57.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label57.Location = new System.Drawing.Point(271, 54);
+            this.label57.Location = new System.Drawing.Point(269, 54);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(262, 23);
+            this.label57.Size = new System.Drawing.Size(260, 23);
             this.label57.TabIndex = 9;
             this.label57.Text = "Insureds ID";
             // 
@@ -1938,7 +2104,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.txtInsuranceGroupNo.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInsuranceGroupNo.Location = new System.Drawing.Point(3, 80);
             this.txtInsuranceGroupNo.Name = "txtInsuranceGroupNo";
-            this.txtInsuranceGroupNo.Size = new System.Drawing.Size(262, 27);
+            this.txtInsuranceGroupNo.Size = new System.Drawing.Size(260, 27);
             this.txtInsuranceGroupNo.TabIndex = 23;
             // 
             // dgvInsurance
@@ -1962,7 +2128,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvInsurance.Location = new System.Drawing.Point(0, 37);
             this.dgvInsurance.Name = "dgvInsurance";
             this.dgvInsurance.RowHeadersVisible = false;
-            this.dgvInsurance.Size = new System.Drawing.Size(536, 242);
+            this.dgvInsurance.Size = new System.Drawing.Size(532, 242);
             this.dgvInsurance.TabIndex = 5;
             this.dgvInsurance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsurance_CellClick);
             // 
@@ -2033,7 +2199,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(536, 37);
+            this.panel7.Size = new System.Drawing.Size(532, 37);
             this.panel7.TabIndex = 4;
             // 
             // btnAddNewInsurance
@@ -2044,7 +2210,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.btnAddNewInsurance.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewInsurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAddNewInsurance.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewInsurance.Image")));
-            this.btnAddNewInsurance.Location = new System.Drawing.Point(501, 0);
+            this.btnAddNewInsurance.Location = new System.Drawing.Point(497, 0);
             this.btnAddNewInsurance.Name = "btnAddNewInsurance";
             this.btnAddNewInsurance.Size = new System.Drawing.Size(35, 37);
             this.btnAddNewInsurance.TabIndex = 9;
@@ -2066,7 +2232,6 @@ namespace SteerMAR.Views.ResidentsForms
             // 
             // tabMedication
             // 
-            this.tabMedication.Controls.Add(this.panel9);
             this.tabMedication.Controls.Add(this.dgvMedicationList);
             this.tabMedication.Controls.Add(this.panel8);
             this.tabMedication.Font = new System.Drawing.Font("Hero New Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2078,14 +2243,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabMedication.TabIndex = 1;
             this.tabMedication.Text = "     Medications     ";
             this.tabMedication.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 462);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(563, 36);
-            this.panel9.TabIndex = 5;
             // 
             // dgvMedicationList
             // 
@@ -2103,16 +2260,106 @@ namespace SteerMAR.Views.ResidentsForms
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
+            this.MedState,
+            this.State,
             this.EditMed,
             this.dataGridViewImageColumn6});
             this.dgvMedicationList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMedicationList.Location = new System.Drawing.Point(3, 44);
             this.dgvMedicationList.Name = "dgvMedicationList";
             this.dgvMedicationList.RowHeadersVisible = false;
-            this.dgvMedicationList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvMedicationList.Size = new System.Drawing.Size(563, 454);
             this.dgvMedicationList.TabIndex = 4;
             this.dgvMedicationList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicationList_CellClick);
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Medication_ID";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ContactID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // MedImg
+            // 
+            this.MedImg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MedImg.DataPropertyName = "Medication_Image";
+            this.MedImg.HeaderText = "Image";
+            this.MedImg.Name = "MedImg";
+            this.MedImg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MedImg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.MedImg.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Medication_Name";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Medication_RXNo";
+            this.dataGridViewTextBoxColumn10.HeaderText = "RX NO";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Medication_Time";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Time";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Medication_WriteDate";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Write";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 71;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Medication_ExpiryDate";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Expiry";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 75;
+            // 
+            // MedState
+            // 
+            this.MedState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MedState.DataPropertyName = "Med_State";
+            this.MedState.HeaderText = "State";
+            this.MedState.Name = "MedState";
+            this.MedState.Visible = false;
+            // 
+            // State
+            // 
+            this.State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.State.DataPropertyName = "MedState";
+            this.State.HeaderText = "State";
+            this.State.Name = "State";
+            this.State.Width = 51;
+            // 
+            // EditMed
+            // 
+            this.EditMed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.EditMed.HeaderText = "Edit";
+            this.EditMed.Image = ((System.Drawing.Image)(resources.GetObject("EditMed.Image")));
+            this.EditMed.Name = "EditMed";
+            this.EditMed.Width = 41;
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn6.HeaderText = "Delete";
+            this.dataGridViewImageColumn6.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn6.Image")));
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.Width = 58;
             // 
             // panel8
             // 
@@ -2293,37 +2540,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.tabAssignment.Text = "     Assignment     ";
             this.tabAssignment.UseVisualStyleBackColor = true;
             // 
-            // tabComments
-            // 
-            this.tabComments.Controls.Add(this.dgvComments);
-            this.tabComments.Controls.Add(this.panel13);
-            this.tabComments.Location = new System.Drawing.Point(4, 27);
-            this.tabComments.Name = "tabComments";
-            this.tabComments.Size = new System.Drawing.Size(569, 501);
-            this.tabComments.TabIndex = 4;
-            this.tabComments.Text = "     Comments     ";
-            this.tabComments.UseVisualStyleBackColor = true;
-            // 
-            // fpProfilePic
-            // 
-            this.fpProfilePic.FileName = "openFileDialog1";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Edit";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Delete";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // fpDocumentUpload
-            // 
-            this.fpDocumentUpload.FileName = "openFileDialog1";
-            // 
             // dgvAssignment
             // 
             this.dgvAssignment.AllowUserToAddRows = false;
@@ -2348,44 +2564,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvAssignment.Size = new System.Drawing.Size(569, 460);
             this.dgvAssignment.TabIndex = 7;
             this.dgvAssignment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAssignment_CellClick);
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.btnAddNewAssignMent);
-            this.panel12.Controls.Add(this.label64);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(569, 41);
-            this.panel12.TabIndex = 6;
-            // 
-            // btnAddNewAssignMent
-            // 
-            this.btnAddNewAssignMent.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAddNewAssignMent.FlatAppearance.BorderSize = 0;
-            this.btnAddNewAssignMent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewAssignMent.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewAssignMent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnAddNewAssignMent.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewAssignMent.Image")));
-            this.btnAddNewAssignMent.Location = new System.Drawing.Point(534, 0);
-            this.btnAddNewAssignMent.Name = "btnAddNewAssignMent";
-            this.btnAddNewAssignMent.Size = new System.Drawing.Size(35, 41);
-            this.btnAddNewAssignMent.TabIndex = 9;
-            this.btnAddNewAssignMent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddNewAssignMent.UseVisualStyleBackColor = true;
-            this.btnAddNewAssignMent.Click += new System.EventHandler(this.btnAddNewAssignMent_Click);
-            // 
-            // label64
-            // 
-            this.label64.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label64.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label64.Location = new System.Drawing.Point(0, 0);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(114, 41);
-            this.label64.TabIndex = 7;
-            this.label64.Text = "Assignment";
-            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -2443,6 +2621,55 @@ namespace SteerMAR.Views.ResidentsForms
             this.DownloadAssignment.Name = "DownloadAssignment";
             this.DownloadAssignment.Width = 84;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnAddNewAssignMent);
+            this.panel12.Controls.Add(this.label64);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(569, 41);
+            this.panel12.TabIndex = 6;
+            // 
+            // btnAddNewAssignMent
+            // 
+            this.btnAddNewAssignMent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddNewAssignMent.FlatAppearance.BorderSize = 0;
+            this.btnAddNewAssignMent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewAssignMent.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewAssignMent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAddNewAssignMent.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewAssignMent.Image")));
+            this.btnAddNewAssignMent.Location = new System.Drawing.Point(534, 0);
+            this.btnAddNewAssignMent.Name = "btnAddNewAssignMent";
+            this.btnAddNewAssignMent.Size = new System.Drawing.Size(35, 41);
+            this.btnAddNewAssignMent.TabIndex = 9;
+            this.btnAddNewAssignMent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNewAssignMent.UseVisualStyleBackColor = true;
+            this.btnAddNewAssignMent.Click += new System.EventHandler(this.btnAddNewAssignMent_Click);
+            // 
+            // label64
+            // 
+            this.label64.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label64.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label64.Location = new System.Drawing.Point(0, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(114, 41);
+            this.label64.TabIndex = 7;
+            this.label64.Text = "Assignment";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabComments
+            // 
+            this.tabComments.Controls.Add(this.dgvComments);
+            this.tabComments.Controls.Add(this.panel13);
+            this.tabComments.Location = new System.Drawing.Point(4, 27);
+            this.tabComments.Name = "tabComments";
+            this.tabComments.Size = new System.Drawing.Size(569, 501);
+            this.tabComments.TabIndex = 4;
+            this.tabComments.Text = "     Comments     ";
+            this.tabComments.UseVisualStyleBackColor = true;
+            // 
             // dgvComments
             // 
             this.dgvComments.AllowUserToAddRows = false;
@@ -2467,44 +2694,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvComments.Size = new System.Drawing.Size(569, 460);
             this.dgvComments.TabIndex = 9;
             this.dgvComments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComments_CellClick);
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.btnAddComment);
-            this.panel13.Controls.Add(this.label65);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(569, 41);
-            this.panel13.TabIndex = 8;
-            // 
-            // btnAddComment
-            // 
-            this.btnAddComment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAddComment.FlatAppearance.BorderSize = 0;
-            this.btnAddComment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddComment.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddComment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnAddComment.Image = ((System.Drawing.Image)(resources.GetObject("btnAddComment.Image")));
-            this.btnAddComment.Location = new System.Drawing.Point(534, 0);
-            this.btnAddComment.Name = "btnAddComment";
-            this.btnAddComment.Size = new System.Drawing.Size(35, 41);
-            this.btnAddComment.TabIndex = 9;
-            this.btnAddComment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddComment.UseVisualStyleBackColor = true;
-            this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
-            // 
-            // label65
-            // 
-            this.label65.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label65.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label65.Location = new System.Drawing.Point(0, 0);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(114, 41);
-            this.label65.TabIndex = 7;
-            this.label65.Text = "Comment";
-            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -2562,170 +2751,43 @@ namespace SteerMAR.Views.ResidentsForms
             this.DownloadComment.Name = "DownloadComment";
             this.DownloadComment.Width = 84;
             // 
-            // roundedPanel1
+            // panel13
             // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
-            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
-            this.roundedPanel1.Controls.Add(this.lblPatientName);
-            this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.Controls.Add(this.pbMainProfile);
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.Location = new System.Drawing.Point(20, 14);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Radius = 20;
-            this.roundedPanel1.Size = new System.Drawing.Size(259, 78);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.Thickness = 5F;
+            this.panel13.Controls.Add(this.btnAddComment);
+            this.panel13.Controls.Add(this.label65);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(569, 41);
+            this.panel13.TabIndex = 8;
             // 
-            // lblPatientName
+            // btnAddComment
             // 
-            this.lblPatientName.AutoSize = true;
-            this.lblPatientName.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPatientName.Location = new System.Drawing.Point(86, 34);
-            this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(130, 22);
-            this.lblPatientName.TabIndex = 6;
-            this.lblPatientName.Text = "Riquetti, Peter";
+            this.btnAddComment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddComment.FlatAppearance.BorderSize = 0;
+            this.btnAddComment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddComment.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddComment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAddComment.Image = ((System.Drawing.Image)(resources.GetObject("btnAddComment.Image")));
+            this.btnAddComment.Location = new System.Drawing.Point(534, 0);
+            this.btnAddComment.Name = "btnAddComment";
+            this.btnAddComment.Size = new System.Drawing.Size(35, 41);
+            this.btnAddComment.TabIndex = 9;
+            this.btnAddComment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddComment.UseVisualStyleBackColor = true;
+            this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
             // 
-            // label2
+            // label65
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Hero New Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(87, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "PATIENT / RESIDENT";
-            // 
-            // pbMainProfile
-            // 
-            this.pbMainProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbMainProfile.Image")));
-            this.pbMainProfile.Location = new System.Drawing.Point(12, 8);
-            this.pbMainProfile.Name = "pbMainProfile";
-            this.pbMainProfile.Size = new System.Drawing.Size(71, 63);
-            this.pbMainProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMainProfile.TabIndex = 4;
-            this.pbMainProfile.TabStop = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCancel.BorderRadius = 1;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(319, 401);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 28);
-            this.btnCancel.TabIndex = 83;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnSavePatient
-            // 
-            this.btnSavePatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSavePatient.BorderRadius = 1;
-            this.btnSavePatient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSavePatient.FlatAppearance.BorderSize = 0;
-            this.btnSavePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePatient.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePatient.ForeColor = System.Drawing.Color.White;
-            this.btnSavePatient.Location = new System.Drawing.Point(420, 401);
-            this.btnSavePatient.Name = "btnSavePatient";
-            this.btnSavePatient.Size = new System.Drawing.Size(95, 28);
-            this.btnSavePatient.TabIndex = 82;
-            this.btnSavePatient.Text = "UPDATE";
-            this.btnSavePatient.UseVisualStyleBackColor = false;
-            this.btnSavePatient.Click += new System.EventHandler(this.btnSavePatient_Click);
-            // 
-            // btnChooseImage
-            // 
-            this.btnChooseImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnChooseImage.BorderRadius = 0;
-            this.btnChooseImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChooseImage.FlatAppearance.BorderSize = 0;
-            this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseImage.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseImage.ForeColor = System.Drawing.Color.White;
-            this.btnChooseImage.Location = new System.Drawing.Point(16, 93);
-            this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(95, 17);
-            this.btnChooseImage.TabIndex = 40;
-            this.btnChooseImage.Text = "choose";
-            this.btnChooseImage.UseVisualStyleBackColor = false;
-            this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
-            // 
-            // btnSaveContact
-            // 
-            this.btnSaveContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSaveContact.BorderRadius = 3;
-            this.btnSaveContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveContact.FlatAppearance.BorderSize = 0;
-            this.btnSaveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveContact.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveContact.ForeColor = System.Drawing.Color.White;
-            this.btnSaveContact.Location = new System.Drawing.Point(391, 240);
-            this.btnSaveContact.Name = "btnSaveContact";
-            this.btnSaveContact.Size = new System.Drawing.Size(119, 32);
-            this.btnSaveContact.TabIndex = 62;
-            this.btnSaveContact.Text = "SAVE";
-            this.btnSaveContact.UseVisualStyleBackColor = false;
-            this.btnSaveContact.Click += new System.EventHandler(this.btnSaveContact_Click);
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnBrowse.BorderRadius = 0;
-            this.btnBrowse.FlatAppearance.BorderSize = 0;
-            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowse.Font = new System.Drawing.Font("Hero Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(434, 297);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(92, 27);
-            this.btnBrowse.TabIndex = 64;
-            this.btnBrowse.Text = "BROWSE";
-            this.btnBrowse.UseVisualStyleBackColor = false;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // btnSaveDocument
-            // 
-            this.btnSaveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSaveDocument.BorderRadius = 3;
-            this.btnSaveDocument.FlatAppearance.BorderSize = 0;
-            this.btnSaveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveDocument.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveDocument.ForeColor = System.Drawing.Color.White;
-            this.btnSaveDocument.Location = new System.Drawing.Point(408, 417);
-            this.btnSaveDocument.Name = "btnSaveDocument";
-            this.btnSaveDocument.Size = new System.Drawing.Size(118, 32);
-            this.btnSaveDocument.TabIndex = 63;
-            this.btnSaveDocument.Text = "SAVE";
-            this.btnSaveDocument.UseVisualStyleBackColor = false;
-            this.btnSaveDocument.Click += new System.EventHandler(this.btnSaveDocument_Click);
-            // 
-            // btnSaveInsurance
-            // 
-            this.btnSaveInsurance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(141)))), ((int)(((byte)(238)))));
-            this.btnSaveInsurance.BorderRadius = 3;
-            this.btnSaveInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveInsurance.FlatAppearance.BorderSize = 0;
-            this.btnSaveInsurance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveInsurance.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveInsurance.ForeColor = System.Drawing.Color.White;
-            this.btnSaveInsurance.Location = new System.Drawing.Point(271, 167);
-            this.btnSaveInsurance.Name = "btnSaveInsurance";
-            this.btnSaveInsurance.Size = new System.Drawing.Size(262, 38);
-            this.btnSaveInsurance.TabIndex = 63;
-            this.btnSaveInsurance.Text = "SAVE";
-            this.btnSaveInsurance.UseVisualStyleBackColor = false;
-            this.btnSaveInsurance.Click += new System.EventHandler(this.btnSaveInsurance_Click);
+            this.label65.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label65.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label65.Location = new System.Drawing.Point(0, 0);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(114, 41);
+            this.label65.TabIndex = 7;
+            this.label65.Text = "Comment";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlPatientEntry
             // 
@@ -3142,76 +3204,25 @@ namespace SteerMAR.Views.ResidentsForms
             this.label3.Text = "General Information";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewTextBoxColumn7
+            // fpProfilePic
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Medication_ID";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ContactID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.fpProfilePic.FileName = "openFileDialog1";
             // 
-            // MedImg
+            // dataGridViewImageColumn1
             // 
-            this.MedImg.DataPropertyName = "Medication_Image";
-            this.MedImg.HeaderText = "Image";
-            this.MedImg.Name = "MedImg";
-            this.MedImg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MedImg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
-            // dataGridViewTextBoxColumn9
+            // dataGridViewImageColumn2
             // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Medication_Name";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 73;
+            this.dataGridViewImageColumn2.HeaderText = "Delete";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
-            // dataGridViewTextBoxColumn10
+            // fpDocumentUpload
             // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Medication_RXNo";
-            this.dataGridViewTextBoxColumn10.HeaderText = "RX NO";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 77;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Medication_Time";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Time";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Medication_WriteDate";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Write";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 71;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Medication_ExpiryDate";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Expiry";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 75;
-            // 
-            // EditMed
-            // 
-            this.EditMed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.EditMed.HeaderText = "Edit";
-            this.EditMed.Image = ((System.Drawing.Image)(resources.GetObject("EditMed.Image")));
-            this.EditMed.Name = "EditMed";
-            this.EditMed.Width = 41;
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewImageColumn6.HeaderText = "Delete";
-            this.dataGridViewImageColumn6.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn6.Image")));
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.Width = 58;
+            this.fpDocumentUpload.FileName = "openFileDialog1";
             // 
             // frmResidentsDetails
             // 
@@ -3224,6 +3235,9 @@ namespace SteerMAR.Views.ResidentsForms
             this.Text = "frmResidentsDetails";
             this.Load += new System.EventHandler(this.frmResidentsDetails_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).EndInit();
             this.tbcMain.ResumeLayout(false);
             this.tabProfile.ResumeLayout(false);
             this.tbcSecond.ResumeLayout(false);
@@ -3258,14 +3272,11 @@ namespace SteerMAR.Views.ResidentsForms
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoOrderList)).EndInit();
             this.panel10.ResumeLayout(false);
             this.tabAssignment.ResumeLayout(false);
-            this.tabComments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignment)).EndInit();
             this.panel12.ResumeLayout(false);
+            this.tabComments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComments)).EndInit();
             this.panel13.ResumeLayout(false);
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainProfile)).EndInit();
             this.pnlPatientEntry.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -3448,7 +3459,6 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.DataGridView dgvMedicationList;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnAddNewMedication;
@@ -3514,6 +3524,8 @@ namespace SteerMAR.Views.ResidentsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedState;
+        private System.Windows.Forms.DataGridViewImageColumn State;
         private System.Windows.Forms.DataGridViewImageColumn EditMed;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
     }
