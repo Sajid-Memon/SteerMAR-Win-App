@@ -1,7 +1,7 @@
 ﻿
-namespace SteerMAR.Views.ResidentsForms
+namespace SteerMAR.Views.MedPassForms
 {
-    partial class frmResidentsList
+    partial class frmResidentListForMedPass
     {
         /// <summary>
         /// Required designer variable.
@@ -33,40 +33,14 @@ namespace SteerMAR.Views.ResidentsForms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearchText = new System.Windows.Forms.TextBox();
             this.dgvPatientList = new System.Windows.Forms.DataGridView();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchText = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label1.Location = new System.Drawing.Point(8, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 22);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Type here to Search";
-            // 
-            // txtSearchText
-            // 
-            this.txtSearchText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtSearchText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchText.Font = new System.Drawing.Font("Hero", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchText.ForeColor = System.Drawing.Color.White;
-            this.txtSearchText.Location = new System.Drawing.Point(12, 39);
-            this.txtSearchText.Multiline = true;
-            this.txtSearchText.Name = "txtSearchText";
-            this.txtSearchText.Size = new System.Drawing.Size(860, 38);
-            this.txtSearchText.TabIndex = 2;
-            this.txtSearchText.TextChanged += new System.EventHandler(this.txtSearchText_TextChanged);
             // 
             // dgvPatientList
             // 
@@ -94,7 +68,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.ContactPerson});
             this.dgvPatientList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPatientList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvPatientList.Location = new System.Drawing.Point(12, 99);
+            this.dgvPatientList.Location = new System.Drawing.Point(14, 98);
             this.dgvPatientList.Name = "dgvPatientList";
             this.dgvPatientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -118,7 +92,7 @@ namespace SteerMAR.Views.ResidentsForms
             this.dgvPatientList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPatientList.RowTemplate.Height = 80;
             this.dgvPatientList.Size = new System.Drawing.Size(860, 450);
-            this.dgvPatientList.TabIndex = 17;
+            this.dgvPatientList.TabIndex = 20;
             this.dgvPatientList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellClick);
             // 
             // Image
@@ -139,7 +113,6 @@ namespace SteerMAR.Views.ResidentsForms
             this.PatientID.Name = "PatientID";
             this.PatientID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.PatientID.Visible = false;
-            this.PatientID.Width = 5;
             // 
             // ContactPerson
             // 
@@ -151,19 +124,44 @@ namespace SteerMAR.Views.ResidentsForms
             this.ContactPerson.Name = "ContactPerson";
             this.ContactPerson.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // frmResidentsList
+            // txtSearchText
+            // 
+            this.txtSearchText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.txtSearchText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearchText.Font = new System.Drawing.Font("Hero", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchText.ForeColor = System.Drawing.Color.White;
+            this.txtSearchText.Location = new System.Drawing.Point(14, 38);
+            this.txtSearchText.Multiline = true;
+            this.txtSearchText.Name = "txtSearchText";
+            this.txtSearchText.Size = new System.Drawing.Size(860, 38);
+            this.txtSearchText.TabIndex = 18;
+            this.txtSearchText.TextChanged += new System.EventHandler(this.txtSearchText_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Hero New Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 22);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Type here to Search";
+            // 
+            // frmResidentListForMedPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.dgvPatientList);
             this.Controls.Add(this.txtSearchText);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "frmResidentsList";
-            this.Text = "frmResidentsList";
+            this.Name = "frmResidentListForMedPass";
+            this.Text = "frmResidentListForMedPass";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,11 +169,12 @@ namespace SteerMAR.Views.ResidentsForms
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtSearchText;
-        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.DataGridView dgvPatientList;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactPerson;
+        private System.Windows.Forms.TextBox txtSearchText;
+        private System.Windows.Forms.Label label1;
     }
 }

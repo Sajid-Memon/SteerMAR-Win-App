@@ -51,10 +51,10 @@ namespace SteerMAR.Views.MainForms
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMedPass = new System.Windows.Forms.Button();
+            this.btnSideResidentList = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSideDashboard = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.roundedPanel1 = new SteerMAR.CustomControlls.RoundedPanel();
@@ -242,10 +242,10 @@ namespace SteerMAR.Views.MainForms
             this.pnlSideBar.Controls.Add(this.button6);
             this.pnlSideBar.Controls.Add(this.button5);
             this.pnlSideBar.Controls.Add(this.button4);
-            this.pnlSideBar.Controls.Add(this.button3);
-            this.pnlSideBar.Controls.Add(this.button2);
+            this.pnlSideBar.Controls.Add(this.btnMedPass);
+            this.pnlSideBar.Controls.Add(this.btnSideResidentList);
             this.pnlSideBar.Controls.Add(this.label1);
-            this.pnlSideBar.Controls.Add(this.button1);
+            this.pnlSideBar.Controls.Add(this.btnSideDashboard);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 55);
             this.pnlSideBar.Name = "pnlSideBar";
@@ -456,41 +456,41 @@ namespace SteerMAR.Views.MainForms
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnMedPass
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Hero New Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 99);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(198, 40);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "   Med Pass";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnMedPass.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMedPass.FlatAppearance.BorderSize = 0;
+            this.btnMedPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMedPass.Font = new System.Drawing.Font("Hero New Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnMedPass.Image = ((System.Drawing.Image)(resources.GetObject("btnMedPass.Image")));
+            this.btnMedPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMedPass.Location = new System.Drawing.Point(0, 99);
+            this.btnMedPass.Name = "btnMedPass";
+            this.btnMedPass.Size = new System.Drawing.Size(198, 40);
+            this.btnMedPass.TabIndex = 7;
+            this.btnMedPass.Text = "   Med Pass";
+            this.btnMedPass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMedPass.UseVisualStyleBackColor = true;
+            this.btnMedPass.Click += new System.EventHandler(this.btnMedPass_Click);
             // 
-            // button2
+            // btnSideResidentList
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Hero New Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(198, 40);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "   Residents/Patients";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSideResidentList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSideResidentList.FlatAppearance.BorderSize = 0;
+            this.btnSideResidentList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSideResidentList.Font = new System.Drawing.Font("Hero New Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideResidentList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnSideResidentList.Image = ((System.Drawing.Image)(resources.GetObject("btnSideResidentList.Image")));
+            this.btnSideResidentList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideResidentList.Location = new System.Drawing.Point(0, 59);
+            this.btnSideResidentList.Name = "btnSideResidentList";
+            this.btnSideResidentList.Size = new System.Drawing.Size(198, 40);
+            this.btnSideResidentList.TabIndex = 6;
+            this.btnSideResidentList.Text = "   Residents/Patients";
+            this.btnSideResidentList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSideResidentList.UseVisualStyleBackColor = true;
+            this.btnSideResidentList.Click += new System.EventHandler(this.btnSideResidentList_Click);
             // 
             // label1
             // 
@@ -502,21 +502,22 @@ namespace SteerMAR.Views.MainForms
             this.label1.TabIndex = 3;
             this.label1.Text = "  ______________________________";
             // 
-            // button1
+            // btnSideDashboard
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 35);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Dashboard";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSideDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSideDashboard.FlatAppearance.BorderSize = 0;
+            this.btnSideDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSideDashboard.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnSideDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnSideDashboard.Image")));
+            this.btnSideDashboard.Location = new System.Drawing.Point(0, 0);
+            this.btnSideDashboard.Name = "btnSideDashboard";
+            this.btnSideDashboard.Size = new System.Drawing.Size(198, 35);
+            this.btnSideDashboard.TabIndex = 2;
+            this.btnSideDashboard.Text = "Dashboard";
+            this.btnSideDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSideDashboard.UseVisualStyleBackColor = true;
+            this.btnSideDashboard.Click += new System.EventHandler(this.btnSideDashboard_Click);
             // 
             // pnlMain
             // 
@@ -620,7 +621,7 @@ namespace SteerMAR.Views.MainForms
             this.txtPassword.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(22, 155);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '.';
+            this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(282, 27);
             this.txtPassword.TabIndex = 5;
             // 
@@ -1047,6 +1048,7 @@ namespace SteerMAR.Views.MainForms
             this.Name = "frmMainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainPage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainPage_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMainPage_MouseDown);
             this.pnlTopBar.ResumeLayout(false);
@@ -1077,10 +1079,10 @@ namespace SteerMAR.Views.MainForms
         private System.Windows.Forms.Button btnCloseApp;
         private System.Windows.Forms.Button btnDashboardCommon;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSideDashboard;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSideResidentList;
+        private System.Windows.Forms.Button btnMedPass;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;

@@ -31,7 +31,19 @@ namespace SteerMAR.Views.popupForms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddPatientMedication));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtMedStrength = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.drpMedForm = new System.Windows.Forms.ComboBox();
             this.pnlRoutine = new System.Windows.Forms.Panel();
+            this.dgvTimeList = new System.Windows.Forms.DataGridView();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Details = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Week = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAddNewTime = new SteerMAR.CustomControlls.RoundedButton();
             this.CBWeekDays = new System.Windows.Forms.CheckedListBox();
             this.drpDetails = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -73,9 +85,10 @@ namespace SteerMAR.Views.popupForms
             this.pbPatientProfile = new System.Windows.Forms.PictureBox();
             this.btnChooseImage = new SteerMAR.CustomControlls.RoundedButton();
             this.fpImage = new System.Windows.Forms.OpenFileDialog();
-            this.btnContinue = new SteerMAR.CustomControlls.RoundedButton();
+            this.btnCancel = new SteerMAR.CustomControlls.RoundedButton();
             this.panel1.SuspendLayout();
             this.pnlRoutine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeList)).BeginInit();
             this.pnlPNR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +96,12 @@ namespace SteerMAR.Views.popupForms
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnContinue);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.txtMedStrength);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.drpMedForm);
             this.panel1.Controls.Add(this.pnlRoutine);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.pnlPNR);
@@ -117,12 +135,70 @@ namespace SteerMAR.Views.popupForms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 567);
+            this.panel1.Size = new System.Drawing.Size(690, 610);
             this.panel1.TabIndex = 43;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label18.Location = new System.Drawing.Point(8, 42);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 18);
+            this.label18.TabIndex = 104;
+            this.label18.Text = "Image";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label17.Location = new System.Drawing.Point(568, 42);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 18);
+            this.label17.TabIndex = 103;
+            this.label17.Text = "Strength";
+            // 
+            // txtMedStrength
+            // 
+            this.txtMedStrength.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedStrength.Location = new System.Drawing.Point(571, 62);
+            this.txtMedStrength.Name = "txtMedStrength";
+            this.txtMedStrength.Size = new System.Drawing.Size(109, 27);
+            this.txtMedStrength.TabIndex = 102;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label16.Location = new System.Drawing.Point(125, 91);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 18);
+            this.label16.TabIndex = 101;
+            this.label16.Text = "Form";
+            // 
+            // drpMedForm
+            // 
+            this.drpMedForm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.drpMedForm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.drpMedForm.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpMedForm.FormattingEnabled = true;
+            this.drpMedForm.Items.AddRange(new object[] {
+            "Solid",
+            "Liquid",
+            "Powder"});
+            this.drpMedForm.Location = new System.Drawing.Point(128, 112);
+            this.drpMedForm.Name = "drpMedForm";
+            this.drpMedForm.Size = new System.Drawing.Size(122, 27);
+            this.drpMedForm.TabIndex = 100;
+            // 
             // pnlRoutine
             // 
+            this.pnlRoutine.Controls.Add(this.dgvTimeList);
+            this.pnlRoutine.Controls.Add(this.btnAddNewTime);
             this.pnlRoutine.Controls.Add(this.CBWeekDays);
             this.pnlRoutine.Controls.Add(this.drpDetails);
             this.pnlRoutine.Controls.Add(this.label15);
@@ -130,10 +206,84 @@ namespace SteerMAR.Views.popupForms
             this.pnlRoutine.Controls.Add(this.dtTime);
             this.pnlRoutine.Controls.Add(this.label13);
             this.pnlRoutine.Controls.Add(this.label14);
-            this.pnlRoutine.Location = new System.Drawing.Point(11, 414);
+            this.pnlRoutine.Location = new System.Drawing.Point(11, 367);
             this.pnlRoutine.Name = "pnlRoutine";
-            this.pnlRoutine.Size = new System.Drawing.Size(509, 88);
+            this.pnlRoutine.Size = new System.Drawing.Size(669, 187);
             this.pnlRoutine.TabIndex = 99;
+            // 
+            // dgvTimeList
+            // 
+            this.dgvTimeList.AllowUserToAddRows = false;
+            this.dgvTimeList.AllowUserToDeleteRows = false;
+            this.dgvTimeList.AllowUserToResizeColumns = false;
+            this.dgvTimeList.AllowUserToResizeRows = false;
+            this.dgvTimeList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTimeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTimeList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Time,
+            this.Qty,
+            this.Details,
+            this.Week,
+            this.Delete});
+            this.dgvTimeList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvTimeList.Location = new System.Drawing.Point(0, 68);
+            this.dgvTimeList.Name = "dgvTimeList";
+            this.dgvTimeList.RowHeadersVisible = false;
+            this.dgvTimeList.Size = new System.Drawing.Size(669, 119);
+            this.dgvTimeList.TabIndex = 106;
+            this.dgvTimeList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimeList_CellClick);
+            // 
+            // Time
+            // 
+            this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            this.Time.Width = 65;
+            // 
+            // Qty
+            // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 54;
+            // 
+            // Details
+            // 
+            this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Details.HeaderText = "Details";
+            this.Details.Name = "Details";
+            this.Details.Width = 75;
+            // 
+            // Week
+            // 
+            this.Week.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Week.HeaderText = "Week Days";
+            this.Week.Name = "Week";
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 54;
+            // 
+            // btnAddNewTime
+            // 
+            this.btnAddNewTime.BackColor = System.Drawing.Color.White;
+            this.btnAddNewTime.BorderRadius = 3;
+            this.btnAddNewTime.FlatAppearance.BorderSize = 0;
+            this.btnAddNewTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewTime.Font = new System.Drawing.Font("Hero Bold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddNewTime.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewTime.Image")));
+            this.btnAddNewTime.Location = new System.Drawing.Point(626, 14);
+            this.btnAddNewTime.Name = "btnAddNewTime";
+            this.btnAddNewTime.Size = new System.Drawing.Size(40, 40);
+            this.btnAddNewTime.TabIndex = 105;
+            this.btnAddNewTime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNewTime.UseVisualStyleBackColor = false;
+            this.btnAddNewTime.Click += new System.EventHandler(this.btnAddNewTime_Click);
             // 
             // CBWeekDays
             // 
@@ -149,10 +299,10 @@ namespace SteerMAR.Views.popupForms
             "Thursday",
             "Friday",
             "Saturday"});
-            this.CBWeekDays.Location = new System.Drawing.Point(333, 6);
+            this.CBWeekDays.Location = new System.Drawing.Point(323, 5);
             this.CBWeekDays.MultiColumn = true;
             this.CBWeekDays.Name = "CBWeekDays";
-            this.CBWeekDays.Size = new System.Drawing.Size(167, 76);
+            this.CBWeekDays.Size = new System.Drawing.Size(297, 58);
             this.CBWeekDays.TabIndex = 94;
             this.CBWeekDays.ThreeDCheckBoxes = true;
             this.CBWeekDays.UseCompatibleTextRendering = true;
@@ -170,7 +320,7 @@ namespace SteerMAR.Views.popupForms
             "Days of Month",
             "One Time",
             "Advanced"});
-            this.drpDetails.Location = new System.Drawing.Point(213, 35);
+            this.drpDetails.Location = new System.Drawing.Point(202, 27);
             this.drpDetails.Name = "drpDetails";
             this.drpDetails.Size = new System.Drawing.Size(115, 23);
             this.drpDetails.TabIndex = 93;
@@ -180,7 +330,7 @@ namespace SteerMAR.Views.popupForms
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label15.Location = new System.Drawing.Point(208, 14);
+            this.label15.Location = new System.Drawing.Point(197, 6);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 18);
             this.label15.TabIndex = 92;
@@ -205,9 +355,9 @@ namespace SteerMAR.Views.popupForms
             "10",
             "11",
             "12"});
-            this.drpQuantity.Location = new System.Drawing.Point(126, 35);
+            this.drpQuantity.Location = new System.Drawing.Point(118, 27);
             this.drpQuantity.Name = "drpQuantity";
-            this.drpQuantity.Size = new System.Drawing.Size(81, 23);
+            this.drpQuantity.Size = new System.Drawing.Size(78, 23);
             this.drpQuantity.TabIndex = 91;
             // 
             // dtTime
@@ -216,17 +366,19 @@ namespace SteerMAR.Views.popupForms
             this.dtTime.CustomFormat = "27/01/2022";
             this.dtTime.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtTime.Location = new System.Drawing.Point(12, 35);
+            this.dtTime.Location = new System.Drawing.Point(4, 27);
             this.dtTime.Name = "dtTime";
+            this.dtTime.ShowUpDown = true;
             this.dtTime.Size = new System.Drawing.Size(108, 23);
             this.dtTime.TabIndex = 89;
+            this.dtTime.Value = new System.DateTime(2022, 3, 15, 18, 14, 0, 0);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label13.Location = new System.Drawing.Point(125, 14);
+            this.label13.Location = new System.Drawing.Point(117, 6);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 18);
             this.label13.TabIndex = 87;
@@ -237,7 +389,7 @@ namespace SteerMAR.Views.popupForms
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label14.Location = new System.Drawing.Point(9, 14);
+            this.label14.Location = new System.Drawing.Point(1, 6);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 18);
             this.label14.TabIndex = 85;
@@ -251,7 +403,7 @@ namespace SteerMAR.Views.popupForms
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(361, 518);
+            this.btnSave.Location = new System.Drawing.Point(523, 560);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(157, 39);
             this.btnSave.TabIndex = 98;
@@ -265,7 +417,7 @@ namespace SteerMAR.Views.popupForms
             this.pnlPNR.Controls.Add(this.txtMaxTab);
             this.pnlPNR.Controls.Add(this.label11);
             this.pnlPNR.Controls.Add(this.txtMinTab);
-            this.pnlPNR.Location = new System.Drawing.Point(11, 417);
+            this.pnlPNR.Location = new System.Drawing.Point(11, 367);
             this.pnlPNR.Name = "pnlPNR";
             this.pnlPNR.Size = new System.Drawing.Size(251, 88);
             this.pnlPNR.TabIndex = 97;
@@ -313,7 +465,7 @@ namespace SteerMAR.Views.popupForms
             // 
             this.chkPNR.AutoSize = true;
             this.chkPNR.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPNR.Location = new System.Drawing.Point(361, 392);
+            this.chkPNR.Location = new System.Drawing.Point(622, 336);
             this.chkPNR.Name = "chkPNR";
             this.chkPNR.Size = new System.Drawing.Size(55, 19);
             this.chkPNR.TabIndex = 96;
@@ -323,22 +475,20 @@ namespace SteerMAR.Views.popupForms
             // 
             // chkHomeHealthDrug
             // 
-            this.chkHomeHealthDrug.AutoSize = true;
             this.chkHomeHealthDrug.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHomeHealthDrug.Location = new System.Drawing.Point(174, 392);
+            this.chkHomeHealthDrug.Location = new System.Drawing.Point(489, 328);
             this.chkHomeHealthDrug.Name = "chkHomeHealthDrug";
-            this.chkHomeHealthDrug.Size = new System.Drawing.Size(159, 19);
+            this.chkHomeHealthDrug.Size = new System.Drawing.Size(121, 35);
             this.chkHomeHealthDrug.TabIndex = 95;
             this.chkHomeHealthDrug.Text = "Home Health Drug";
             this.chkHomeHealthDrug.UseVisualStyleBackColor = true;
             // 
             // chkControlledDrug
             // 
-            this.chkControlledDrug.AutoSize = true;
             this.chkControlledDrug.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkControlledDrug.Location = new System.Drawing.Point(11, 392);
+            this.chkControlledDrug.Location = new System.Drawing.Point(383, 322);
             this.chkControlledDrug.Name = "chkControlledDrug";
-            this.chkControlledDrug.Size = new System.Drawing.Size(138, 19);
+            this.chkControlledDrug.Size = new System.Drawing.Size(117, 46);
             this.chkControlledDrug.TabIndex = 94;
             this.chkControlledDrug.Text = "Controlled Drug";
             this.chkControlledDrug.UseVisualStyleBackColor = true;
@@ -348,7 +498,7 @@ namespace SteerMAR.Views.popupForms
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label10.Location = new System.Drawing.Point(8, 328);
+            this.label10.Location = new System.Drawing.Point(336, 202);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 18);
             this.label10.TabIndex = 93;
@@ -357,10 +507,10 @@ namespace SteerMAR.Views.popupForms
             // txtInstruction
             // 
             this.txtInstruction.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInstruction.Location = new System.Drawing.Point(11, 349);
+            this.txtInstruction.Location = new System.Drawing.Point(339, 223);
             this.txtInstruction.Multiline = true;
             this.txtInstruction.Name = "txtInstruction";
-            this.txtInstruction.Size = new System.Drawing.Size(507, 37);
+            this.txtInstruction.Size = new System.Drawing.Size(341, 78);
             this.txtInstruction.TabIndex = 92;
             // 
             // label9
@@ -368,7 +518,7 @@ namespace SteerMAR.Views.popupForms
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label9.Location = new System.Drawing.Point(266, 270);
+            this.label9.Location = new System.Drawing.Point(233, 310);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 18);
             this.label9.TabIndex = 91;
@@ -399,9 +549,9 @@ namespace SteerMAR.Views.popupForms
             "VAGINAL",
             "OTHER",
             "ANY OTHER"});
-            this.drpRoute.Location = new System.Drawing.Point(269, 291);
+            this.drpRoute.Location = new System.Drawing.Point(236, 331);
             this.drpRoute.Name = "drpRoute";
-            this.drpRoute.Size = new System.Drawing.Size(249, 23);
+            this.drpRoute.Size = new System.Drawing.Size(141, 23);
             this.drpRoute.TabIndex = 90;
             // 
             // label8
@@ -409,7 +559,7 @@ namespace SteerMAR.Views.popupForms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label8.Location = new System.Drawing.Point(137, 268);
+            this.label8.Location = new System.Drawing.Point(120, 308);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 18);
             this.label8.TabIndex = 89;
@@ -421,9 +571,9 @@ namespace SteerMAR.Views.popupForms
             this.dtpExpirydate.CustomFormat = "27/01/2022";
             this.dtpExpirydate.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpExpirydate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpExpirydate.Location = new System.Drawing.Point(140, 291);
+            this.dtpExpirydate.Location = new System.Drawing.Point(121, 331);
             this.dtpExpirydate.Name = "dtpExpirydate";
-            this.dtpExpirydate.Size = new System.Drawing.Size(123, 23);
+            this.dtpExpirydate.Size = new System.Drawing.Size(109, 23);
             this.dtpExpirydate.TabIndex = 88;
             // 
             // label7
@@ -431,7 +581,7 @@ namespace SteerMAR.Views.popupForms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label7.Location = new System.Drawing.Point(8, 268);
+            this.label7.Location = new System.Drawing.Point(8, 308);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 18);
             this.label7.TabIndex = 87;
@@ -443,9 +593,9 @@ namespace SteerMAR.Views.popupForms
             this.dtpwrittendate.CustomFormat = "27/01/2022";
             this.dtpwrittendate.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpwrittendate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpwrittendate.Location = new System.Drawing.Point(11, 291);
+            this.dtpwrittendate.Location = new System.Drawing.Point(11, 331);
             this.dtpwrittendate.Name = "dtpwrittendate";
-            this.dtpwrittendate.Size = new System.Drawing.Size(123, 23);
+            this.dtpwrittendate.Size = new System.Drawing.Size(104, 23);
             this.dtpwrittendate.TabIndex = 86;
             // 
             // label6
@@ -453,7 +603,7 @@ namespace SteerMAR.Views.popupForms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label6.Location = new System.Drawing.Point(298, 150);
+            this.label6.Location = new System.Drawing.Point(410, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 18);
             this.label6.TabIndex = 85;
@@ -475,9 +625,9 @@ namespace SteerMAR.Views.popupForms
             "Son",
             "Daughter",
             ""});
-            this.drpPrescriber.Location = new System.Drawing.Point(301, 171);
+            this.drpPrescriber.Location = new System.Drawing.Point(413, 162);
             this.drpPrescriber.Name = "drpPrescriber";
-            this.drpPrescriber.Size = new System.Drawing.Size(217, 27);
+            this.drpPrescriber.Size = new System.Drawing.Size(267, 27);
             this.drpPrescriber.TabIndex = 84;
             // 
             // label5
@@ -485,7 +635,7 @@ namespace SteerMAR.Views.popupForms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label5.Location = new System.Drawing.Point(153, 150);
+            this.label5.Location = new System.Drawing.Point(270, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 18);
             this.label5.TabIndex = 83;
@@ -494,9 +644,9 @@ namespace SteerMAR.Views.popupForms
             // txtrxno
             // 
             this.txtrxno.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrxno.Location = new System.Drawing.Point(156, 171);
+            this.txtrxno.Location = new System.Drawing.Point(273, 162);
             this.txtrxno.Name = "txtrxno";
-            this.txtrxno.Size = new System.Drawing.Size(139, 27);
+            this.txtrxno.Size = new System.Drawing.Size(134, 27);
             this.txtrxno.TabIndex = 82;
             // 
             // label4
@@ -504,7 +654,7 @@ namespace SteerMAR.Views.popupForms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label4.Location = new System.Drawing.Point(8, 203);
+            this.label4.Location = new System.Drawing.Point(8, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 81;
@@ -513,10 +663,10 @@ namespace SteerMAR.Views.popupForms
             // txtdiagnosis
             // 
             this.txtdiagnosis.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdiagnosis.Location = new System.Drawing.Point(11, 224);
+            this.txtdiagnosis.Location = new System.Drawing.Point(11, 223);
             this.txtdiagnosis.Multiline = true;
             this.txtdiagnosis.Name = "txtdiagnosis";
-            this.txtdiagnosis.Size = new System.Drawing.Size(507, 37);
+            this.txtdiagnosis.Size = new System.Drawing.Size(322, 78);
             this.txtdiagnosis.TabIndex = 80;
             // 
             // label3
@@ -524,7 +674,7 @@ namespace SteerMAR.Views.popupForms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label3.Location = new System.Drawing.Point(8, 150);
+            this.label3.Location = new System.Drawing.Point(125, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 18);
             this.label3.TabIndex = 79;
@@ -533,7 +683,7 @@ namespace SteerMAR.Views.popupForms
             // txtndcno
             // 
             this.txtndcno.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtndcno.Location = new System.Drawing.Point(11, 171);
+            this.txtndcno.Location = new System.Drawing.Point(128, 162);
             this.txtndcno.Name = "txtndcno";
             this.txtndcno.Size = new System.Drawing.Size(139, 27);
             this.txtndcno.TabIndex = 78;
@@ -543,18 +693,18 @@ namespace SteerMAR.Views.popupForms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Hero", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(125, 90);
+            this.label2.Location = new System.Drawing.Point(253, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 18);
+            this.label2.Size = new System.Drawing.Size(119, 18);
             this.label2.TabIndex = 77;
-            this.label2.Text = "Equilent To";
+            this.label2.Text = "Equivalent To";
             // 
             // txtEquilentto
             // 
             this.txtEquilentto.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEquilentto.Location = new System.Drawing.Point(128, 111);
+            this.txtEquilentto.Location = new System.Drawing.Point(256, 112);
             this.txtEquilentto.Name = "txtEquilentto";
-            this.txtEquilentto.Size = new System.Drawing.Size(390, 27);
+            this.txtEquilentto.Size = new System.Drawing.Size(424, 27);
             this.txtEquilentto.TabIndex = 76;
             // 
             // label1
@@ -573,7 +723,7 @@ namespace SteerMAR.Views.popupForms
             this.txtName.Font = new System.Drawing.Font("Hero", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(128, 62);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(390, 27);
+            this.txtName.Size = new System.Drawing.Size(437, 27);
             this.txtName.TabIndex = 74;
             // 
             // btnCloseThis
@@ -583,7 +733,7 @@ namespace SteerMAR.Views.popupForms
             this.btnCloseThis.Font = new System.Drawing.Font("Hero", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseThis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnCloseThis.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseThis.Image")));
-            this.btnCloseThis.Location = new System.Drawing.Point(504, 3);
+            this.btnCloseThis.Location = new System.Drawing.Point(658, 3);
             this.btnCloseThis.Name = "btnCloseThis";
             this.btnCloseThis.Size = new System.Drawing.Size(22, 26);
             this.btnCloseThis.TabIndex = 70;
@@ -605,9 +755,9 @@ namespace SteerMAR.Views.popupForms
             // pbPatientProfile
             // 
             this.pbPatientProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbPatientProfile.Image")));
-            this.pbPatientProfile.Location = new System.Drawing.Point(11, 42);
+            this.pbPatientProfile.Location = new System.Drawing.Point(11, 62);
             this.pbPatientProfile.Name = "pbPatientProfile";
-            this.pbPatientProfile.Size = new System.Drawing.Size(95, 66);
+            this.pbPatientProfile.Size = new System.Drawing.Size(108, 97);
             this.pbPatientProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPatientProfile.TabIndex = 41;
             this.pbPatientProfile.TabStop = false;
@@ -620,9 +770,9 @@ namespace SteerMAR.Views.popupForms
             this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChooseImage.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseImage.ForeColor = System.Drawing.Color.White;
-            this.btnChooseImage.Location = new System.Drawing.Point(11, 114);
+            this.btnChooseImage.Location = new System.Drawing.Point(11, 165);
             this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(95, 24);
+            this.btnChooseImage.Size = new System.Drawing.Size(108, 24);
             this.btnChooseImage.TabIndex = 42;
             this.btnChooseImage.Text = "choose";
             this.btnChooseImage.UseVisualStyleBackColor = false;
@@ -632,27 +782,27 @@ namespace SteerMAR.Views.popupForms
             // 
             this.fpImage.FileName = "openFileDialog1";
             // 
-            // btnContinue
+            // btnCancel
             // 
-            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnContinue.BorderRadius = 3;
-            this.btnContinue.FlatAppearance.BorderSize = 0;
-            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContinue.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinue.ForeColor = System.Drawing.Color.White;
-            this.btnContinue.Location = new System.Drawing.Point(11, 518);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(172, 39);
-            this.btnContinue.TabIndex = 100;
-            this.btnContinue.Text = "CONTINUE";
-            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCancel.BorderRadius = 3;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Hero Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(360, 560);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(157, 39);
+            this.btnCancel.TabIndex = 105;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // frmAddPatientMedication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(531, 567);
+            this.ClientSize = new System.Drawing.Size(690, 610);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Hero", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -666,6 +816,7 @@ namespace SteerMAR.Views.popupForms
             this.panel1.PerformLayout();
             this.pnlRoutine.ResumeLayout(false);
             this.pnlRoutine.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeList)).EndInit();
             this.pnlPNR.ResumeLayout(false);
             this.pnlPNR.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPatientProfile)).EndInit();
@@ -718,6 +869,18 @@ namespace SteerMAR.Views.popupForms
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckedListBox CBWeekDays;
         private System.Windows.Forms.OpenFileDialog fpImage;
-        private CustomControlls.RoundedButton btnContinue;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtMedStrength;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox drpMedForm;
+        private System.Windows.Forms.Label label18;
+        private CustomControlls.RoundedButton btnAddNewTime;
+        private System.Windows.Forms.DataGridView dgvTimeList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Details;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Week;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private CustomControlls.RoundedButton btnCancel;
     }
 }

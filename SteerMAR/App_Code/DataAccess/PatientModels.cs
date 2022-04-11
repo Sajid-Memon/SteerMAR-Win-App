@@ -37,6 +37,7 @@ namespace SteerMAR.App_Code.DataAccess
             public string Patient_Allergies { get; set; }
             public string Patient_Diagnosis { get; set; }
             public string Patient_Diets { get; set; }
+            public string FacilityCode { get; set; }
             public bool isActive { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_DateTime { get; set; }
@@ -88,6 +89,8 @@ namespace SteerMAR.App_Code.DataAccess
             public int Patient_ID { get; set; }
             public byte[] Medication_Image { get; set; }
             public string Medication_Name { get; set; }
+            public string Med_Strength { get; set; }
+            public string Med_Form { get; set; }
             public string Medication_Equilent_To { get; set; }
             public string Medication_NDC { get; set; }
             public string Medication_RXNo { get; set; }
@@ -101,17 +104,23 @@ namespace SteerMAR.App_Code.DataAccess
             public bool Home_Health_Drugs { get; set; }
             public bool Medication_PRN { get; set; }
             public string Min_PRN { get; set; }
-            public string Max_PRN { get; set; }
-            public DateTime Medication_Time { get; set; }
-            public string Medication_Qty { get; set; }
-            public string Medication_Details { get; set; }
-            public string Medication_WeekDays { get; set; }
+            public string Max_PRN { get; set; }         
             public bool Med_State { get; set; }
             public bool IsActive { get; set; }
             public int Created_By { get; set; }
             public DateTime Created_Date { get; set; }
             public int Updated_By { get; set; }
             public DateTime Updated_Date { get; set; }
+        }
+        public class MedSchedule
+        {
+            public int Id { get; set; }
+            public int MedId { get; set; }
+            public int PatientId { get; set; }
+            public string MedTime { get; set; }
+            public string Qty { get; set; }
+            public string Detail { get; set; }
+            public string Weekdays { get; set; }
         }
         public class PatientDocumentMaster
         {

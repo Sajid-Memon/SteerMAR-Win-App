@@ -1,4 +1,5 @@
 ﻿using SteerMAR.App_Code.BusinessLogics;
+using SteerMAR.Reports;
 using SteerMAR.Views.popupForms;
 using System;
 using System.Collections.Generic;
@@ -34,13 +35,14 @@ namespace SteerMAR.Views.ResidentsForms
                 FillChart();
                 FillDgvInsurance();
                 FillDgvMedications();
+                FillDgvDiscontinue();
                 FillDgvDocuments();
                 FillDgvInfoOrders();
                 fillDgvAssignment();
                 fillDgvComment();
             }
             FillDrpPhysician();
-            FillDrpRefered();            
+            FillDrpRefered();
         }
 
         #region [Patient Vitals]
@@ -89,11 +91,14 @@ namespace SteerMAR.Views.ResidentsForms
                 DataSet ds = PM.SelectResidentByID(Patient_ID);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["Patient_Image"]);
-                    if (ms.Length > 0)
+                    if (ds.Tables[0].Rows[0]["Patient_Image"] != DBNull.Value)
                     {
-                        pbMainProfile.Image = new Bitmap(ms);
-                        pbPatientProfile.Image = new Bitmap(ms);
+                        MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["Patient_Image"]);
+                        if (ms.Length > 0)
+                        {
+                            pbMainProfile.Image = new Bitmap(ms);
+                            pbPatientProfile.Image = new Bitmap(ms);
+                        }
                     }
                     lblPatientName.Text = ds.Tables[0].Rows[0]["First_Name"].ToString() + " , " + ds.Tables[0].Rows[0]["Last_Name"].ToString();
 
@@ -308,6 +313,7 @@ namespace SteerMAR.Views.ResidentsForms
                 patinetMaster.Patient_Allergies = txtAllergies.Text;
                 patinetMaster.Patient_Diagnosis = txtDiagnosis.Text;
                 patinetMaster.Patient_Diets = txtDiets.Text;
+                patinetMaster.FacilityCode = "TA1";
                 PatientMethods PM = new PatientMethods();
                 byte value = PM.AddUpdatePatient(patinetMaster);
                 string msg = value == 0 ? "Patient Detail Updated" : value == 1 ? "Same Patient Code Already Exists" : "New Patient Added";
@@ -502,24 +508,34 @@ namespace SteerMAR.Views.ResidentsForms
             if (Patient_ID > 0)
             {
                 PatientMethods PM = new PatientMethods();
-                DataSet ds = PM.SelectPatientMedication(Patient_ID);
+                DataSet ds = PM.SelectPatientMedication(Patient_ID, true);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     DataTable dt = ds.Tables[0];
                     dt.Columns.Add("MedState", typeof(Image));
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        var flag = dt.Rows[i]["Med_State"].ToString().ToLower() == "true";
-                        if (flag)
-                        {
-                            dt.Rows[i]["MedState"] = Properties.Resources.active;
-                        }
-                        else
-                        {
-                            dt.Rows[i]["MedState"] = Properties.Resources.inactive;
-                        }
+                        dt.Rows[i]["MedState"] = Properties.Resources.active;
                     }
                     dgvMedicationList.DataSource = dt;
+                }
+            }
+        }
+        public void FillDgvDiscontinue()
+        {
+            if (Patient_ID > 0)
+            {
+                PatientMethods PM = new PatientMethods();
+                DataSet ds = PM.SelectPatientMedication(Patient_ID, false);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    dt.Columns.Add("MedState", typeof(Image));
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["MedState"] = Properties.Resources.inactive;
+                    }
+                    dgvDiscontinueMedications.DataSource = dt;
                 }
             }
         }
@@ -527,7 +543,7 @@ namespace SteerMAR.Views.ResidentsForms
         {
             frmAddPatientMedication APM = new frmAddPatientMedication(this);
             APM.ShowDialog();
-        }        
+        }
 
         private void dgvMedicationList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -536,7 +552,7 @@ namespace SteerMAR.Views.ResidentsForms
                 if (e.RowIndex >= 0)
                 {
                     MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    frmAddPatientMedication APM = new frmAddPatientMedication(this);                   
+                    frmAddPatientMedication APM = new frmAddPatientMedication(this);
                     APM.ShowDialog();
                 }
             }
@@ -545,28 +561,59 @@ namespace SteerMAR.Views.ResidentsForms
                 if (e.RowIndex >= 0)
                 {
                     string msg = "";
-                    DialogResult dialogResult = MessageBox.Show("Are you Sure! You Want To Change Medication State?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogResult = MessageBox.Show("Are you Sure! You Want To Discontinue this Medication?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
                         MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
                         bool MedState = Convert.ToBoolean(dgvMedicationList.Rows[e.RowIndex].Cells[9].Value.ToString());
-                        if (MedState == true)
-                        {
-                            PatientMethods PM = new PatientMethods();
-                            msg = PM.ChangeMedState(MedicationID, false);
-                        }
-                        else
-                        {
-                            PatientMethods PM = new PatientMethods();
-                            msg = PM.ChangeMedState(MedicationID, true);
-                        }
+                        PatientMethods PM = new PatientMethods();
+                        msg = PM.ChangeMedState(MedicationID, false);
                         MessageBox.Show(msg);
                         FillDgvMedications();
+                        FillDgvDiscontinue();
+                    }
+                }
+            }
+            if (e.ColumnIndex == dgvMedicationList.Columns["ViewMed"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {                    
+                    MedicationID = Convert.ToInt32(dgvMedicationList.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    frmMedScheduleList FMS = new frmMedScheduleList();
+                    FMS.ShowDialog();
+                }
+            }
+        }
+        private void dgvDiscontinueMedications_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvDiscontinueMedications.Columns["disEdit"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    MedicationID = Convert.ToInt32(dgvDiscontinueMedications.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    frmAddPatientMedication APM = new frmAddPatientMedication(this);
+                    APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvDiscontinueMedications.Columns["disState"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    string msg = "";
+                    DialogResult dialogResult = MessageBox.Show("Are you Sure! You Want To Continue This Medication?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MedicationID = Convert.ToInt32(dgvDiscontinueMedications.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        bool MedState = Convert.ToBoolean(dgvDiscontinueMedications.Rows[e.RowIndex].Cells[9].Value.ToString());
+                        PatientMethods PM = new PatientMethods();
+                        msg = PM.ChangeMedState(MedicationID, true);
+                        MessageBox.Show(msg);
+                        FillDgvMedications();
+                        FillDgvDiscontinue();
                     }
                 }
             }
         }
-
         #endregion
 
         #region [Patient Documents]
@@ -581,7 +628,7 @@ namespace SteerMAR.Views.ResidentsForms
                     dgvDocuments.DataSource = ds.Tables[0];
                 }
             }
-        }      
+        }
         byte[] bytesDoc;
         string FileType = "";
         int DocumentID = 0;
@@ -593,7 +640,7 @@ namespace SteerMAR.Views.ResidentsForms
             txtDescription.Text = "";
             bytesDoc = null;
             FileType = "";
-            DocumentID = 0;            
+            DocumentID = 0;
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -617,8 +664,8 @@ namespace SteerMAR.Views.ResidentsForms
             {
                 MessageBox.Show("Please Select Document to Upload");
             }
-            else 
-            { 
+            else
+            {
                 PatientDocumentMaster PDM = new PatientDocumentMaster();
                 PDM.Document_ID = DocumentID;
                 PDM.Patient_ID = Patient_ID;
@@ -689,7 +736,7 @@ namespace SteerMAR.Views.ResidentsForms
         #endregion
 
         #region [Info Orders]
-        public static int TaskID=0;
+        public static int TaskID = 0;
         private void btnAddNewInfoOrder_Click(object sender, EventArgs e)
         {
             frmAddInfoOrder AIF = new frmAddInfoOrder(this);
@@ -704,7 +751,7 @@ namespace SteerMAR.Views.ResidentsForms
                 DataSet ds = PM.SelectPatientUserTask(Patient_ID, "Info Order");
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    dgvInfoOrderList.DataSource = ds.Tables[0];                    
+                    dgvInfoOrderList.DataSource = ds.Tables[0];
                 }
             }
         }
@@ -728,6 +775,17 @@ namespace SteerMAR.Views.ResidentsForms
                     APM.ShowDialog();
                 }
             }
+            if (e.ColumnIndex == dgvInfoOrderList.Columns["DownloadInfo"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvInfoOrderList.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    if (TaskID > 0)
+                    {
+                        FillReportRes(TaskID, "OrdersResp");
+                    }
+                }
+            }
         }
 
         #endregion
@@ -746,7 +804,7 @@ namespace SteerMAR.Views.ResidentsForms
                 PatientMethods PM = new PatientMethods();
                 DataSet ds = PM.SelectPatientUserTask(Patient_ID, "Assignment");
                 if (ds.Tables[0].Rows.Count > 0)
-                {                    
+                {
                     dgvAssignment.DataSource = ds.Tables[0];
                 }
             }
@@ -769,6 +827,17 @@ namespace SteerMAR.Views.ResidentsForms
                     TaskID = Convert.ToInt32(dgvAssignment.Rows[e.RowIndex].Cells[3].Value.ToString());
                     frmResponseList APM = new frmResponseList();
                     APM.ShowDialog();
+                }
+            }
+            if (e.ColumnIndex == dgvAssignment.Columns["DownloadAssignment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvAssignment.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    if (TaskID > 0)
+                    {
+                        FillReportRes(TaskID, "AssignmentResp");
+                    }
                 }
             }
         }
@@ -812,6 +881,33 @@ namespace SteerMAR.Views.ResidentsForms
                     frmResponseList APM = new frmResponseList();
                     APM.ShowDialog();
                 }
+            }
+            if (e.ColumnIndex == dgvComments.Columns["DownloadComment"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    TaskID = Convert.ToInt32(dgvComments.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    if (TaskID > 0)
+                    {
+                        FillReportRes(TaskID, "CommentsResp");
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region [Response Print]
+        public void FillReportRes(int TaskID, string type)
+        {
+            PrintingMethods PM = new PrintingMethods();
+            DataSet ds = PM.PrintUserTaskResponse(TaskID);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                rptResponses RR = new rptResponses();
+                RR.Load(@"~\Reports\rptResponses.rpt");
+                RR.SetDataSource(ds.Tables[0]);
+                RR.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\" + type + ".pdf");
+                MessageBox.Show("Report Downloaded in Download Folder");
             }
         }
         #endregion

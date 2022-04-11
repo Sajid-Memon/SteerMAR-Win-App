@@ -1,4 +1,6 @@
 ﻿using SteerMAR.App_Code.BusinessLogics;
+using SteerMAR.Views.MedPassForms;
+using SteerMAR.Views.popupForms;
 using SteerMAR.Views.ResidentsForms;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace SteerMAR.Views.MainForms
     public partial class frmMainPage : Form
     {
         public NotifyEvent OpenPatientDetails;
+        public NotifyEvent OpenPatientListForMedPass;
         private bool Hidden;
         public frmMainPage()
         {
@@ -41,6 +44,7 @@ namespace SteerMAR.Views.MainForms
 
             #region NotifyEvents
             OpenPatientDetails += new NotifyEvent(OpenPatientDetailsForm);
+            OpenPatientListForMedPass += new NotifyEvent(OpenPatientListForm);
             #endregion
         }
 
@@ -48,6 +52,14 @@ namespace SteerMAR.Views.MainForms
         public void OpenPatientDetailsForm()
         {
             openChildForm(new frmResidentsDetails());
+        }
+        public void OpenPatientListForm()
+        {
+            openChildForm(new frmResidentListForMedPass());
+        }
+        public void OpenMedPassFormBasedOnTime()
+        {
+            openChildForm(new frmMedPass());
         }
         #endregion
 
@@ -86,12 +98,12 @@ namespace SteerMAR.Views.MainForms
             DialogResult dialogResult = MessageBox.Show("Are you Sure! You Want To Close This Application?", "Exit Application", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //UserMethods UM = new UserMethods();
-                //DataSet ds = UM.UpdateAttendance();
-                //if (ds.Tables[0].Rows[0]["Message"].ToString() != string.Empty)
-                //{
-                //    MessageBox.Show("Your Session has been Ended", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
+                UserMethods UM = new UserMethods();
+                DataSet ds = UM.UpdateAttendance();
+                if (ds.Tables[0].Rows[0]["Message"].ToString() != string.Empty)
+                {
+                    MessageBox.Show("Your Session has been Ended", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 Application.Exit();
             }
         }
@@ -183,11 +195,12 @@ namespace SteerMAR.Views.MainForms
         #region [Dashboard Menu Buttons]       
         private void btnHomeResidents_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new frmResidentsList(OpenPatientDetails));
         }
         private void btnHomeMedPass_Click(object sender, EventArgs e)
         {
-
+            frmSelectMedPass SMP = new frmSelectMedPass(OpenPatientListForMedPass);
+            SMP.ShowDialog();
         }
         private void btnHomeCRM_Click(object sender, EventArgs e)
         {
@@ -239,11 +252,27 @@ namespace SteerMAR.Views.MainForms
         }
         #endregion
 
+        #region [Side Menu Button]       
+        private void btnSideResidentList_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmResidentsList(OpenPatientDetails));
+        }
+        private void btnMedPass_Click(object sender, EventArgs e)
+        {
+            frmSelectMedPass SMP = new frmSelectMedPass(OpenPatientListForMedPass);
+            SMP.ShowDialog();            
+        }
+        #endregion
+
         #region [User Clock IN / OUT Buttons]
         private void btnDashboardCommon_Click(object sender, EventArgs e)
         {
             activeForm.Close();
-        }      
+        }
+        private void btnSideDashboard_Click(object sender, EventArgs e)
+        {
+            activeForm.Close();
+        }
         private void btnClockIn_Click(object sender, EventArgs e)
         {
             pnlLogin.Visible = true;
@@ -271,67 +300,57 @@ namespace SteerMAR.Views.MainForms
         }
         private void btnUserLogin_Click(object sender, EventArgs e)
         {
-            //if (txtPinNo.Text == "" || txtPinNo.Text == string.Empty)
-            //{
-            //    MessageBox.Show("Please Enter Your PIN !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else if (txtPassword.Text == "" || txtPassword.Text == string.Empty)
-            //{
-            //    MessageBox.Show("Please Enter Your Password !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else
-            //{
-            //    UserModel userModel = new UserModel();
-            //    userModel.PIN_No = txtPinNo.Text.Trim();
-            //    userModel.User_Password = txtPassword.Text.Trim();
-            //    UserMethods UM = new UserMethods();
-            //    DataSet ds = UM.UserLogin(userModel);
-            //    if (ds.Tables[0].Rows[0]["Message"].ToString() != string.Empty)
-            //    {
-            //        if (ds.Tables[0].Rows[0]["Message"].ToString() == "Creadantials")
-            //        {
-            //            MessageBox.Show("Invalid Cradantials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //        else if (ds.Tables[0].Rows[0]["Message"].ToString() == "shift")
-            //        {
-            //            MessageBox.Show("you are trying to Login in another Shift.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Clocked IN Success", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            pnlLogin.Visible = false;
-            //            btnOpenMenu.Visible = true;
-            //            btnDashboardCommon.Visible = true;
-            //            btnUserAccount.Visible = true;
-            //            tblHomePageMenu.Enabled = true;
-            //            btnClockIn.Enabled = false;
-            //            btnClockOut.Enabled = true;
-            //        }
-            //    }
-            //}
-            pnlLogin.Visible = false;
-            btnOpenMenu.Visible = true;
-            btnDashboardCommon.Visible = true;
-            btnUserAccount.Visible = true;
-            tblHomePageMenu.Enabled = true;
-            btnClockIn.Enabled = false;
-            btnClockOut.Enabled = true;
+            if (txtPinNo.Text == "" || txtPinNo.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Your PIN !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtPassword.Text == "" || txtPassword.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Your Password !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                UserModel userModel = new UserModel();
+                userModel.PIN_No = txtPinNo.Text.Trim();
+                userModel.User_Password = txtPassword.Text.Trim();
+                UserMethods UM = new UserMethods();
+                DataSet ds = UM.UserLogin(userModel);
+                if (ds.Tables[0].Rows[0]["Message"].ToString() != string.Empty)
+                {
+                    if (ds.Tables[0].Rows[0]["Message"].ToString() == "Creadantials")
+                    {
+                        MessageBox.Show("Invalid Cradantials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (ds.Tables[0].Rows[0]["Message"].ToString() == "shift")
+                    {
+                        MessageBox.Show("you are trying to Login in another Shift.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Clocked IN Success", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Properties.Settings.Default.LoggedUser = ds.Tables[0].Rows[0]["User_ID"].ToString();
+                        pnlLogin.Visible = false;
+                        btnOpenMenu.Visible = true;
+                        btnDashboardCommon.Visible = true;
+                        btnUserAccount.Visible = true;
+                        tblHomePageMenu.Enabled = true;
+                        btnClockIn.Enabled = false;
+                        btnClockOut.Enabled = true;
+                    }
+                }
+            }
+            //pnlLogin.Visible = false;
+            //btnOpenMenu.Visible = true;
+            //btnDashboardCommon.Visible = true;
+            //btnUserAccount.Visible = true;
+            //tblHomePageMenu.Enabled = true;
+            //btnClockIn.Enabled = false;
+            //btnClockOut.Enabled = true;
         }
-        #endregion
-
         private void lnkBacktoHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             pnlLogin.Visible = false;
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmResidentsList(OpenPatientDetails));
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmResidentsDetails());
-        }
+        #endregion        
     }
 }

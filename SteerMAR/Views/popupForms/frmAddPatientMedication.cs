@@ -25,6 +25,7 @@ namespace SteerMAR.Views.popupForms
             dtpwrittendate.Value = System.DateTime.Now;
             dtTime.Value = Convert.ToDateTime(System.DateTime.Now.ToShortTimeString());
             FillDrpPhysician();
+            dtTime.CustomFormat = "HH:mm tt";
             if (frmResidentsDetails.MedicationID > 0)
             {
                 EditMedication(frmResidentsDetails.MedicationID);
@@ -36,12 +37,12 @@ namespace SteerMAR.Views.popupForms
             DataSet ds = PM.SelectPatientMedicationByMedID(MedicationID);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                btnSave.Text = "UPDATE";                    
+                btnSave.Text = "UPDATE";
                 MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["Medication_Image"]);
                 if (ms.Length > 0)
-                {                    
+                {
                     pbPatientProfile.Image = new Bitmap(ms);
-                }                            
+                }
                 txtName.Text = ds.Tables[0].Rows[0]["Medication_Name"].ToString();
                 txtEquilentto.Text = ds.Tables[0].Rows[0]["Medication_Equilent_To"].ToString();
                 txtndcno.Text = ds.Tables[0].Rows[0]["Medication_NDC"].ToString();
@@ -56,30 +57,7 @@ namespace SteerMAR.Views.popupForms
                 chkHomeHealthDrug.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["Home_Health_Drugs"].ToString());
                 chkPNR.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["Medication_PRN"].ToString());
                 txtMinTab.Text = ds.Tables[0].Rows[0]["Min_PRN"].ToString();
-                txtMaxTab.Text = ds.Tables[0].Rows[0]["Max_PRN"].ToString();
-                dtTime.Text = ds.Tables[0].Rows[0]["Medication_Time"].ToString();
-                drpQuantity.Text = ds.Tables[0].Rows[0]["Medication_Qty"].ToString();
-                drpDetails.Text = ds.Tables[0].Rows[0]["Medication_Details"].ToString();
-      
-                string[] WeekDays = ds.Tables[0].Rows[0]["Medication_WeekDays"].ToString().Split(',');
-                foreach (string item in WeekDays)
-                {
-                    for (int i = 0; i < CBWeekDays.Items.Count; i++)
-                    {
-                        if (item.ToString() == ((string)CBWeekDays.Items[i]).ToString())
-                        {
-                            CBWeekDays.SetItemChecked(i, true);
-                        }
-                    }
-                }
-                if (Convert.ToBoolean(ds.Tables[0].Rows[0]["Med_State"]) == true)
-                {
-                    btnContinue.Text = "CONTINUE";
-                }
-                else
-                {
-                    btnContinue.Text = "DISCONTINUE";
-                }
+                txtMaxTab.Text = ds.Tables[0].Rows[0]["Max_PRN"].ToString();    
             }
         }
         public void FillDrpPhysician()
@@ -128,6 +106,7 @@ namespace SteerMAR.Views.popupForms
                 pbPatientProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" && txtName.Text == string.Empty)
@@ -136,6 +115,7 @@ namespace SteerMAR.Views.popupForms
             }
             else
             {
+                string msg = "";
                 PatientMedicationMaster PM = new PatientMedicationMaster();
                 if (frmResidentsDetails.MedicationID > 0)
                 {
@@ -144,7 +124,7 @@ namespace SteerMAR.Views.popupForms
                 else
                 {
                     PM.Medication_ID = 0;
-                }                
+                }
                 PM.Patient_ID = frmResidentsList.Patient_ID;
                 if (pbPatientProfile.Image != null)
                 {
@@ -159,6 +139,8 @@ namespace SteerMAR.Views.popupForms
                     PM.Medication_Image = new byte[] { };
                 }
                 PM.Medication_Name = txtName.Text.Trim();
+                PM.Med_Strength = txtMedStrength.Text.Trim();
+                PM.Med_Form = drpMedForm.Text;
                 PM.Medication_Equilent_To = txtEquilentto.Text.Trim();
                 PM.Medication_NDC = txtndcno.Text.Trim();
                 PM.Medication_RXNo = txtrxno.Text.Trim();
@@ -188,46 +170,107 @@ namespace SteerMAR.Views.popupForms
                 {
                     PM.Medication_PRN = true;
                     PM.Min_PRN = txtMinTab.Text.Trim();
-                    PM.Max_PRN = txtMaxTab.Text.Trim();
-                    PM.Medication_Time = dtTime.Value;
-                    PM.Medication_Qty = "";
-                    PM.Medication_Details = "";
-                    PM.Medication_WeekDays = "";
+                    PM.Max_PRN = txtMaxTab.Text.Trim();          
                 }
                 else
                 {
                     PM.Medication_PRN = false;
                     PM.Min_PRN = "";
-                    PM.Max_PRN = "";
-                    PM.Medication_Time = dtTime.Value;
-                    PM.Medication_Qty = drpQuantity.Text;
-                    PM.Medication_Details = drpDetails.Text;
-                    string WeekDays="";
-                    for (int i = 0; i < CBWeekDays.CheckedItems.Count; i++)
-                    {
-                        WeekDays += CBWeekDays.CheckedItems[i].ToString()+",";
-
-                    }
-                    PM.Medication_WeekDays = WeekDays.TrimEnd(',');
+                    PM.Max_PRN = "";                 
                 }
-                if (btnContinue.Text == "CONTINUE")
-                {
-                    PM.Med_State = true;
-                }
-                else
+                if (dtpExpirydate.Value < System.DateTime.Now)
                 {
                     PM.Med_State = false;
                 }
+                else
+                {
+                    PM.Med_State = true;
+                }
                 PM.Created_By = Convert.ToInt32(Properties.Settings.Default.LoggedUser);
                 PatientMethods patients = new PatientMethods();
-                byte value = patients.AddUpdateMedication(PM);
-                string msg = value == 0 ? "Medication has been Updated" : value == 1 ? "Same Medication Already Exists" : "New Medication Added";
-                MessageBox.Show(msg);
+                int MedID = patients.AddUpdateMedication(PM);
+                if (MedID > 0)
+                {
+                    MedSchedule MS = new MedSchedule();
+                    foreach (DataGridViewRow row in dgvTimeList.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            MS.Id = 0;
+                            MS.MedId = MedID;
+                            MS.PatientId = frmResidentsList.Patient_ID;
+                            MS.MedTime = row.Cells[0].Value.ToString();
+                            MS.Qty = row.Cells[1].Value.ToString();
+                            MS.Detail = row.Cells[2].Value.ToString();
+                            MS.Weekdays = row.Cells[3].Value.ToString().TrimEnd(',');
+                            byte value = patients.AddUpdateMedicationSchedule(MS);
+                            msg = value == 0 ? "Medication has Updated" : "New Medication Added Succsfully";
+                        }
+                    }
+                }                              
                 RD.FillDgvMedications();
+                RD.FillDgvDiscontinue();
                 frmResidentsDetails.MedicationID = 0;
                 btnSave.Text = "SAVE";
+                MessageBox.Show(msg);
                 this.Close();
             }
-        }     
+        }
+
+        private void btnAddNewTime_Click(object sender, EventArgs e)
+        {
+            bool entryFound = false;
+            foreach (DataGridViewRow row in dgvTimeList.Rows)
+            {
+                object val1 = row.Cells[0].Value;
+                object val2 = row.Cells[1].Value;
+                object val3 = row.Cells[2].Value;
+                object val4 = row.Cells[3].Value;
+                if (val1 != null && val1.ToString() == dtTime.Text.Trim() &&
+                    val2 != null && val2.ToString() == drpQuantity.Text.Trim() &&
+                    val3 != null && val3.ToString() == drpDetails.Text.Trim())
+                {
+                    dgvTimeList.Rows.Remove(row);
+                    entryFound = false;
+                    break;
+                }
+            }
+            if (!entryFound)
+            {
+                int Row = 0;
+                dgvTimeList.Rows.Add();
+
+                Row = dgvTimeList.Rows.Count - 1;
+                dgvTimeList[0, Row].Value = dtTime.Text.Trim();
+                dgvTimeList[1, Row].Value = drpQuantity.Text.Trim();
+                dgvTimeList[2, Row].Value = drpDetails.Text.Trim();
+                string WeekDays = "";
+                for (int i = 0; i < CBWeekDays.CheckedItems.Count; i++)
+                {
+                    WeekDays += CBWeekDays.CheckedItems[i].ToString() + ",";
+
+                }
+                dgvTimeList[3, Row].Value = WeekDays.TrimEnd(',');
+                dgvTimeList.Refresh();
+
+                drpQuantity.Text = "";
+                drpDetails.Text = "";
+                for (int i = 0; i < CBWeekDays.Items.Count; i++)
+                {
+                    CBWeekDays.SetItemChecked(i, false);
+                }
+            }
+        }
+
+        private void dgvTimeList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvTimeList.Columns["Delete"].Index)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    dgvTimeList.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
     }
 }

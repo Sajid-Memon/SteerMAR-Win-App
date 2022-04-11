@@ -2491,7 +2491,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMedPass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAAABGdBTUEAALGPC/xhBQAAAXBJREFUOE+l
         U8tVwzAQdAmUkPdi3ymBEugAuQLoAEqgg9BBcrJ4XEwHUAIdJB2EndGsJTnOwTAXrfYz+9GquYZNiJsu
@@ -2503,7 +2503,7 @@
         AfFQKXcGflXkAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSideResidentList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABUAAAAUCAYAAABiS3YzAAAABGdBTUEAALGPC/xhBQAAAalJREFUOE+d
         lN9RwzAMxhmhI+SO5J0RGIERnAnoBu0GsAHZIDzZHC9hA9gANigbgH6ynMROONp8d75Klix9+pNebUHj
@@ -2516,7 +2516,7 @@
         QUx65hC8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSideDashboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHtJREFUSEvt
         0cEJgDAQRNEUZRM2Yf9d6GUiS2YjP/GikA97MLwlBMtqqG0/zqcRw87KcByx9xfo8649p86ii9RZdJE6

@@ -101,9 +101,10 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@IsGlasses", model.IsGlasses);
             cmd.Parameters.AddWithValue("@IsDenture", model.IsDenture);
             cmd.Parameters.AddWithValue("@Isprimary_Insurance", model.Isprimary_Insurance);
-            cmd.Parameters.AddWithValue("@Allergy_ID", model.Patient_Allergies);
-            cmd.Parameters.AddWithValue("@Diagnosis_ID", model.Patient_Diagnosis);
-            cmd.Parameters.AddWithValue("@Diet_ID", model.Patient_Diets);            
+            cmd.Parameters.AddWithValue("@Patient_Allergies", model.Patient_Allergies);
+            cmd.Parameters.AddWithValue("@Patient_Diagnosis", model.Patient_Diagnosis);
+            cmd.Parameters.AddWithValue("@Patient_Diets", model.Patient_Diets);
+            cmd.Parameters.AddWithValue("@FacilityCode", model.FacilityCode);
             cmd.Parameters.AddWithValue("@Created_By", 1);                                    
             SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
             spRetVar.Direction = ParameterDirection.Output;
@@ -287,14 +288,15 @@ namespace SteerMAR.App_Code.BusinessLogics
 
         #region [Patients Medications Methods]
 
-        public DataSet SelectPatientMedication(int Patient_ID)
+        public DataSet SelectPatientMedication(int Patient_ID,bool state)
         {
             try
             {
                 localCon();
                 cmd = new SqlCommand("Proc_GetPatientMedicationList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);            
+                cmd.Parameters.AddWithValue("@Patient_ID", Patient_ID);
+                cmd.Parameters.AddWithValue("@state", state);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds);
@@ -325,7 +327,7 @@ namespace SteerMAR.App_Code.BusinessLogics
                 throw;
             }
         }
-        public byte AddUpdateMedication(PatientMedicationMaster model)
+        public int AddUpdateMedication(PatientMedicationMaster model)
         {
             localCon();
             cmd = new SqlCommand("Proc_AddUpdateResidentMedication", con);
@@ -334,6 +336,8 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Patient_ID", model.Patient_ID);
             cmd.Parameters.AddWithValue("@Medication_Image", model.Medication_Image);
             cmd.Parameters.AddWithValue("@Medication_Name", model.Medication_Name);
+            cmd.Parameters.AddWithValue("@Med_Strength", model.Med_Strength);
+            cmd.Parameters.AddWithValue("@Med_Form", model.Med_Form);
             cmd.Parameters.AddWithValue("@Medication_Equilent_To", model.Medication_Equilent_To);
             cmd.Parameters.AddWithValue("@Medication_NDC", model.Medication_NDC);
             cmd.Parameters.AddWithValue("@Medication_RXNo", model.Medication_RXNo);
@@ -347,18 +351,14 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.Parameters.AddWithValue("@Home_Health_Drugs", model.Home_Health_Drugs);
             cmd.Parameters.AddWithValue("@Medication_PRN", model.Medication_PRN);
             cmd.Parameters.AddWithValue("@Min_PRN", model.Min_PRN);
-            cmd.Parameters.AddWithValue("@Max_PRN", model.Max_PRN);
-            cmd.Parameters.AddWithValue("@Medication_Time", model.Medication_Time);
-            cmd.Parameters.AddWithValue("@Medication_Qty", model.Medication_Qty);
-            cmd.Parameters.AddWithValue("@Medication_Details", model.Medication_Details);
-            cmd.Parameters.AddWithValue("@Medication_WeekDays", model.Medication_WeekDays);
+            cmd.Parameters.AddWithValue("@Max_PRN", model.Max_PRN);     
             cmd.Parameters.AddWithValue("@Med_State", model.Med_State);
             cmd.Parameters.AddWithValue("@Created_By", model.Created_By);            
-            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.Int);
             spRetVar.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(spRetVar);
             cmd.ExecuteNonQuery();
-            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            int retVal = Convert.ToInt32(cmd.Parameters["@retval"].Value.ToString());
             con.Close();
             return retVal;
         }
@@ -371,6 +371,48 @@ namespace SteerMAR.App_Code.BusinessLogics
             cmd.ExecuteNonQuery();
             con.Close();
             return "Medication State Has Been Changed !";
+        }
+        #endregion
+
+        #region [Medication Schedule Method]
+        public DataSet SelectMedSchedule(int MedId)
+        {
+            try
+            {
+                localCon();
+                cmd = new SqlCommand("Proc_GetMedSchedule", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MedId", MedId);
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+                con.Close();
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public byte AddUpdateMedicationSchedule(MedSchedule model)
+        {
+            localCon();
+            cmd = new SqlCommand("Proc_AddUpdateMedSchedule", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", model.Id);
+            cmd.Parameters.AddWithValue("@MedId", model.MedId);
+            cmd.Parameters.AddWithValue("@PatientId", model.PatientId);
+            cmd.Parameters.AddWithValue("@MedTime", model.MedTime);
+            cmd.Parameters.AddWithValue("@Qty", model.Qty);
+            cmd.Parameters.AddWithValue("@Detail", model.Detail);
+            cmd.Parameters.AddWithValue("@Weekdays", model.Weekdays);
+            SqlParameter spRetVar = new SqlParameter("@retval", SqlDbType.TinyInt);
+            spRetVar.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(spRetVar);
+            cmd.ExecuteNonQuery();
+            byte retVal = Convert.ToByte(cmd.Parameters["@retval"].Value.ToString());
+            con.Close();
+            return retVal;
         }
         #endregion
 
@@ -417,7 +459,6 @@ namespace SteerMAR.App_Code.BusinessLogics
         #endregion
 
         #region [Patients Response Methods]
-
         public DataSet SelectUserTaskResponse(int TaskID)
         {
             try
@@ -425,7 +466,7 @@ namespace SteerMAR.App_Code.BusinessLogics
                 localCon();
                 cmd = new SqlCommand("Proc_GetTaskResponse", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Task_ID", TaskID);                
+                cmd.Parameters.AddWithValue("@Task_ID", TaskID);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds);

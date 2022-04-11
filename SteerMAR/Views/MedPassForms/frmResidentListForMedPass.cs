@@ -5,25 +5,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SteerMAR.Views.ResidentsForms
+namespace SteerMAR.Views.MedPassForms
 {
-    public partial class frmResidentsList : Form
+    public partial class frmResidentListForMedPass : Form
     {
-        NotifyEvent GoToDetails;
         public static int Patient_ID = 0;
-        public frmResidentsList(NotifyEvent openDetails)
+        public frmResidentListForMedPass()
         {
             InitializeComponent();
-            FillDgvPatientList();
-            GoToDetails = openDetails;
+            FillDgvPatientList();            
         }
-
         public void FillDgvPatientList(string SearchText = "")
         {
             PatientMethods PM = new PatientMethods();
@@ -31,15 +27,6 @@ namespace SteerMAR.Views.ResidentsForms
             if (ds.Tables[0].Rows.Count > 0)
             {
                 dgvPatientList.DataSource = ds.Tables[0];
-            }
-        }
-        private void dgvPatientList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                Patient_ID = Convert.ToInt32(dgvPatientList.Rows[e.RowIndex].Cells[0].Value.ToString());
-                GoToDetails.Invoke();
-                //MessageBox.Show("Patient ID IS : " + Patient_ID);
             }
         }
 
@@ -52,6 +39,15 @@ namespace SteerMAR.Views.ResidentsForms
             else
             {
                 FillDgvPatientList();
+            }
+        }
+
+        private void dgvPatientList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Patient_ID = Convert.ToInt32(dgvPatientList.Rows[e.RowIndex].Cells[0].Value.ToString());              
+                MessageBox.Show("Patient ID IS : " + Patient_ID);
             }
         }
     }
